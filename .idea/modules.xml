@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/snpt.iml" filepath="$PROJECT_DIR$/snpt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/snpt_client/snpt_client.iml" filepath="$PROJECT_DIR$/snpt_client/snpt_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/snpt_common/snpt_common.iml" filepath="$PROJECT_DIR$/snpt_common/snpt_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/snpt_config/snpt_config.iml" filepath="$PROJECT_DIR$/snpt_config/snpt_config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/snpt_eureka/snpt_eureka.iml" filepath="$PROJECT_DIR$/snpt_eureka/snpt_eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/snpt_land/snpt_land.iml" filepath="$PROJECT_DIR$/snpt_land/snpt_land.iml" />
+      <module fileurl="file://$PROJECT_DIR$/snpt_sow/snpt_sow.iml" filepath="$PROJECT_DIR$/snpt_sow/snpt_sow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/snpt_user/snpt_user.iml" filepath="$PROJECT_DIR$/snpt_user/snpt_user.iml" />
+    </modules>
+  </component>
+</project>

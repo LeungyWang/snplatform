@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.SoilRepository">
+
+    <select id="findAll" resultType="Soil">
+        select * from soil limit #{param1},#{param2}
+    </select>
+
+    <select id="findAllByUserId" resultType="Soil">
+        select * FROM soil WHERE id IN (SELECT soilid FROM user_soil WHERE userid=#{param1}) limit #{param2},#{param3}
+    </select>
+
+    <select id="findSoilByuserid" resultType="Soil">
+        select id,name from soil where id IN (SELECT soilid FROM user_soil WHERE userid=#{userid})
+    </select>
+
+    <select id="findById" parameterType="long" resultType="Soil">
+        select * from soil where id = #{id}
+    </select>
+
+    <select id="countByUserid" resultType="int">
+        select count(id) from user_soil where userid=#{userid}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from soil
+    </select>
+
+    <insert id="save" parameterType="Soil">
+        insert into soil(id,name,perimeter,area,agrotype) values (#{id},#{name},#{perimeter},#{area},#{agrotype})
+    </insert>
+
+    <update id="update" parameterType="Soil">
+        update soil set name = #{name}, perimeter = #{perimeter}, area = #{area}, agrotype = #{agrotype} where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="long">
+        delete from soil where id = #{id}
+    </delete>
+</mapper>

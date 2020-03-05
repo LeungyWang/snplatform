@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.SeedRepository">
+
+    <select id="findAll" resultType="Seed">
+        select * from seed limit #{param1},#{param2}
+    </select>
+
+    <select id="countById" resultType="int">
+        select count(id) from seed where id = #{id}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from seed
+    </select>
+</mapper>

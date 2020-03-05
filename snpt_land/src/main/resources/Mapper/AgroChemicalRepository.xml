@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.AgroChemicalRepository">
+
+    <resultMap id="agroChemicalMap" type="AgroChemical">
+        <id column="id" property="id"></id>
+        <result column="organic" property="organic"></result>
+        <result column="phosphorus" property="phosphorus"></result>
+        <result column="potassium" property="potassium"></result>
+        <result column="ahnitrogen" property="ahnitrogen"></result>
+        <result column="raphosphorus" property="raphosphorus"></result>
+        <result column="rapotassium" property="rapotassium"></result>
+        <result column="ph" property="ph"></result>
+        <result column="date" property="date"></result>
+        <association property="soil" select="com.wly.repository.SoilRepository.findById" column="landid"></association>
+    </resultMap>
+
+
+    <select id="findAll" resultMap="agroChemicalMap">
+        select * from agrochemical limit #{param1},#{param2}
+    </select>
+
+    <select id="findAllByuserid" resultMap="agroChemicalMap">
+        SELECT * FROM agrochemical WHERE landid in (SELECT soilid FROM user_soil WHERE userid=#{param1}) limit #{param2}, #{param3}
+    </select>
+
+    <select id="findById" parameterType="long" resultType="AgroChemical">
+        select * from agrochemical where landid = #{landid}
+    </select>
+
+    <select id="countByUserid" resultType="int">
+        SELECT COUNT(landid) FROM agrochemical WHERE landid in (SELECT soilid FROM user_soil WHERE userid=#{userid})
+    </select>
+
+    <select id="countById" resultType="int">
+        select count(landid) from agrochemical where landid = #{landid}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(landid) from agrochemical
+    </select>
+
+    <insert id="save" parameterType="AgroChemical">
+        insert into agrochemical(landid,organic,nitrogen,phosphorus,potassium,ahnitrogen,raphosphorus,rapotassium,ph,date) values (#{soil.id},#{organic},#{nitrogen},#{phosphorus},#{potassium},#{ahnitrogen},#{raphosphorus},#{rapotassium},#{ph},#{date})
+    </insert>
+
+    <update id="update" parameterType="AgroChemical">
+        update agrochemical set landid = #{soil.id} , organic = #{organic}, nitrogen = #{nitrogen}, phosphorus = #{phosphorus}, potassium = #{potassium}, ahnitrogen = #{ahnitrogen}, raphosphorus = #{raphosphorus},rapotassium = #{rapotassium},ph = #{ph},date = #{date} where  id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="long">
+        delete from agrochemical where id = #{id} and date = #{date}
+    </delete>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="snpt_client" />
+        <module name="snpt_config" />
+        <module name="snpt_land" />
+        <module name="snpt_common" />
+        <module name="snpt_user" />
+        <module name="snpt_sow" />
+        <module name="snpt_eureka" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="snpt" target="1.8" />
+      <module name="snpt_client" target="1.8" />
+      <module name="snpt_common" target="1.8" />
+      <module name="snpt_config" target="1.8" />
+      <module name="snpt_eureka" target="1.8" />
+      <module name="snpt_land" target="1.8" />
+      <module name="snpt_sow" target="1.8" />
+      <module name="snpt_user" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="snpt_client" options="-parameters" />
+      <module name="snpt_common" options="-parameters" />
+      <module name="snpt_config" options="-parameters" />
+      <module name="snpt_eureka" options="-parameters" />
+      <module name="snpt_land" options="-parameters" />
+      <module name="snpt_sow" options="-parameters" />
+      <module name="snpt_user" options="-parameters" />
+    </option>
+  </component>
+</project>

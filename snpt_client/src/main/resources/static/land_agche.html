@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>土壤养分监测</title>
+    <link rel="stylesheet" th:href="@{/assets/libs/layui/css/layui.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/module/admin.css?v=316}"/>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- 页面加载loading -->
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+<!-- 正文开始 -->
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-body table-tool-mini full-table">
+            <div class="layui-form toolbar">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label w-auto">土地编号：</label>
+                        <div class="layui-input-inline mr0">
+                            <input name="id" class="layui-input" type="text" placeholder="输入土地编号"/>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline" style="padding-right: 110px;">
+                        <button class="layui-btn icon-btn" lay-filter="formSubSearchUser" lay-submit>
+                            <i class="layui-icon">&#xe615;</i>搜索
+                        </button>
+                        <button id="btnAddUser" class="layui-btn icon-btn"><i class="layui-icon">&#xe654;</i>添加</button>
+                    </div>
+                </div>
+            </div>
+
+            <table id="tableAgche" lay-filter="tableAgche"></table>
+        </div>
+    </div>
+</div>
+
+<!-- 表格操作列 -->
+<script type="text/html" id="tableBarUser">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<!-- 表格状态列 -->
+<script type="text/html" id="tableStateUser">
+    <input type="checkbox" lay-filter="ckStateUser" value="{{d.userId}}" lay-skin="switch"
+           lay-text="正常|锁定" {{d.state==0?'checked':''}}/>
+</script>
+<!-- 表单弹窗 -->
+<script type="text/html" id="modelAgche">
+    <form id="modelAgcheForm" lay-filter="modelAgcheForm" class="layui-form model-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">取样编号</label>
+            <div class="layui-input-block">
+                <input name="id" placeholder="请输入取样编号" type="text" class="layui-input" maxlength="20"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">土地名称</label>
+            <div class="layui-input-block">
+                <select name="soil.id" lay-verify="required" id="land">
+                    <option value="">选择土地名称</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">有机质</label>
+            <div class="layui-input-block">
+                <input name="organic" placeholder="请输入有机质含量" type="text" class="layui-input" maxlength="20"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">全氮(%)</label>
+            <div class="layui-input-block">
+                <input name="nitrogen" placeholder="请输入全氮含量" type="text" class="layui-input" maxlength="20"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">全磷(%)</label>
+            <div class="layui-input-block">
+                <input name="phosphorus" placeholder="请输入全磷含量" type="text" class="layui-input" maxlength="20"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">全钾(%)</label>
+            <div class="layui-input-block">
+                <input name="potassium" placeholder="请输入全钾含量" type="text" class="layui-input" maxlength="20"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">碱解氮(ppm)</label>
+            <div class="layui-input-block">
+                <input name="ahnitrogen" placeholder="请输入碱解氮含量" type="text" class="layui-input" maxlength="20"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">速效磷(ppm)</label>
+            <div class="layui-input-block">
+                <input name="raphosphorus" placeholder="请输入速效磷含量" type="text" class="layui-input" maxlength="20"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">速效钾(ppm)</label>
+            <div class="layui-input-block">
+                <input name="rapotassium" placeholder="请输入速效钾含量" type="text" class="layui-input" maxlength="20"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">ph</label>
+            <div class="layui-input-block">
+                <input name="ph" placeholder="请输酸碱值" type="text" class="layui-input" maxlength="20"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+
+        <div class="layui-form-item text-right">
+            <button class="layui-btn layui-btn-primary" type="button" ew-event="closePageDialog">取消</button>
+            <button class="layui-btn" lay-filter="modelSubmitAgche" lay-submit>保存</button>
+        </div>
+    </form>
+</script>
+
+<!-- js部分 -->
+<script type="text/javascript" th:src="@{/assets/libs/layui/layui.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/common.js?v=316}"></script>
+
+<script>
+
+
+
+
+
+
+    layui.use(['layer', 'form', 'table', 'util', 'admin'], function () {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var form = layui.form;
+        var table = layui.table;
+        var util = layui.util;
+        var admin = layui.admin;
+
+
+
+
+
+        // 渲染表格
+        var insTb = table.render({
+            elem: '#tableAgche',
+            url: '/land/agrochemical/findAgcheAll',
+            page: true,
+            toolbar: true,
+            cellMinWidth: 100,
+            cols: [
+                [
+                    {field:'id',  title: '编号'}
+                    ,{field:'landid',  title: '土地名称', templet:function(data){
+                        return data.soil.name
+                    }
+                    }
+                    ,{field:'organic',  title: '有机质'}
+                    ,{field:'nitrogen',  title: '全氮(%)'}
+                    ,{field:'phosphorus',  title: '全磷(%)'}
+                    ,{field:'potassium',  title: '全钾(%)'}
+                    ,{field:'ahnitrogen',  title: '碱解氮(ppm)'}
+                    ,{field:'raphosphorus',  title: '速效磷(ppm)'}
+                    ,{field:'rapotassium',  title: '速效钾(ppm)'}
+                    ,{field:'ph',  title: '酸碱值'}
+                    ,{field:'date',  title: '取样日期'}
+                ,{align: 'center', toolbar: '#tableBarUser', title: '操作', minWidth: 200}
+            ]
+            ]
+        });
+
+
+        //获取土地信息
+        function getsoils() {
+            var html = "";
+            $.ajax({ // 使用layui模块化加载
+                url: "/land/soil/findSoilByUserid",
+                type: 'GET',
+                dataType: 'json',
+                success: function (datas) {
+                    data = datas.data;
+                    var selects = '';
+                    for (var i = 0; i < data.length; i++) {
+                        html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
+                    }
+                    $("#land").append(html);
+                    form.render();//菜单渲染 把内容加载进去
+                }
+            });
+        }
+
+
+        function getcurrentsoil(id,name){
+            var html = '<option value="' + id + '" selected>' + name + '</option>';
+            $.ajax({ // 使用layui模块化加载
+                url: "/land/soil/findSoilByUserid",
+                type: 'GET',
+                dataType: 'json',
+                success: function (datas) {
+                    data = datas.data;
+                    var selects = '';
+                    for (var i = 0; i < data.length; i++) {
+                        html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
+                    }
+                    $("#land").append(html);
+                    form.render();//菜单渲染 把内容加载进去
+                }
+            });
+
+        }
+
+
+        // 添加
+        $('#btnAddUser').click(function () {
+            showEditModel();
+            getsoils();
+        });
+
+        // 搜索
+        form.on('submit(formSubSearchUser)', function (data) {
+            var id = data.field.id;
+            insTb.reload({where: data.field}, "data");
+
+        });
+
+        // 工具条点击事件
+        table.on('tool(tableAgche)', function (obj) {
+            var data = obj.data;
+            var layEvent = obj.event;
+            if (layEvent === 'edit') { // 修改
+                showEditModel(data);
+            } else if (layEvent === 'del') { // 删除
+                doDel(data.id, data.name);
+            } else if (layEvent === 'reset') { // 重置密码
+                resetPsw(data.userId, data.nickName);
+            }
+        });
+
+
+
+
+
+        // 显示表单弹窗
+        function showEditModel(Agche) {
+            admin.open({
+                type: 1,
+                title: (Agche ? '修改' : '添加') + '土壤养分信息',
+                content: $('#modelAgche').html(),
+                success: function (layero, dIndex) {
+                    $(layero).children('.layui-layer-content').css('overflow', 'visible');
+                    var url = Agche? '/land/agrochemical/update' : '/land/agrochemical/save';
+                    // mUser && (mUser.name = mUser.roles[0].roleId);m
+                    // 回显数据
+                    if (url=='/land/agrochemical/update'){
+                        getcurrentsoil(Agche.soil.id,Agche.soil.name);
+                        form.val('modelAgcheForm', Agche);
+                    }
+                    // 表单提交事件
+                    form.on('submit(modelSubmitAgche)', function (data) {
+                        layer.load(2);
+                        $.post(url, data.field, function (res) {
+                            layer.closeAll('loading');
+                            if (res.code == 200) {
+                                layer.close(dIndex);
+                                layer.msg(res.msg, {icon: 1});
+                            } else {
+                                layer.msg(res.msg, {icon: 2});
+                            }
+                        }, 'json');
+                        return false;
+                    });
+                }
+            });
+        }
+
+
+
+        // 删除
+        function doDel(id, name) {
+            layer.confirm('确定要删除“' + name + '”吗？', {
+                skin: 'layui-layer-admin',
+                shade: .1
+            }, function (i) {
+                layer.close(i);
+                layer.load(2);
+                $.get('/land/deleteById', {
+                    id: id
+                }, function (res) {
+                    layer.closeAll('loading');
+                    if (res.code == 200) {
+                        layer.msg(res.msg, {icon: 1});
+                        insTb.reload({}, 'data');
+                    } else {
+                        layer.msg(res.msg, {icon: 2});
+                    }
+                }, 'json');
+            });
+        }
+
+
+    });
+</script>
+
+</body>
+</html>
