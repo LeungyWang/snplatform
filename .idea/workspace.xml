@@ -2,101 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb049f33-0ec8-44ac-9a34-c5e85a75aedd" name="Default Changelist" comment="2.22 4:02">
-      <change afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/SowController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Fertilizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Pesticide.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Seed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/SowFeign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_activity.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_pesticide.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_common/src/main/java/util/IdWorker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/ElementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/Element.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/ElementType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/repository/ElementRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/ElementRepository.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/controller/PesticideController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/entity/Pesticide.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/repository/PesticideRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_sow/src/main/resources/Mapper/PesticideRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/LandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/LandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/LandFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/LandFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/evaluate_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/evaluate_result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/index2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/land_agche.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/land_agche.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/land_evaluate.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/land_evaluate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_fertilizer.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_fertilizer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_harvest.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_seed.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_seed.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_seedform.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_seedrecord.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/controller/LandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/controller/LandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/feign/LandFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/feign/LandFeign.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/evaluate_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/evaluate_result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/index2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/land_agche.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/land_agche.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/land_evaluate.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/land_evaluate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/sow_fertilizer.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/sow_fertilizer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/sow_harvest.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/sow_seed.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/sow_seed.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/sow_seedform.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/sow_seedrecord.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_config/src/main/resources/shared/sow-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_config/src/main/resources/shared/sow-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_config/target/classes/shared/sow-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_config/target/classes/shared/sow-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/AgroChemicalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/AgroChemicalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/AgroChemical.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/AgroChemical.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/EchartsMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/repository/AgroChemicalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/repository/AgroChemicalRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/AgroChemicalRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/AgroChemicalRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/target/classes/META-INF/snpt_land.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/target/classes/Mapper/AgroChemicalRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/target/classes/Mapper/AgroChemicalRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/controller/AgroChemicalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/controller/AgroChemicalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/entity/AgroChemical.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/entity/AgroChemical.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/entity/EchartsMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/repository/AgroChemicalRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/repository/AgroChemicalRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/SowApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/SowApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/controller/FertilizerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/controller/FertilizerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/controller/HarvestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/controller/SeedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/controller/SeedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/controller/SeedFormController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/controller/SeedRecordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/entity/Fertilizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/entity/Fertilizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/entity/Harvest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/entity/Seed.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/entity/Seed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/entity/SeedForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/entity/SeedRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/repository/FertilizerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/repository/FertilizerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/repository/HarvestRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/repository/SeedFormRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/repository/SeedRecordRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/repository/SeedRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/src/main/java/com/wly/repository/SeedRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/resources/Mapper/FertilizerRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/src/main/resources/Mapper/FertilizerRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/resources/Mapper/HarvestRepository.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/resources/Mapper/SeedFormRepository.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/resources/Mapper/SeedRecordRepository.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/src/main/resources/Mapper/SeedRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/src/main/resources/Mapper/SeedRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/Mapper/FertilizerRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/target/classes/Mapper/FertilizerRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/Mapper/HarvestRepository.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/Mapper/SeedFormRepository.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/Mapper/SeedRecordRepository.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/Mapper/SeedRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/target/classes/Mapper/SeedRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/SowApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/SowApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/controller/FertilizerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/controller/FertilizerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/controller/HarvestController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/controller/SeedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/controller/SeedController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/controller/SeedFormController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/controller/SeedRecordController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/entity/Fertilizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/entity/Fertilizer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/entity/Harvest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/entity/Seed.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/entity/Seed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/entity/SeedForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/entity/SeedRecord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/repository/FertilizerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/repository/FertilizerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/repository/HarvestRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/repository/SeedFormRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/repository/SeedRecordRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/repository/SeedRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_sow/target/classes/com/wly/repository/SeedRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/snpt_eureka/target/" />
@@ -186,17 +92,27 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_activity.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="96" column="18" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
+            <state relative-caret-position="-1236">
+              <caret line="74" column="66" selection-start-line="74" selection-start-column="66" selection-end-line="74" selection-end-column="66" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitattributes">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="12" selection-start-column="12" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -249,8 +165,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>password</find>
-      <find>''</find>
       <find>select</find>
       <find>土地名称</find>
       <find>formDemo</find>
@@ -279,6 +193,8 @@
       <find>purchasedate</find>
       <find>json</find>
       <find>timeGrid2Week</find>
+      <find>src</find>
+      <find>添加</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -287,8 +203,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/UserFeign.java" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/regist.html" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/UserController.java" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/client_index.html" />
@@ -337,7 +251,9 @@
         <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_pesticide.html" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_fertilizer.html" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/index2.html" />
+        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_acitivity.html" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_activity.html" />
+        <option value="$PROJECT_DIR$/.gitattributes" />
       </list>
     </option>
   </component>
@@ -770,7 +686,7 @@
       <workItem from="1583106123441" duration="37888000" />
       <workItem from="1583208873662" duration="14545000" />
       <workItem from="1583237183853" duration="37490000" />
-      <workItem from="1583582257771" duration="5734000" />
+      <workItem from="1583582257771" duration="6178000" />
     </task>
     <task id="LOCAL-00001" summary="2.22 4:02">
       <created>1582358580205</created>
@@ -783,7 +699,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225669000" />
+    <option name="totallyTimeSpent" value="226113000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -798,7 +714,7 @@
     <frame x="56" y="23" width="1400" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49936306" visible="true" weight="0.2827688" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49936306" visible="true" weight="0.2827688" />
       <window_info id="Structure" order="1" sideWeight="0.50063694" side_tool="true" weight="0.2790869" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -808,7 +724,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.50318474" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.50318474" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3987261" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -882,23 +798,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="2.22 4:02" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/regist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="107" column="23" lean-forward="true" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/EchartsMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/evaluate_result.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -1252,14 +1151,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_activity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="96" column="18" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="10" selection-end-column="85" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_activity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1236">
+          <caret line="74" column="66" selection-start-line="74" selection-start-column="66" selection-end-line="74" selection-end-column="66" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
         </state>
       </provider>
     </entry>
