@@ -7,7 +7,7 @@ spring:
     mode: HTML5
   datasource:
     name: snpt_sow
-    url: jdbc:mysql://118.178.121.175:3306/snpt_sow?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
+    url: jdbc:mysql://localhost:3306/snpt_sow?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
     username: root
     password: 134679
 eureka:
@@ -16,8 +16,8 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
-    hostname: ${spring.cloud.client.ipAddress}
+#    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+#    hostname: ${spring.cloud.client.ipAddress}
 mybatis:
   mapper-locations: classpath:/Mapper/*.xml
   type-aliases-package: com.wly.entity

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -126,10 +127,46 @@ public class LandController {
     }
 
 
-    @GetMapping("/agrochemical/geteCharts")
+    @GetMapping("/agrochemical/saveEvaluateid")
     @ResponseBody
-    public EchartsMap geteCharts(){
-        return landFeign.geteCharts();
+    public void saveEvaluateid(@RequestParam long landid,HttpSession session){
+        session.setAttribute("EvaluateId", landid);
     }
+
+    //返回ph分析图
+    @GetMapping("/agrochemical/findLatestphByid")
+    @ResponseBody
+    private EchartsMap getPhCharts(HttpSession session){
+        long id =(long) session.getAttribute("EvaluateId");
+        EchartsMap echartsMap = new EchartsMap();
+        List<Double> value = Arrays.asList(landFeign.findLatestphByid(id));
+        echartsMap.setValue(value);
+        echartsMap.setName(landFeign.findByTypeid(3));
+        return echartsMap;
+    }
+
+    //返回常规元素分析图
+    @GetMapping("/agrochemical/findLatestmacroByid")
+    @ResponseBody
+    private EchartsMap getMacroCharts(HttpSession session){
+        long id =(long) session.getAttribute("EvaluateId");
+        EchartsMap echartsMap = new EchartsMap();
+        echartsMap.setValue(landFeign.findLatestmacroByid(id));
+        echartsMap.setName(landFeign.findByTypeid(1));
+        return echartsMap;
+    }
+
+    //返回微量元素分析图
+    @GetMapping("/agrochemical/findLatestmicroByid")
+    @ResponseBody
+    private EchartsMap getMicroCharts(HttpSession session){
+        long id =(long) session.getAttribute("EvaluateId");
+        EchartsMap echartsMap = new EchartsMap();
+        echartsMap.setValue(landFeign.findLatestmicroByid(id));
+        echartsMap.setName(landFeign.findByTypeid(2));
+        return echartsMap;
+    }
+
+
 
 }

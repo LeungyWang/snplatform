@@ -2,15 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wly.repository.FertilizerRepository">
 
-    <select id="findAll" resultType="Fertilizer">
-        select * from fertilizer limit #{param1},#{param2}
+
+    <select id="findAllByUserid" resultType="Fertilizer">
+        select id, name, specification, price, quantity, purchasedate from fertilizer where userid= #{param1} limit #{param2},#{param3}
     </select>
 
-    <select id="countById" resultType="int">
-        select count(id) from fertilizer where id = #{id}
+    <select id="countByUserid" resultType="int">
+        select count(id) from fertilizer where userid = #{userid}
     </select>
 
-    <select id="count" resultType="int">
-        select count(id) from fertilizer
+    <select id="findById" parameterType="String" resultType="Fertilizer">
+        select name, specification, price, quantity, purchasedate from fertilizer where id = #{id}
     </select>
+
+    <insert id="save" parameterType="Fertilizer">
+        insert into fertilizer(id,name,specification,price,quantity,purchasedate,userid) values (#{id},#{name},#{specification},#{price},#{quantity},#{purchasedate},#{userid})
+    </insert>
+
+    <update id="update" parameterType="Fertilizer">
+        update fertilizer set name = #{name}, specification = #{specification}, price = #{price},quantity = #{quantity},purchasedate=#{purchasedate} where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="String">
+        delete from fertilizer where id = #{id}
+    </delete>
+
+
 </mapper>

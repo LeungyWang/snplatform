@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.PesticideRepository">
+
+
+    <select id="findAllByUserid" resultType="Pesticide">
+        select id, name, specification, price, quantity, purchasedate from pesticide where userid= #{param1} limit #{param2},#{param3}
+    </select>
+
+    <select id="countByUserid" resultType="int">
+        select count(id) from pesticide where userid = #{userid}
+    </select>
+
+    <select id="findById" parameterType="String" resultType="Pesticide">
+        select name, specification, price, quantity, purchasedate from pesticide where id = #{id}
+    </select>
+
+    <insert id="save" parameterType="Pesticide">
+        insert into pesticide(id,name,specification,price,quantity,purchasedate,userid) values (#{id},#{name},#{specification},#{price},#{quantity},#{purchasedate},#{userid})
+    </insert>
+
+    <update id="update" parameterType="Pesticide">
+        update pesticide set name = #{name}, specification = #{specification}, price = #{price},quantity = #{quantity},purchasedate=#{purchasedate} where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="String">
+        delete from pesticide where id = #{id}
+    </delete>
+
+
+</mapper>

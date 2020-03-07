@@ -58,6 +58,18 @@ public interface LandFeign {
     @GetMapping("/agrochemical/geteCharts")
     public EchartsMap geteCharts();
 
+    @GetMapping("/agrochemical/findLatestphByid/{id}")
+    public double findLatestphByid(@PathVariable long id);
+
+    @GetMapping("/agrochemical/findLatestmacroByid/{id}")
+    public List<Double> findLatestmacroByid(@PathVariable long id);
+
+    @GetMapping("/agrochemical/findLatestmicroByid/{id}")
+    public List<Double> findLatestmicroByid(@PathVariable long id);
+
+    @GetMapping("/element/findByTypeid/{id}")
+    public List<String> findByTypeid(@PathVariable int id);
+
 
 
 

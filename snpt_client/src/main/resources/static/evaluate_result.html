@@ -15,10 +15,22 @@
 <div class="layui-row layui-col-space15">
         <div class="layui-card">
             <div class="layui-card-body">
-                <div id="tjDivDay" style="height: 330px;"></div>
+                <div id="phchart" style="height: 150px;"></div>
             </div>
         </div>
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <div id="macrochart" style="height: 330px;"></div>
+        </div>
     </div>
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <div id="microchart" style="height: 330px;"></div>
+        </div>
+    </div>
+    </div>
+
+
 
 
     <!-- 加载动画 -->
@@ -38,12 +50,14 @@
 
             $(function () {
                 getData1();
+                getData2();
+                getData3();
             });
             function  getData1() {
                 $.ajax({
                     type: 'get',
                     dataType: 'text',
-                    url: '/land/agrochemical/geteCharts',
+                    url: '/land/agrochemical/findLatestphByid',
                     data: {},
                     cache: false,
                     async: true,
@@ -55,11 +69,144 @@
                             data1[i] = data.name[i];
                             data2[i] = data.value[i];
                         }
-                        var myCharts1 = echarts.init(document.getElementById('tjDivDay'));
+                        var myCharts1 = echarts.init(document.getElementById('phchart'));
                         var options1 = {
                             title: {
-                                text: '土壤分析结果报告',
-                                subtext: '常规元素分析结果'
+                                text: '土壤酸碱值分析结果'
+                            },
+                            tooltip: {
+                                trigger: 'axis',
+                                axisPointer: {
+                                    type: 'shadow'
+                                }
+                            },
+                            legend: {
+                                data: ['酸碱值']
+                            },
+                            grid: {
+                                left: '3%',
+                                right: '4%',
+                                bottom: '1%',
+                                containLabel: true
+                            },
+                            xAxis: {
+                                type: 'value',
+                                boundaryGap: [0, 0.01],
+                                // axisLabel: {
+                                //     formatter: function (v) {
+                                //         // return yname(v);
+                                //     }
+                                // }
+                            },
+                            yAxis: {
+                                type: 'category',
+                                data: data1
+                            },
+                            series: [
+                                {
+                                    name: '酸碱值',
+                                    type: 'bar',
+                                    barWidth: '5%',
+                                    color: 'grey',
+                                    data: data2
+                                }
+                            ]
+                        };
+                        myCharts1.setOption(options1);
+
+                    }
+                });
+            }
+
+            function getData2() {
+
+                $.ajax({
+                    type: 'get',
+                    dataType: 'text',
+                    url: '/land/agrochemical/findLatestmacroByid',
+                    data: {},
+                    cache: false,
+                    async: true,
+                    success: function (data) {
+                        var data = eval('(' + data + ')');
+                        var data1 = new Array();
+                        var data2 = new Array();
+                        for (var i = 0; i < data.value.length; i++) {
+                            data1[i] = data.name[i];
+                            data2[i] = data.value[i];
+                        }
+                        var myCharts2 = echarts.init(document.getElementById('macrochart'));
+                        var options2 = {
+                            title: {
+                                text: '土壤常规元素分析'
+                            },
+                            tooltip: {
+                                trigger: 'axis',
+                                axisPointer: {
+                                    type: 'shadow'
+                                }
+                            },
+                            legend: {
+                                data: ['常规元素']
+                            },
+                            grid: {
+                                left: '3%',
+                                right: '4%',
+                                bottom: '1%',
+                                containLabel: true
+                            },
+                            xAxis: {
+                                type: 'value',
+                                boundaryGap: [0, 0.01],
+                                // axisLabel: {
+                                //     formatter: function (v) {
+                                //         // return yname(v);
+                                //     }
+                                // }
+                            },
+                            yAxis: {
+                                type: 'category',
+                                data: data1
+                            },
+                            series: [
+                                {
+                                    name: '常规元素',
+                                    type: 'bar',
+                                    barWidth: '15%',
+                                    color: 'green',
+                                    data: data2
+                                }
+                            ]
+                        };
+                        myCharts2.setOption(options2);
+
+                    }
+                });
+
+
+            }
+
+            function getData3() {
+
+                $.ajax({
+                    type: 'get',
+                    dataType: 'text',
+                    url: '/land/agrochemical/findLatestmicroByid',
+                    data: {},
+                    cache: false,
+                    async: true,
+                    success: function (data) {
+                        var data = eval('(' + data + ')');
+                        var data1 = new Array();
+                        var data2 = new Array();
+                        for (var i = 0; i < data.value.length; i++) {
+                            data1[i] = data.name[i];
+                            data2[i] = data.value[i];
+                        }
+                        var myCharts3 = echarts.init(document.getElementById('microchart'));
+                        var options3 = {
+                            title: {
+                                text: '土壤微量元素分析'
                             },
                             tooltip: {
                                 trigger: 'axis',
@@ -79,11 +226,11 @@
                             xAxis: {
                                 type: 'value',
                                 boundaryGap: [0, 0.01],
-                                axisLabel: {
-                                    formatter: function (v) {
-                                        return yname(v);
-                                    }
-                                }
+                                // axisLabel: {
+                                //     formatter: function (v) {
+                                //         // return yname(v);
+                                //     }
+                                // }
                             },
                             yAxis: {
                                 type: 'category',
@@ -91,19 +238,23 @@
                             },
                             series: [
                                 {
-                                    name: '土壤',
+                                    name: '微量元素',
                                     type: 'bar',
-                                    barWidth: '35%',
-                                    color: 'green',
+                                    barWidth: '15%',
+                                    color: 'orange',
                                     data: data2
                                 }
                             ]
                         };
-                        myCharts1.setOption(options1);
+                        myCharts3.setOption(options3);
 
                     }
                 });
+
+
             }
+
+
 
                 });
 

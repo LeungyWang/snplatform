@@ -1,8 +1,6 @@
 package com.wly.controller;
 
 import com.wly.entity.AgroChemical;
-import com.wly.entity.EchartsMap;
-import com.wly.entity.Soil;
 import com.wly.repository.AgroChemicalRepository;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +28,33 @@ public class AgroChemicalController {
         return new Result(0,"",agroChemicalRepository.countByUserid(userid),agroChemicalRepository.findAllByuserid(userid,index,limit));
     }
 
+    @GetMapping("/findLatestphByid/{id}")
+    public double findLatestphByid(@PathVariable long id){
+        AgroChemical agroChemical = agroChemicalRepository.findLatestphByid(id);
+        double ph = agroChemical.getPh();
+        return ph;
+    }
 
+    @GetMapping("/findLatestmacroByid/{id}")
+    public List<Double> findLatestmacroByid(@PathVariable long id){
+        AgroChemical agroChemical = agroChemicalRepository.findLatestmacroByid(id);
+        double organic = agroChemical.getOrganic();
+        double nitrogen = agroChemical.getNitrogen();
+        double raphosphorus = agroChemical.getRaphosphorus();
+        double rapotassium = agroChemical.getRapotassium();
+        List<Double> value = Arrays.asList(organic,nitrogen,raphosphorus,rapotassium);
+        return value;
+    }
+
+    @GetMapping("/findLatestmicroByid/{id}")
+    public List<Double> findLatestmicroByid(@PathVariable long id){
+        AgroChemical agroChemical = agroChemicalRepository.findLatestmicroByid(id);
+        double iron = agroChemical.getIron();
+        double manganese = agroChemical.getManganese();
+        double zinc = agroChemical.getZinc();
+        List<Double> value = Arrays.asList(iron,manganese,zinc);
+        return value;
+    }
 
     @PostMapping("/save")
     public Result save(@RequestBody AgroChemical agroChemical){
@@ -46,14 +70,6 @@ public class AgroChemicalController {
         return new Result(200,"修改成功！",1,"");
     }
 
-    @GetMapping("/geteCharts")
-    public EchartsMap geteCharts(){
-        EchartsMap echartsMap = new EchartsMap();
-        List<Double> value = Arrays.asList(0.1,0.4,0.6,0.9);
-        List<String > name = Arrays.asList("有机质", "速效氮", "速效磷", "速效钾");
-        echartsMap.setValue(value);
-        echartsMap.setName(name);
-        return echartsMap;
-    }
+
 
 }

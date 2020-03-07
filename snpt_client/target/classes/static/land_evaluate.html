@@ -45,7 +45,7 @@
                             <div class="layui-form-item">
                                 <label class="layui-form-label layui-form-required">土地名称:</label>
                                 <div class="layui-input-block">
-                                    <select lay-verify="required" name="soil.id" id="land">
+                                    <select lay-verify="required" name="landid" id="land">
                                         <option value="">请选择需要评估的土地名称</option>
                                     </select>
                                 </div>
@@ -140,14 +140,15 @@
 
 
         form.on('submit(formDemo)', function (data) {
+            var url = "/land/agrochemical/saveEvaluateid";
+            $.get(url, data.field, function () {
+                layer.closeAll('loading');
+            }, 'json');
             step.next('#stepForm');
+            //防止页面跳转
             return false;
         });
 
-        form.on('submit(formDemo2)', function (data) {
-            step.next('#stepForm');
-            return false;
-        });
 
         $('.pre').click(function () {
             step.pre('#stepForm');
