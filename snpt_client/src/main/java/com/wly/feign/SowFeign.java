@@ -7,7 +7,7 @@ import entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient("sow")
+@FeignClient("land")
 public interface SowFeign {
     /**
      *
@@ -86,4 +86,12 @@ public interface SowFeign {
     @PutMapping("/pesticide/update")
     public Result updatePesticide(@RequestBody Pesticide pesticide);
 
+
+
+    /**
+     * 农事记录模块
+     */
+    //查找全部功能
+    @GetMapping("/sowrecord/findAll/{userid}")
+    public Result findAllRecord(@PathVariable String userid);
 }

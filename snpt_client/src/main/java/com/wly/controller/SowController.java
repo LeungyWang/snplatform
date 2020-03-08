@@ -167,4 +167,13 @@ public class SowController {
 
 
 
+    //查询用户所有农事记录功能实现
+    @GetMapping("/sowrecord/findAllRecord")
+    @ResponseBody
+    public Result findAllRecord(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        Result record = sowFeign.findAllRecord(userid);
+        return record;
+    }
 }

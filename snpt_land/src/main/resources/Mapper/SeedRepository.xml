@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.SeedRepository">
+
+
+    <select id="findAllByUserid" resultType="Seed">
+        select id, name, unit, price, quantity, purchasedate from seed where userid= #{param1} limit #{param2},#{param3}
+    </select>
+
+
+    <select id="countByUserid" resultType="int">
+        select count(id) from seed where userid = #{userid}
+    </select>
+
+    <select id="findById" parameterType="String" resultType="Seed">
+        select name, unit, price, quantity, purchasedate from seed where id = #{id}
+    </select>
+
+    <insert id="save" parameterType="Seed">
+        insert into seed(id,name,unit,price,quantity,purchasedate,userid) values (#{id},#{name},#{unit},#{price},#{quantity},#{purchasedate},#{userid})
+    </insert>
+
+    <update id="update" parameterType="Seed">
+        update seed set name = #{name}, unit = #{unit}, price = #{price},quantity = #{quantity},purchasedate=#{purchasedate} where id = #{id}
+    </update>
+
+
+    <delete id="deleteById" parameterType="String">
+        delete from seed where id = #{id}
+    </delete>
+
+
+</mapper>

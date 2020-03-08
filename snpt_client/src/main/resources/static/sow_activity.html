@@ -71,7 +71,7 @@
                         <button id="btnRefresh" class="layui-btn icon-btn">
                             <i class="layui-icon">&#xe669;</i>
                         </button>
-                        <button class="layui-btn icon-btn">
+                        <button class="layui-btn icon-btn" id="demoEDBtnAddCourseS">
                             <i class="layui-icon">&#xe654;</i>添加农事
                         </button>
                     </div>
@@ -94,7 +94,89 @@
         </div>
     </div>
 </div>
-
+<script type="text/html" id="EDModelAddCourseS">
+    <form id="EDCourseForm" lay-filter="EDCourseForm" class="layui-form model-form layui-row">
+        <input name="schedulingId" type="hidden"/>
+        <div class="layui-row">
+            <div class="layui-col-md6">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">土地名称:</label>
+                    <div class="layui-input-block">
+                        <select name="soil.id" lay-verType="tips" lay-verify="required" required>
+                            <option value="">请选择土地名称</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md6">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">作物名称:</label>
+                    <div class="layui-input-block">
+                        <select name="seed.id" lay-verType="tips" lay-verify="required" required>
+                            <option value="">请选择作物</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md6">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">农事类型:</label>
+                    <div class="layui-input-block">
+                        <select name="farmwork.id" lay-verType="tips" lay-verify="required" required>
+                            <option value="">请选择农事类型</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md6">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">天气:</label>
+                    <div class="layui-input-block">
+                        <input name="maxNum" placeholder="同步天气" type="text" class="layui-input" min="1" max="9999"
+                               lay-verType="tips" lay-verify="required" required/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md6">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">起止日期:</label>
+                    <div class="layui-input-block">
+                        <input id="EDdateRange" name="dateRange" placeholder="请选择起止日期" autocomplete="off"
+                               class="layui-input date-icon" lay-verType="tips" lay-verify="required" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md6">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">时间段:</label>
+                    <div class="layui-input-block">
+                        <input id="EDtimeRange" name="timeRange" placeholder="请选择操作时间段" autocomplete="off"
+                               class="layui-input date-icon" lay-verType="tips" lay-verify="required" required/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md6">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">备注:</label>
+                    <div class="layui-input-block">
+                        <input name="className" placeholder="请输入备注" type="text" class="layui-input" maxlength="50"
+                               lay-verType="tips" lay-verify="required" required/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item text-right">
+            <button class="layui-btn layui-btn-primary" type="button" ew-event="closePageDialog">取消</button>
+            <button class="layui-btn" lay-filter="EDCourseSModelSubmit" lay-submit>保存</button>
+        </div>
+    </form>
+</script>
 <!-- js部分 -->
 <script type="text/javascript" th:src="@{/assets/libs/layui/layui.js}"></script>
 <script type="text/javascript" th:src="@{/assets/js/common.js?v=316}"></script>
@@ -102,12 +184,13 @@
 <script th:src='@{/assets/libs/fullcalendar/daygrid/main.js}'></script>
 <script th:src='@{/assets/libs/fullcalendar/timegrid/main.js}'></script>
 <script>
-    layui.use(['layer', 'form', 'util', 'admin'], function () {
+    layui.use(['layer', 'form', 'util', 'admin','laydate'], function () {
         var $ = layui.jquery;
         var layer = layui.layer;
         var form = layui.form;
         var util = layui.util;
         var admin = layui.admin;
+        var laydate = layui.laydate;
         var mDataList = [];  // 当前的数据
 
         // 渲染日历
@@ -124,22 +207,23 @@
             events: function (option, callback) {
                 console.log(option.start);  // 当前选中周的第一天
                 layer.load(2);
-                $.get('calendarList.json', {
-                    date: util.toDateString(option.start, 'yyyy-MM-dd')   // 此参数传给后端做数据筛选
+                $.get('/sow/sowrecord/findAllRecord', {
+                    // date: util.toDateString(option.start, 'yyyy-MM-dd')   // 此参数传给后端做数据筛选
                 }, function (res) {
                     layer.closeAll('loading');
                     var dataList = [];
                     if (res.code == 200) {
                         mDataList = res.data;
-                        mDataList = processData(mDataList);
+                        // mDataList = processData(mDataList);
                         for (var i = 0; i < mDataList.length; i++) {
                             var one = mDataList[i];
+                            // var starttime = util.toDateString(one.starttime,'MM-DD')
                             dataList.push({
-                                start: util.toDateString(one.startDate, 'yyyy-MM-dd') + ' ' + one.startTime,
-                                end: util.toDateString(one.endDate, 'yyyy-MM-dd') + ' ' + one.endTime,
-                                title: one.courseName,
-                                id: one.courseId
-                            });
+                                start: util.toDateString(one.startdate, 'yyyy-MM-dd') + ' ' + one.starttime,
+                                end: util.toDateString(one.enddate, 'yyyy-MM-dd')+ ' ' + one.endtime,
+                                title: '土地名称：'+one.soil.name+'\n'+'种植作物：'+one.seed.name+'\n'+one.content,
+                                id: one.id
+                            })
                         }
                     } else {
                         layer.msg(res.msg, {icon: 2});
@@ -151,7 +235,7 @@
                 console.log(info.event.id);  // 点击的数据id
                 // 根据id获取对应的数据
                 for (var i = 0; i < mDataList.length; i++) {
-                    if (info.event.id == mDataList[i].courseId) {
+                    if (info.event.id == mDataList[i].id) {
                         layer.alert(JSON.stringify(mDataList[i]), {title: '你点击的数据是：', shadeClose: true});
                         break;
                     }
@@ -159,6 +243,57 @@
             }
         });
         calendar.render();
+
+        // 添加排课
+        $('#demoEDBtnAddCourseS').click(function () {
+            var mData = {weekdays: '3,5,7'};  // 回显数据
+            admin.open({
+                type: 1,
+                title: '添加农事',
+                area: '670px',
+                content: $('#EDModelAddCourseS').html(),
+                success: function (layero, dIndex) {
+                    $(layero).children('.layui-layer-content').css('overflow', 'visible');
+                    if (mData) {  // 将逗号分隔的星期转成复选框对应的格式
+                        var weekdays = mData.weekdays.split(',');
+                        for (var i = 0; i < weekdays.length; i++) {
+                            mData['week_' + weekdays[i]] = weekdays[i];
+                        }
+                    }
+                    form.val('EDCourseForm', mData);  // 回显数据
+                    // 表单提交事件
+                    form.on('submit(EDCourseSModelSubmit)', function (data) {
+                        data.field.weekdays = '';  // 将星期复选框选中值变成逗号分隔
+                        for (var f in data.field) {
+                            if (f.indexOf('week_') == 0) {
+                                data.field.weekdays && (data.field.weekdays += ',');
+                                data.field.weekdays += data.field[f];
+                            }
+                        }
+                        console.log(data.field);
+                        layer.msg("表单验证通过", {icon: 1});
+                        return false;
+                    });
+                    // 日期范围
+                    laydate.render({
+                        elem: '#EDdateRange',
+                        range: true,
+                        trigger: 'click'
+                    });
+                    // 时间范围
+                    laydate.render({
+                        elem: '#EDtimeRange',
+                        type: 'time',
+                        format: 'HH:mm',
+                        range: true,
+                        trigger: 'click'
+                    });
+                }
+            });
+
+        });
+
+
 
         // 上一周
         $('#btnPrev').click(function () {
@@ -185,11 +320,13 @@
                 if (i > 1) {
                     tDate = new Date(monday.getTime() + 1000 * 60 * 60 * 24 * (i - 1));
                 }
-                data[i].startDate = util.toDateString(tDate, 'yyyy-MM-dd');
-                data[i].endDate = data[i].startDate;
+                data[i].startdate = util.toDateString(tDate, 'yyyy-MM-dd');
+                data[i].enddate = data[i].startdate;
             }
             return data;
         }
+
+
 
     });
 </script>
