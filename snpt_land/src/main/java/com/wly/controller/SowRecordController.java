@@ -39,7 +39,7 @@ public class SowRecordController {
     @PostMapping("/save/{userid}")
     public Result save(@RequestBody SowRecord sowRecord, @PathVariable String userid){
         sowRecord.setUserid(userid);
-        sowRecord.setId("SD"+idWorker.nextId());
+        sowRecord.setId("SR"+idWorker.nextId());
         sowRecordRepository.save(sowRecord);
         return new Result(200,"保存成功！",0,"");
     }

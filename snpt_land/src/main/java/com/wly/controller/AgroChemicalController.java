@@ -56,6 +56,25 @@ public class AgroChemicalController {
         return value;
     }
 
+    @GetMapping("/getComments/{id}")
+    public List<String> getComments(@PathVariable long id){
+        AgroChemical agroChemical = agroChemicalRepository.findLatestmacroByid(id);
+        double organic = agroChemical.getOrganic();
+        double nitrogen = agroChemical.getNitrogen();
+        double raphosphorus = agroChemical.getRaphosphorus();
+        double rapotassium = agroChemical.getRapotassium();
+        agroChemical = agroChemicalRepository.findLatestphByid(id);
+        double ph = agroChemical.getPh();
+        String ogcomment = agroChemicalRepository.findCommentByvalue(organic,"EL001");
+        String ngcomment = agroChemicalRepository.findCommentByvalue(nitrogen,"EL002");
+        String racomment = agroChemicalRepository.findCommentByvalue(raphosphorus,"EL003");
+        String rgcomment = agroChemicalRepository.findCommentByvalue(rapotassium,"EL004");
+        String phcomment = agroChemicalRepository.findCommentByvalue(ph,"EL005");
+        List<String> comments = Arrays.asList(ogcomment,ngcomment,racomment,rgcomment,phcomment);
+        return comments;
+    }
+
+
     @PostMapping("/save")
     public Result save(@RequestBody AgroChemical agroChemical){
         agroChemical.setDate(new Date());

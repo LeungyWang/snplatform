@@ -70,7 +70,8 @@ public interface LandFeign {
     @GetMapping("/element/findByTypeid/{id}")
     public List<String> findByTypeid(@PathVariable int id);
 
-
+    @GetMapping("agrochemical/getComments/{id}")
+    public List<String> getComments(@PathVariable long id);
 
 
 

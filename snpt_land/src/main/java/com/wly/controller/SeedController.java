@@ -26,6 +26,12 @@ public class SeedController {
     }
 
     //查找功能
+    @GetMapping("/findAll/{userid}")
+    public Result findAll(@PathVariable String userid){
+        return new Result(0,"",seedRepository.countByUserid(userid),seedRepository.findAllSeeds(userid));
+    }
+
+    //查找功能
     @GetMapping("/findById/{id}")
     public Result findById(@PathVariable String id){
         return new Result(200,"查询成功！",0,seedRepository.findById(id));

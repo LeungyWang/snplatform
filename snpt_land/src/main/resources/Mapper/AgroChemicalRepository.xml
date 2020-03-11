@@ -36,6 +36,11 @@
         select iron, manganese, zinc from agrochemical where landid = #{landid} order by date limit 1
     </select>
 
+    <select id="findCommentByvalue" resultType="String">
+        SELECT COMMENT FROM elementstandard WHERE `value` &lt; #{param1} AND elementid=#{param2} ORDER BY points DESC LIMIT 1
+
+    </select>
+
     <select id="findById" parameterType="long" resultType="AgroChemical">
         select * from agrochemical where landid = #{landid}
     </select>

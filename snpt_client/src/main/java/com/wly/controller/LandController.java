@@ -167,6 +167,21 @@ public class LandController {
         return echartsMap;
     }
 
+    //返回数据解读
+    @GetMapping("agrochemical/getComments")
+    public ModelAndView getComments(HttpSession session){
+        long id =(long) session.getAttribute("EvaluateId");
+        ModelAndView modelAndView = new ModelAndView();
+        List<String> comments = landFeign.getComments(id);
+        String comment = "";
+        for (int i = 0;i<comments.size();i++){
+            comment = comment + (i+1)+"." + comments.get(i)+"\n"+"\n";
+        }
+        System.out.println(comment);
+        modelAndView.setViewName("evaluate_result");
+        modelAndView.addObject("comment",comment);
+        return modelAndView;
+    }
 
 
 }

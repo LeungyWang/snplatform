@@ -3,6 +3,7 @@ package com.wly.feign;
 import com.wly.entity.Fertilizer;
 import com.wly.entity.Pesticide;
 import com.wly.entity.Seed;
+import com.wly.entity.SowRecord;
 import entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,9 @@ public interface SowFeign {
 
     @GetMapping("/seed/findAll/{index}/{limit}/{userid}")
     public Result findAllSeed(@PathVariable int index, @PathVariable int limit, @PathVariable String userid);
+
+    @GetMapping("/seed/findAll/{userid}")
+    public Result findAllSeed(@PathVariable String userid);
 
     //查找功能
     @GetMapping("/seed/findById/{id}")
@@ -94,4 +98,13 @@ public interface SowFeign {
     //查找全部功能
     @GetMapping("/sowrecord/findAll/{userid}")
     public Result findAllRecord(@PathVariable String userid);
+
+
+    //返回所有农事类型
+    @GetMapping("/farmwork/findAll")
+    public Result findAllfarmwork();
+
+    //增加功能
+    @PostMapping("/sowrecord/save/{userid}")
+    public Result saveSowrecord(@RequestBody SowRecord sowRecord, @PathVariable String userid);
 }

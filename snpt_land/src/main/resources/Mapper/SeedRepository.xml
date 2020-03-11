@@ -7,6 +7,10 @@
         select id, name, unit, price, quantity, purchasedate from seed where userid= #{param1} limit #{param2},#{param3}
     </select>
 
+    <select id="findAllSeeds" resultType="Seed">
+        select id, name, unit, price, quantity, purchasedate from seed where userid= #{param1}
+    </select>
+
 
     <select id="countByUserid" resultType="int">
         select count(id) from seed where userid = #{userid}

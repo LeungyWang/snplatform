@@ -11,6 +11,7 @@ public interface AgroChemicalRepository {
     public AgroChemical findLatestphByid(long id);
     public AgroChemical findLatestmacroByid(long id);
     public AgroChemical findLatestmicroByid(long id);
+    public String findCommentByvalue(double value, String elementid);
     public List<AgroChemical> findAllByuserid(String userid,int index,int limit);
     public int countById(long id);
     public int countByUserid(String userid);

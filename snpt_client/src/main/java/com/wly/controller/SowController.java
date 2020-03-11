@@ -9,7 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -31,6 +35,18 @@ public class SowController {
         return land;
 //        return menuFeign.findAll(index,limit);
     }
+
+    //查询用户所有种子功能实现 无分页
+    @GetMapping("/seed/findAllSeeds")
+    @ResponseBody
+    public Result findAllSeed(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        Result seed = sowFeign.findAllSeed(userid);
+        return seed;
+//        return menuFeign.findAll(index,limit);
+    }
+
 
 
     //根据种子的ID查询种子信息功能
@@ -176,4 +192,50 @@ public class SowController {
         Result record = sowFeign.findAllRecord(userid);
         return record;
     }
+
+    //查询所有的农事类型
+    @GetMapping("/farmwork/findAll")
+    @ResponseBody
+    public Result findAllfarmwork(){
+        return sowFeign.findAllfarmwork();
+    }
+
+    //实现农事记录的增加功能
+    @PostMapping("/sowrecord/save")
+    @ResponseBody
+    public Result save(@RequestParam("landid") int landid, @RequestParam("seedid") String seedid,@RequestParam("farmworkid") String farmworkid,@RequestParam("dateRange") String dateRange,@RequestParam("timeRange") String timeRange,@RequestParam("content") String content,HttpSession session) throws ParseException {
+        SowRecord sowRecord = new SowRecord();
+        Seed seed  = new Seed();
+        Soil soil  = new Soil();
+        FarmWork farmWork = new FarmWork();
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        String[] dates = dateRange.split(" - ");
+        String[] times = timeRange.split("-");
+        //格式化时间
+        String starttime = times[0].trim();
+        String endtime = times[1].trim();
+        //格式化日期
+        String startDate = dates[0].trim();
+        Date startdate = new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
+        String endDate = dates[1].trim();
+        Date enddate = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
+        //传值
+        seed.setId(seedid);
+        soil.setId(landid);
+        farmWork.setId(farmworkid);
+        sowRecord.setUserid(userid);
+        sowRecord.setContent(content);
+        sowRecord.setFarmWork(farmWork);
+        sowRecord.setSeed(seed);
+        sowRecord.setSoil(soil);
+        sowRecord.setStartdate(startdate);
+        sowRecord.setEnddate(enddate);
+        sowRecord.setStarttime(starttime);
+        sowRecord.setEndtime(endtime);
+        return sowFeign.saveSowrecord(sowRecord,userid);
+    }
+
+
+
 }

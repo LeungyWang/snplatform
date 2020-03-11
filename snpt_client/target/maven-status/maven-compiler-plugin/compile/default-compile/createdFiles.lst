@@ -1,0 +1,16 @@
+com/wly/feign/UserFeign.class
+com/wly/entity/AgroChemical.class
+com/wly/entity/Fertilizer.class
+com/wly/entity/EchartsMap.class
+com/wly/controller/LandController.class
+com/wly/feign/LandFeign.class
+com/wly/entity/User.class
+com/wly/entity/Pesticide.class
+com/wly/ClientApplication.class
+com/wly/entity/SoilType.class
+com/wly/controller/UserController.class
+com/wly/entity/Seed.class
+com/wly/feign/SowFeign.class
+com/wly/filter/UserFilter.class
+com/wly/controller/SowController.class
+com/wly/entity/Soil.class

@@ -28,7 +28,17 @@
             <div id="microchart" style="height: 330px;"></div>
         </div>
     </div>
+    <div class="layui-card">
+        <div class="layui-card-body">
+        <label class="layui-form-label layui-form-required">数据解读:</label>
+        <div class="layui-input-block">
+            <textarea name="desc" placeholder="" class="layui-textarea" readonly="readonly" rows="10" cols="10" th:text="${comment}"></textarea>
+        </div>
+        </div>
     </div>
+
+    </div>
+
 
 
 
@@ -52,7 +62,19 @@
                 getData1();
                 getData2();
                 getData3();
+                // getComments();
             });
+            // //获取土地信息
+            // function getComments() {
+            //     $.ajax({ // 使用layui模块化加载
+            //         url: "/land/agrochemical/getComments",
+            //         type: 'GET',
+            //         success: function () {
+            //             // html.render();//菜单渲染 把内容加载进去
+            //         }
+            //     });
+            // }
+
             function  getData1() {
                 $.ajax({
                     type: 'get',
