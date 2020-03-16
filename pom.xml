@@ -16,6 +16,7 @@
         <module>snpt_client</module>
         <module>snpt_sow</module>
         <module>snpt_user</module>
+        <module>snpt_product</module>
     </modules>
 
     <parent>

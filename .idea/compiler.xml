@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="snpt_client" />
         <module name="snpt_config" />
+        <module name="snpt_product" />
         <module name="snpt_land" />
         <module name="snpt_common" />
         <module name="snpt_user" />
@@ -22,6 +23,7 @@
       <module name="snpt_config" target="1.8" />
       <module name="snpt_eureka" target="1.8" />
       <module name="snpt_land" target="1.8" />
+      <module name="snpt_product" target="1.8" />
       <module name="snpt_sow" target="1.8" />
       <module name="snpt_user" target="1.8" />
     </bytecodeTargetLevel>
@@ -33,6 +35,7 @@
       <module name="snpt_config" options="-parameters" />
       <module name="snpt_eureka" options="-parameters" />
       <module name="snpt_land" options="-parameters" />
+      <module name="snpt_product" options="-parameters" />
       <module name="snpt_sow" options="-parameters" />
       <module name="snpt_user" options="-parameters" />
     </option>
