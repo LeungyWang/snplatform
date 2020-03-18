@@ -42,6 +42,7 @@ public class GoodsController {
         goods.setApplicationtime(new Date());
         goods.setApplicant(userid);
         goods.setId("GD"+idWorker.nextId());
+        goods.setStatus("未上架");
         goodsRepository.save(goods);
         return new Result(200,"保存成功！",0,"");
     }

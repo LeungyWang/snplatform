@@ -12,6 +12,7 @@ public class Goods {
     private String category;
     private String picture;
     private double quantity;
+    private String content;
     private String unit;
     private double cost;
     private double price;

@@ -16,11 +16,11 @@
     </select>
 
     <select id="findById" parameterType="String" resultType="Goods">
-        select  name, originplace,category,picture,quantity,unit,cost,price, status, applicant,applicationtime from goods where id = #{id}
+        select  name, originplace,category,picture,quantity,content,unit,cost,price, status, applicant,applicationtime from goods where id = #{id}
     </select>
 
     <insert id="save" parameterType="Goods">
-        insert into goods(id, name, originplace,category,picture,quantity,unit,cost,price, status, applicant,applicationtime) values (#{id},#{name},#{originplace},#{category},#{picture},#{quantity},#{unit},#{cost},#{price},#{status},#{applicant},#{applicationtime})
+        insert into goods(id, name, originplace,category,picture,quantity,content,unit,cost,price, status, applicant,applicationtime) values (#{id},#{name},#{originplace},#{category},#{picture},#{quantity},#{content},#{unit},#{cost},#{price},#{status},#{applicant},#{applicationtime})
     </insert>
 
     <update id="update" parameterType="Goods">
