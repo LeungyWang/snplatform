@@ -44,11 +44,11 @@
     <span style="color: #4cae4c;">产品通过审核</span>
 {{# } }}
 {{#  if(d.status == "未上架"){ }}
-    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="addproduct"><i
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="applygood"><i
         class="layui-icon layui-icon-edit"></i>申请上架</a>
 {{# } }}
 {{#  if(d.status == "审核中"){ }}
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="cancleproduct"><i
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="cancelapply"><i
         class="layui-icon layui-icon-edit"></i>取消上架申请</a>
 {{# } }}
 
@@ -87,14 +87,16 @@
 <script type="text/javascript" th:src="@{/assets/js/common.js?v=316}"></script>
 
 <script>
-    layui.use(['layer', 'table', 'util'], function () {
+    layui.use(['layer', 'table', 'util','admin'], function () {
         var $ = layui.jquery;
         var layer = layui.layer;
         var table = layui.table;
         var util = layui.util;
+        var admin = layui.admin;
+
 
         // 渲染表格
-        table.render({
+        var insTb =table.render({
             elem: '#tableTbImg',
             url: '/product/goods/findAll',
             page: true,
@@ -130,6 +132,61 @@
         $(document).off('click.tbImg').on('click.tbImg', '[tb-img]', function () {
             layer.photos({photos: {data: [{src: $(this).attr('src')}]}, shade: .1, closeBtn: true});
         });
+
+        // 工具条点击事件
+        table.on('tool(tableTbImg)', function (obj) {
+            var data = obj.data;
+            var layEvent = obj.event;
+            if (layEvent === 'applygood') { // 修改
+                doApply(data.id,data.name);
+            } else if (layEvent === 'cancelapply') { // 删除
+                doCancel(data.id,data.name);
+            }
+        });
+
+        // 申请上架
+        function doApply(id, name) {
+            layer.confirm('确定要上架产品“' + name + '”吗？', {
+                skin: 'layui-layer-admin',
+                shade: .1
+            }, function (i) {
+                layer.close(i);
+                layer.load(2);
+                $.get('/product/goods/verifyapply', {
+                    id: id
+                }, function (res) {
+                    layer.closeAll('loading');
+                    if (res.code == 200) {
+                        layer.msg(res.msg, {icon: 1});
+                        insTb.reload({}, 'data');
+                    } else {
+                        layer.msg(res.msg, {icon: 2});
+                    }
+                }, 'json');
+            });
+        }
+
+        //取消产品上架申请
+        function doCancel(id, name) {
+            layer.confirm('确定要取消产品“' + name + '”上架申请吗？', {
+                skin: 'layui-layer-admin',
+                shade: .1
+            }, function (i) {
+                layer.close(i);
+                layer.load(2);
+                $.get('/product/goods/cancelapply', {
+                    id: id
+                }, function (res) {
+                    layer.closeAll('loading');
+                    if (res.code == 200) {
+                        layer.msg(res.msg, {icon: 1});
+                        insTb.reload({}, 'data');
+                    } else {
+                        layer.msg(res.msg, {icon: 2});
+                    }
+                }, 'json');
+            });
+        }
 
     });
 </script>

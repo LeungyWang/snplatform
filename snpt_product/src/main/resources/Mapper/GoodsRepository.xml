@@ -11,12 +11,16 @@
         select * from goods where applicant= #{param1}
     </select>
 
+    <select id="findAllByCategory" resultType="Goods">
+        select * from goods where category=#{category} and status="审核通过"
+    </select>
+
     <select id="countByUserid" resultType="int">
         select count(id) from goods where applicant = #{applicant}
     </select>
 
     <select id="findById" parameterType="String" resultType="Goods">
-        select  name, originplace,category,picture,quantity,content,unit,cost,price, status, applicant,applicationtime from goods where id = #{id}
+        select * from goods where id = #{id}
     </select>
 
     <insert id="save" parameterType="Goods">
@@ -25,6 +29,10 @@
 
     <update id="update" parameterType="Goods">
         update goods set status = #{status} where id = #{id}
+    </update>
+
+    <update id="updateStatus" >
+         update goods set status=#{status} where id =#{id}
     </update>
 
 

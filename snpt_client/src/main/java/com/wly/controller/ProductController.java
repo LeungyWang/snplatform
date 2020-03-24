@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -31,13 +32,24 @@ public class ProductController {
     //查询用户所有农产品功能实现
     @GetMapping("/goods/findAll")
     @ResponseBody
-    public Result findAllSeed(@RequestParam("page") int page, @RequestParam("limit") int limit, HttpSession session){
+    public Result findAllGoods(@RequestParam("page") int page, @RequestParam("limit") int limit, HttpSession session){
         int index = (page-1)*limit;
         User user = (User) session.getAttribute("user");
         String userid = user.getId();
         Result goods = productFeign.findAll(index,limit,userid);
         return goods;
     }
+
+    //
+    @GetMapping("/goods/detail/{id}")
+    public ModelAndView findById(@PathVariable String id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("product_details");
+        modelAndView.addObject("product",productFeign.findById(id));
+        return modelAndView;
+    }
+
+
 
     //页面跳转
     @GetMapping("/redirect/{localtion}")
@@ -112,6 +124,31 @@ public class ProductController {
     User user = (User) session.getAttribute("user");
     String userid = user.getId();
     return productFeign.saveGoods(goods,userid);
-
     }
+
+    //农产申请上架
+    @GetMapping("/goods/verifyapply")
+    @ResponseBody
+    public Result verifyGood(@RequestParam("id") String id){
+        return productFeign.verifyApply(id);
+    }
+
+    //农产取消上架申请
+    @GetMapping("/goods/cancelapply")
+    @ResponseBody
+    public Result cancelGood(@RequestParam("id") String id){
+        return productFeign.cancelApply(id);
+    }
+
+    @GetMapping("/goods/findAllProduct")
+    public ModelAndView findAllProduct(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("shop_index");
+        modelAndView.addObject("vegetables",productFeign.findVegetablesProduct());
+        modelAndView.addObject("fruits",productFeign.findFruitsProduct());
+        modelAndView.addObject("cereals",productFeign.findCerealsProduct());
+        return modelAndView;
+    }
+
+
 }
