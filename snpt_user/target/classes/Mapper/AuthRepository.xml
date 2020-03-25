@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.AuthRepository">
+
+
+    <select id="findAll" resultType="Auth">
+        select * from auth limit #{param1},#{param2}
+    </select>
+
+    <select id="findAuths" resultType="Auth">
+        SELECT * FROM auth WHERE authid IN (SELECT authid FROM role_auth WHERE roleid=#{roleid} and checked=1)
+    </select>
+
+    <select id="count" resultType="int">
+        select count(authid) from auth
+    </select>
+    
+    <select id="findById" parameterType="String" resultType="Auth">
+        select * from auth where id = #{id}
+    </select>
+
+    <insert id="save" parameterType="Auth">
+        insert into auth(authid,name,pId,url,createtime) values (#{authid},#{name},#{pId},#{url},#{createtime})
+    </insert>
+    
+    <update id="update" parameterType="Auth">
+        update auth set name = #{name}, pId = #{pId} where id = #{id}
+    </update>
+    
+
+    <delete id="deleteById" parameterType="String">
+        delete from auth where authid = #{authid}
+    </delete>
+
+    
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.RoleRepository">
+
+
+    <select id="findAll" resultType="Role">
+        select * from role limit #{param1},#{param2}
+    </select>
+
+    <select id="findRoles" resultType="Role">
+        SELECT * FROM role WHERE id IN (SELECT roleid FROM user_role WHERE userid=#{userid})
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from role
+    </select>
+    
+    <select id="findById" parameterType="String" resultType="Role">
+        select * from role where id = #{id}
+    </select>
+
+    <insert id="save" parameterType="Role">
+        insert into role(id,rolename,rolecode,remark,createtime) values (#{id},#{rolename},#{rolecode},#{remark},#{createtime})
+    </insert>
+    
+    <update id="update" parameterType="Role">
+        update role set rolename = #{rolename}, rolecode = #{rolecode}, remark = #{remark} where id = #{id}
+    </update>
+    
+
+    <delete id="deleteById" parameterType="String">
+        delete from role where id = #{id}
+    </delete>
+
+    
+</mapper>

@@ -8,11 +8,10 @@ import java.util.Date;
 public class User {
     private String id;
     private String username;
+    private String nickname;
+    private String sex;
     private String password;
-    private String name;
-    private String gender;
-    private String telephone;
-    private Date registdate;
-    private String address;
-
+    private String phone;
+    private String status;
+    private Date createtime;
 }

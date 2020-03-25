@@ -7,6 +7,7 @@
         select * from user limit #{param1},#{param2}
     </select>
 
+
     <select id="findByUsername" resultType="User">
         select * from user where username=#{username}
     </select>
@@ -30,9 +31,12 @@
     <update id="update" parameterType="User">
         update user set username = #{username}, password = #{password}, nickname = #{nickname},gender = #{gender},telephone=#{telephone},registerdate=#{registerdate},address=#{address}  where id = #{id}
     </update>
-    
 
-    <delete id="deleteById" parameterType="long">
+    <update id="updateStatus">
+        update user SET `status`= #{flag} WHERE id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="String">
         delete from user where id = #{id}
     </delete>
 

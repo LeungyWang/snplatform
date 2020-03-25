@@ -19,6 +19,40 @@ public class UserController {
     @Autowired
     UserFeign userFeign;
 
+    @GetMapping("/findAll")
+    @ResponseBody
+    public Result findAll(@RequestParam("page") int page, @RequestParam("limit") int limit){
+        int index = (page-1)*limit;
+        Result users = userFeign.findAll(index,limit);
+        return users;
+    }
+
+    @GetMapping("/role/findAll")
+    @ResponseBody
+    public Result findAllRoles(@RequestParam("page") int page, @RequestParam("limit") int limit){
+        int index = (page-1)*limit;
+        Result roles = userFeign.findAllRoles(index,limit);
+        return roles;
+    }
+
+    @GetMapping("/role/findById")
+    @ResponseBody
+    public Result findRoleById(@RequestParam("id") String id){
+        return userFeign.findById(id);
+    }
+
+    //页面跳转
+    @GetMapping("/redirect/{localtion}")
+    public String redirect(@PathVariable("localtion") String localtion){
+        return localtion;
+    }
+
+
+    @GetMapping("/updateStatus")
+    @ResponseBody
+    public Result updateStatus(@RequestParam int status,@RequestParam String id){
+        return userFeign.updateStatus(status,id);
+    }
 
 //    @PostMapping("/login")
 //    public String login(@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("type") String type,HttpSession session){
@@ -72,7 +106,7 @@ public class UserController {
                     id = hashMap.get("id") + "";
                     String name = (String) hashMap.get("name");
                     user.setId(id);
-                    user.setName(name);
+                    user.setNickname(name);
                     session.setAttribute("user", user);
                     return result;
                 case "admin":
