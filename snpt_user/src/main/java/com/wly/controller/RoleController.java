@@ -1,5 +1,6 @@
 package com.wly.controller;
 
+import com.wly.entity.Auth;
 import com.wly.entity.Role;
 import com.wly.entity.User;
 import com.wly.repository.AuthRepository;
@@ -38,8 +39,12 @@ public class RoleController {
     @GetMapping("findById/{id}")
     public Result findById(@PathVariable("id") String id){
         Role role = roleRepository.findById(id);
-        role.setAuths(authRepository.findAuths(role.getId()));
-
+        List<Auth> auths = authRepository.findAuths(role.getId());
+        for (int i = 0;i<auths.size();i++){
+            Auth auth = auths.get(i);
+            auth.setChecked(roleRepository.findChecked(role.getId(),auth.getId()));
+        }
+        role.setAuths(auths);
         return new Result(200,"查询成功！",1,role);
     }
 
@@ -59,7 +64,17 @@ public class RoleController {
         roleRepository.update(role);
     }
 
+    //分配权限
+    @PutMapping("/updateChecked/{roleid}/{authid}")
+    public void updateChecked(@PathVariable String roleid,@PathVariable int authid){
+        roleRepository.updateChecked(roleid,authid);
+    }
 
+    //取消权限
+    @PutMapping("/updateCheck/{roleid}/{authid}")
+    public void updateCheck(@PathVariable String roleid,@PathVariable int authid){
+        roleRepository.updateCheck(roleid,authid);
+    }
 
     @DeleteMapping("/deleteById/{id}")
     public void deleteById(@PathVariable("id") String id){

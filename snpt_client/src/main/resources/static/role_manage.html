@@ -225,13 +225,18 @@
                 content: '<ul id="roleAuthTree" class="ztree"></ul>',
                 success: function (layero, dIndex) {
                     var loadIndex = layer.load(2);
-                    $.get('/user/role/findById', {id: roleId}, function (res) {
+                    $.get('/user/role/findById', {id:roleId},function (res) {
                         layer.close(loadIndex);
                         if (200 === res.code) {
+
                             $.fn.zTree.init($('#roleAuthTree'), {
                                 check: {enable: true},
-                                data: {simpleData: {enable: true}}
-                            }, res.data.auths);
+                                data: {simpleData: {
+                                    enable: true,
+                                        pidKey:"pid"
+                                }
+                                }
+                            },res.data.auths);
                         } else {
                             layer.msg(res.msg, {icon: 2});
                         }
@@ -247,7 +252,7 @@
                         ids.push(checkedRows[i].id);
                     }
                     var loadIndex = layer.load(2);
-                    $.get('../../json/ok.json', {roleId: roleId, authIds: ids.join(',')}, function (res) {
+                    $.get('/user/role/updateChecked', {roleid: roleId, authids: ids.join(',')}, function (res) {
                         layer.close(loadIndex);
                         if (200 === res.code) {
                             layer.msg(res.msg, {icon: 1});

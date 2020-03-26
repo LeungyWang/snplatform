@@ -30,6 +30,17 @@ public interface UserFeign {
 
     //查找指定的用户角色
     @GetMapping("/role/findById/{id}")
-    public Result findById(@PathVariable("id") String id);
+    public Result findRoleById(@PathVariable("id") String id);
+
+    //权限分配
+    @PutMapping("/role/updateChecked/{roleid}/{authid}")
+    public void updateChecked(@PathVariable String roleid,@PathVariable int authid);
+
+    //取消权限
+    @PutMapping("/role/updateCheck/{roleid}/{authid}")
+    public void updateCheck(@PathVariable String roleid,@PathVariable int authid);
+
+    @GetMapping("/auth/findAuthids")
+    public List<Integer> findAuthids();
 
 }

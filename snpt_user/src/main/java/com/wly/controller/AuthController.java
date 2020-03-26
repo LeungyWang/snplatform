@@ -8,6 +8,8 @@ import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -20,10 +22,15 @@ public class AuthController {
         return new Result(0,"",authRepository.count(),authRepository.findAll(index,limit));
     }
 
+    @GetMapping("/findAuthids")
+    public List<Integer> findAuthids(){
+        return authRepository.Authids();
+    }
+
 
 
     @GetMapping("findById/{id}")
-    public Result findById(@PathVariable("id") String id){
+    public Result findById(@PathVariable("id") int id){
         return new Result(200,"查询成功！",1,authRepository.findById(id));
     }
 
@@ -46,7 +53,7 @@ public class AuthController {
 
 
     @DeleteMapping("/deleteById/{id}")
-    public void deleteById(@PathVariable("id") String id){
+    public void deleteById(@PathVariable("id") int id){
         authRepository.deleteById(id);
     }
 

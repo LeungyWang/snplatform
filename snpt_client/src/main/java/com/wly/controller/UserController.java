@@ -1,6 +1,5 @@
 package com.wly.controller;
 
-import com.wly.entity.Soil;
 import com.wly.entity.User;
 import com.wly.feign.UserFeign;
 import entity.Result;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 @Controller
 @RequestMapping("user")
@@ -38,13 +38,28 @@ public class UserController {
     @GetMapping("/role/findById")
     @ResponseBody
     public Result findRoleById(@RequestParam("id") String id){
-        return userFeign.findById(id);
+        return userFeign.findRoleById(id);
     }
 
     //页面跳转
     @GetMapping("/redirect/{localtion}")
     public String redirect(@PathVariable("localtion") String localtion){
         return localtion;
+    }
+
+    @GetMapping("/role/updateChecked")
+    @ResponseBody
+    public Result updateChecked(@RequestParam String roleid,@RequestParam String authids){
+        String[] auths  = authids.split(",");
+        List<Integer> aids = userFeign.findAuthids();
+        for (int i=0;i<aids.size();i++){
+            userFeign.updateCheck(roleid,aids.get(i));
+        }
+        for (int i=0;i<auths.length;i++){
+            int authid = Integer.parseInt(auths[i]);
+            userFeign.updateChecked(roleid,authid);
+        }
+        return new Result(200,"保存成功",0,"");
     }
 
 

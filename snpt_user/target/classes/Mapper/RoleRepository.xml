@@ -11,6 +11,10 @@
         SELECT * FROM role WHERE id IN (SELECT roleid FROM user_role WHERE userid=#{userid})
     </select>
 
+<!--    <update id="updateChecked" >-->
+<!--        update role_auth set checked=1 where -->
+<!--    </update>-->
+
     <select id="count" resultType="int">
         select count(id) from role
     </select>
@@ -19,12 +23,25 @@
         select * from role where id = #{id}
     </select>
 
+    <select id="findChecked" resultType="Boolean">
+        select checked from role_auth where roleid=#{roleid} and authid=#{authid}
+    </select>
+
+
     <insert id="save" parameterType="Role">
         insert into role(id,rolename,rolecode,remark,createtime) values (#{id},#{rolename},#{rolecode},#{remark},#{createtime})
     </insert>
     
     <update id="update" parameterType="Role">
         update role set rolename = #{rolename}, rolecode = #{rolecode}, remark = #{remark} where id = #{id}
+    </update>
+
+    <update id="updateChecked">
+        update role_auth set checked=true where roleid=#{roleid} and authid=#{authid}
+    </update>
+
+    <update id="updateCheck">
+        update role_auth set checked=false where roleid=#{roleid} and authid=#{authid}
     </update>
     
 

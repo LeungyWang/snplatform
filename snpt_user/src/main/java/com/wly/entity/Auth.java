@@ -1,5 +1,6 @@
 package com.wly.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.Date;
@@ -7,11 +8,12 @@ import java.util.List;
 
 @Data
 public class Auth {
-    private String authid;
+    private int id;
     private String name;
-    private String pId;
+    @JsonProperty("pId")
+    private int pId;
     private String url;
-    private Boolean open;
-    private Boolean checked;
+    private Boolean open=true;
+    private Boolean checked=false;
     private Date createtime;
 }

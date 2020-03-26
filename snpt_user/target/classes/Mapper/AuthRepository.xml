@@ -7,15 +7,19 @@
         select * from auth limit #{param1},#{param2}
     </select>
 
+    <select id="Authids" resultType="Integer">
+        select id from auth
+    </select>
+
     <select id="findAuths" resultType="Auth">
-        SELECT * FROM auth WHERE authid IN (SELECT authid FROM role_auth WHERE roleid=#{roleid} and checked=1)
+        SELECT * FROM auth WHERE id IN (SELECT authid FROM role_auth WHERE roleid=#{roleid} )
     </select>
 
     <select id="count" resultType="int">
-        select count(authid) from auth
+        select count(id) from auth
     </select>
     
-    <select id="findById" parameterType="String" resultType="Auth">
+    <select id="findById" parameterType="int" resultType="Auth">
         select * from auth where id = #{id}
     </select>
 
