@@ -4,7 +4,7 @@
 
 
     <select id="findAll" resultType="Auth">
-        select * from auth limit #{param1},#{param2}
+        select * from auth
     </select>
 
     <select id="Authids" resultType="Integer">

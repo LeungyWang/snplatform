@@ -27,6 +27,7 @@ public class UserController {
         return users;
     }
 
+    //查找所有角色
     @GetMapping("/role/findAll")
     @ResponseBody
     public Result findAllRoles(@RequestParam("page") int page, @RequestParam("limit") int limit){
@@ -35,6 +36,7 @@ public class UserController {
         return roles;
     }
 
+    //查找指定角色
     @GetMapping("/role/findById")
     @ResponseBody
     public Result findRoleById(@RequestParam("id") String id){
@@ -47,6 +49,7 @@ public class UserController {
         return localtion;
     }
 
+    //分配角色权限
     @GetMapping("/role/updateChecked")
     @ResponseBody
     public Result updateChecked(@RequestParam String roleid,@RequestParam String authids){
@@ -62,11 +65,19 @@ public class UserController {
         return new Result(200,"保存成功",0,"");
     }
 
-
+    //更改用户账户状态
     @GetMapping("/updateStatus")
     @ResponseBody
     public Result updateStatus(@RequestParam int status,@RequestParam String id){
         return userFeign.updateStatus(status,id);
+    }
+
+    //查找所有权限
+    @GetMapping("/auth/findAll")
+    @ResponseBody
+    public Result findAllAuth(){
+        Result auths = userFeign.findAllAuth();
+        return auths;
     }
 
 //    @PostMapping("/login")

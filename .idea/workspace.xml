@@ -2,27 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb049f33-0ec8-44ac-9a34-c5e85a75aedd" name="Default Changelist" comment="2.22 4:02">
+      <change afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/auth_manage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/UserFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/UserFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/role_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/role_manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/admin_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/admin_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/META-INF/snpt_client.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/feign/UserFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/feign/UserFeign.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/role_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/role_manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/admin_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/admin_index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/entity/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/entity/Auth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/AuthRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/AuthRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/RoleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/AuthRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/AuthRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/RoleRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/RoleRepository.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snpt_user/target/classes/Mapper/AuthRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/target/classes/Mapper/AuthRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_user/target/classes/Mapper/RoleRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/target/classes/Mapper/RoleRepository.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_user/target/classes/Mapper/UserRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/target/classes/Mapper/UserRepository.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snpt_user/target/classes/com/wly/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/target/classes/com/wly/controller/AuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_user/target/classes/com/wly/controller/RoleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/target/classes/com/wly/controller/RoleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_user/target/classes/com/wly/entity/Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/target/classes/com/wly/entity/Auth.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snpt_user/target/classes/com/wly/repository/AuthRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/target/classes/com/wly/repository/AuthRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_user/target/classes/com/wly/repository/RoleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_user/target/classes/com/wly/repository/RoleRepository.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/snpt_eureka/target/" />
@@ -65,14 +60,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/RoleRepository.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/auth_manage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
+            <state relative-caret-position="85">
+              <caret line="102" selection-start-line="102" selection-end-line="102" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2016#2022#0" expanded="true" />
+                <element signature="e#2225#2231#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/user_manage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="836">
+              <caret line="122" selection-start-line="122" selection-end-line="123" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -80,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="61" column="43" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
+            <state relative-caret-position="194">
+              <caret line="78" selection-start-line="78" selection-end-line="78" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,31 +95,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/RoleRepository.xml">
+        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/admin_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/AuthRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/AuthRepository.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-84">
-              <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+            <state relative-caret-position="241">
+              <caret line="121" selection-start-line="121" selection-end-line="122" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -129,22 +113,58 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/role_manage.html">
+        <entry file="file://$PROJECT_DIR$/snpt_user/src/main/java/com/wly/controller/AuthController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="253" selection-start-line="253" selection-end-line="253" />
+            <state relative-caret-position="201">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
-                <element signature="e#109#115#1" expanded="true" />
+                <element signature="e#516#517#0" expanded="true" />
+                <element signature="e#614#615#0" expanded="true" />
+                <element signature="e#768#769#0" expanded="true" />
+                <element signature="e#815#816#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/AuthRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/AuthRepository.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/UserFeign.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
+            <state relative-caret-position="280">
+              <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/RoleRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,8 +182,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tableAgche</find>
-      <find>table</find>
       <find>tableTbImg</find>
       <find>蔬菜</find>
       <find>Letraset</find>
@@ -192,6 +210,8 @@
       <find>角色代码</find>
       <find>open</find>
       <find>roleAuthTree</find>
+      <find>lay-search</find>
+      <find>authoritiesEditParentSel</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -200,7 +220,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/FarmWorkController.java" />
         <option value="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/FarmWork.java" />
         <option value="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/SowRecord.java" />
         <option value="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/repository/SowRecordRepository.java" />
@@ -238,19 +257,20 @@
         <option value="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/controller/UserController.java" />
         <option value="$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/UserRepository.xml" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/page/role_manage.html" />
-        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/admin_index.html" />
         <option value="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/entity/Role.java" />
         <option value="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/entity/Auth.java" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/role_manage.html" />
-        <option value="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/AuthRepository.java" />
-        <option value="$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/AuthRepository.xml" />
-        <option value="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/controller/AuthController.java" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Auth.java" />
         <option value="$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/RoleRepository.xml" />
         <option value="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/RoleRepository.java" />
+        <option value="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/controller/RoleController.java" />
+        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/admin_index.html" />
+        <option value="$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/AuthRepository.xml" />
+        <option value="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/AuthRepository.java" />
+        <option value="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/controller/AuthController.java" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/UserFeign.java" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/snpt_user/src/main/java/com/wly/controller/RoleController.java" />
+        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/auth_manage.html" />
       </list>
     </option>
   </component>
@@ -292,8 +312,8 @@
     <option name="jreName" value="1.8" />
     <option name="vmOptions" value="-DarchetypeCatalog=internal" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="61" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="36" />
     <option name="y" value="23" />
     <option name="width" value="1390" />
     <option name="height" value="784" />
@@ -408,16 +428,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
@@ -707,7 +717,7 @@
       <workItem from="1584597102068" duration="13123000" />
       <workItem from="1584768004616" duration="5952000" />
       <workItem from="1585014200031" duration="27055000" />
-      <workItem from="1585182785519" duration="10816000" />
+      <workItem from="1585182785519" duration="17065000" />
     </task>
     <task id="LOCAL-00001" summary="2.22 4:02">
       <created>1582358580205</created>
@@ -720,7 +730,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372679000" />
+    <option name="totallyTimeSpent" value="378928000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -732,10 +742,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="61" y="23" width="1390" height="784" extended-state="0" />
-    <editor active="true" />
+    <frame x="36" y="23" width="1390" height="784" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4965197" visible="true" weight="0.24480712" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4965197" visible="true" weight="0.24480712" />
       <window_info id="Structure" order="1" sideWeight="0.50063694" side_tool="true" weight="0.2790869" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -745,7 +754,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299363" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43786126" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.43786126" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39739883" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -819,23 +828,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="2.22 4:02" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91375">
-          <caret line="5375" column="43" selection-start-line="5375" selection-start-column="28" selection-end-line="5375" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/GoodsRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="12" column="40" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/GoodsRepository.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -1027,20 +1019,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/admin_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="79" column="67" selection-start-line="79" selection-start-column="67" selection-end-line="79" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/user_manage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="122" selection-start-line="122" selection-end-line="123" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/UserRepository.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -1098,36 +1076,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_user/src/main/java/com/wly/entity/Auth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_user/src/main/java/com/wly/controller/AuthController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="25" column="38" selection-start-line="24" selection-start-column="4" selection-end-line="25" selection-end-column="38" />
-          <folding>
-            <element signature="e#768#769#0" expanded="true" />
-            <element signature="e#815#816#0" expanded="true" />
-            <element signature="e#763#764#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/AuthRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/role_manage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -1152,23 +1100,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="61" column="43" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/AuthRepository.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84">
-          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/RoleRepository.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -1176,12 +1107,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_user/src/main/java/com/wly/entity/Auth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_user/src/main/resources/Mapper/AuthRepository.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/RoleRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
+        <state relative-caret-position="238">
           <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_user/src/main/java/com/wly/repository/AuthRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_user/src/main/java/com/wly/controller/AuthController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+            <element signature="e#815#816#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1193,10 +1161,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/UserFeign.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
+        <state relative-caret-position="280">
+          <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/admin_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="121" selection-start-line="121" selection-end-line="122" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/assets2/js/common.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/user_manage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="122" selection-start-line="122" selection-end-line="123" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/auth_manage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
+          <folding>
+            <element signature="e#2016#2022#0" expanded="true" />
+            <element signature="e#2225#2231#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

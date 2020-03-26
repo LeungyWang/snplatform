@@ -40,7 +40,12 @@ public interface UserFeign {
     @PutMapping("/role/updateCheck/{roleid}/{authid}")
     public void updateCheck(@PathVariable String roleid,@PathVariable int authid);
 
+    //查询所有权限id
     @GetMapping("/auth/findAuthids")
     public List<Integer> findAuthids();
+
+    //查询所有权限
+    @GetMapping("/auth/findAll")
+    public Result findAllAuth();
 
 }

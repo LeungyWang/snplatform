@@ -17,9 +17,9 @@ public class AuthController {
     @Autowired
     private AuthRepository authRepository;
 
-    @GetMapping("/findAll/{index}/{limit}")
-    public Result findAll(@PathVariable("index") int index, @PathVariable("limit") int limit){
-        return new Result(0,"",authRepository.count(),authRepository.findAll(index,limit));
+    @GetMapping("/findAll")
+    public Result findAll(){
+        return new Result(0,"",authRepository.count(),authRepository.findAll());
     }
 
     @GetMapping("/findAuthids")
