@@ -43,6 +43,8 @@ public class UserController {
         return userFeign.findRoleById(id);
     }
 
+
+
     //页面跳转
     @GetMapping("/redirect/{localtion}")
     public String redirect(@PathVariable("localtion") String localtion){

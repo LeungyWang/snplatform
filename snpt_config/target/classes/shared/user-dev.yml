@@ -10,6 +10,10 @@ spring:
     url: jdbc:mysql://localhost:3306/snpt_user?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
     username: root
     password: 134679
+  redis:
+    host: 118.178.121.175
+  rabbitmq:
+    host: 118.178.121.175
 eureka:
   client:
     service-url:

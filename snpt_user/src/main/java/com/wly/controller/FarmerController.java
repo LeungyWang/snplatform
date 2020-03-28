@@ -1,6 +1,8 @@
 package com.wly.controller;
 
+import com.wly.entity.Farmer;
 import com.wly.entity.User;
+import com.wly.repository.FarmerRepository;
 import com.wly.repository.RoleRepository;
 import com.wly.repository.UserRepository;
 import entity.Result;
@@ -17,14 +19,11 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/farmer")
+public class FarmerController {
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private RoleRepository roleRepository;
+    private FarmerRepository farmerRepository;
 
     @Autowired
     private RedisTemplate redisTemplate;
@@ -36,7 +35,7 @@ public class UserController {
     //查找所有用户
     @GetMapping("/findAll/{index}/{limit}")
     public Result findAll(@PathVariable("index") int index, @PathVariable("limit") int limit){
-        List<User> users = userRepository.findAll(index,limit);
+        List<Farmer> users = userRepository.findAll(index,limit);
         for (int i=0;i<users.size();i++){
             User user = users.get(i);
             String userid = user.getId();

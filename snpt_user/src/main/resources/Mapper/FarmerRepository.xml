@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.FarmerRepository">
+
+
+    <select id="findAll" resultType="Farmer">
+        select * from farmer
+    </select>
+
+
+    <select id="count" resultType="int">
+        select count(id) from farmer
+    </select>
+    
+    <select id="findByPhone" parameterType="String" resultType="Farmer">
+        select * from farmer where phone = #{phone}
+    </select>
+
+    <insert id="save" parameterType="Farmer">
+        insert into farmer(id,name,phone,idno,creditno,province,district,county,village) values (#{id},#{name},#{idno},#{creditno},#{province},#{district},#{county},#{village})
+    </insert>
+    
+    <update id="update" parameterType="Farmer">
+        update farmer set creditno = #{creditno}, province = #{province}, district = #{district}, county = #{county}, village = #{village} where id = #{id}
+    </update>
+    
+
+    <delete id="deleteById" parameterType="String">
+        delete from farmer where id = #{id}
+    </delete>
+
+    
+</mapper>
