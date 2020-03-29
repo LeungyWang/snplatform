@@ -39,7 +39,7 @@
                     <li><a href="#contact" class="scroll">农资信息管理系统</a></li>
                     <li><a href="#contact" class="scroll">科普农业</a></li>
                     <li><a href="#contact" class="scroll">数据农业</a></li>
-                    <li th:if="${not #strings.isEmpty(session.user)}"><a href="#contact" class="scroll" th:text="'欢迎您的登录，'+${session.user.name}">
+                    <li th:if="${not #strings.isEmpty(session.user)}"><a href="#contact" class="scroll" th:text="'欢迎您的登录，'+${session.user.nickname}">
 <!--                        <span th:text="'欢迎您的登录，'+${session.user.name}" th:remove="tag"></span>-->
                     </a>
                     </li>

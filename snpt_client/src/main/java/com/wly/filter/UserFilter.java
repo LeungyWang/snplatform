@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @Component
 @WebFilter(urlPatterns = {"/land/redirect/index2"}, filterName = "userFilter")
-public class  UserFilter implements Filter {
+public class    UserFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 

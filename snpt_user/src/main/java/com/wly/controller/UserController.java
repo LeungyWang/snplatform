@@ -9,6 +9,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
+import util.IdWorker;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -31,6 +32,9 @@ public class UserController {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
+
+    @Autowired
+    public IdWorker idWorker;
 
 
     //查找所有用户
@@ -91,32 +95,37 @@ public class UserController {
      * @param user
      * @return
      */
-    @PostMapping("/save")
-    public Result save(@RequestBody User user){
+    @PostMapping("/regist/{type}/{code}")
+    public Result regist(@PathVariable String type,@PathVariable String code,@RequestBody User user){
+        //先得到缓存中的验证码
+        String checkcodeRedis = (String) redisTemplate.opsForValue().get("checkcode_"+user.getPhone());
+        if (checkcodeRedis.isEmpty()){
+            return new Result(500,"请先获取验证码",1,"");
+        }
+        if (!checkcodeRedis.equals(code)){
+            return new Result(500,"验证码有误",1,"");
+        }
+        String roleid = "";
         if (userRepository.findByUsername(user.getUsername())==null) {
+            user.setId("U"+idWorker.nextId());
+            user.setStatus(0);
             user.setCreatetime(new Date());
+            if (type.equals("farmer")){
+                roleid = roleRepository.findIdByCode("farmer");
+            }else if (type.equals("businesses")){
+                roleid = roleRepository.findIdByCode("businesses");
+            }else if (type.equals("client")){
+                roleid = roleRepository.findIdByCode("client");
+            }
+            String userid = user.getId();
+            String id = "UR"+idWorker.nextId();
             userRepository.save(user);
+            roleRepository.saveUserRole(id,userid,roleid);
             return new Result(200,"恭喜您，注册成功！",1,"");
         }else{
             return new Result(500,"此用户名已被注册，请更换用户名！",1,"");
         }
     }
-
-    /**
-     * 农户信息保存
-     * @param user
-     */
-    @PostMapping("/farmer/save")
-    public Result saveFarmer(@RequestBody User user){
-        if (userRepository.findByUsername(user.getUsername())==null) {
-            user.setCreatetime(new Date());
-            userRepository.save(user);
-            return new Result(200,"恭喜您，注册成功！",1,"");
-        }else{
-            return new Result(500,"此用户名已被注册，请更换用户名！",1,"");
-        }
-    }
-
 
 
     //修改用户信息
@@ -139,6 +148,7 @@ public class UserController {
         userRepository.deleteById(id);
     }
 
+    //发送短信验证码
     public void sendSms(String mobile){
         //生成六位随机数
         String checkcode = RandomStringUtils.randomNumeric(6);

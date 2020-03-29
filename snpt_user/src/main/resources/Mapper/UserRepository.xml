@@ -25,7 +25,7 @@
     </select>
 
     <insert id="save" parameterType="User">
-        insert into user(username,password,name,gender,telephone,registdate,address) values (#{username},#{password},#{name},#{gender},#{telephone},#{registdate},#{address})
+        insert into user(id,username,nickname,sex,password,phone,status,createtime) values (#{id},#{username},#{nickname},#{sex},#{password},#{phone},#{status},#{createtime})
     </insert>
     
     <update id="update" parameterType="User">

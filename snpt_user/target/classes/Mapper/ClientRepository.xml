@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.ClientRepository">
+
+
+    <select id="findAll" resultType="Client">
+        select * from client
+    </select>
+
+
+    <select id="count" resultType="int">
+        select count(id) from client
+    </select>
+    
+    <select id="findByPhone" parameterType="String" resultType="Client">
+        select * from client where phone = #{phone}
+    </select>
+
+    <insert id="save" parameterType="Client">
+        insert into client(id,name,phone,idno,email,address) values (#{id},#{name},#{phone},#{idno},#{email},#{address})
+    </insert>
+    
+    <update id="update" parameterType="Client">
+        update client set email = #{email}, address = #{address} where id = #{id}
+    </update>
+    
+
+    <delete id="deleteById" parameterType="String">
+        delete from client where id = #{id}
+    </delete>
+
+    
+</mapper>

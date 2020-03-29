@@ -1,5 +1,8 @@
 package com.wly.controller;
 
+import com.wly.entity.Businesses;
+import com.wly.entity.Client;
+import com.wly.entity.Farmer;
 import com.wly.entity.User;
 import com.wly.feign.UserFeign;
 import entity.Result;
@@ -132,9 +135,9 @@ public class UserController {
                 case "user":
                     User user = new User();
                     id = hashMap.get("id") + "";
-                    String name = (String) hashMap.get("name");
+                    String nickname = (String) hashMap.get("nickname");
                     user.setId(id);
-                    user.setNickname(name);
+                    user.setNickname(nickname);
                     session.setAttribute("user", user);
                     return result;
                 case "admin":
@@ -156,10 +159,42 @@ public class UserController {
      *
      * @实现注册功能
      */
-    @PostMapping("/save")
+    //发送短信验证码功能
+    @PostMapping("/sendSms")
     @ResponseBody
-    public Result save(User user){
-        return userFeign.save(user);
+    public Result sendSms(@RequestParam String mobile){
+        return userFeign.sendMessages(mobile);
     }
+
+
+    //注册时保存系统用户信息
+    @PostMapping("/regist/{type}/{code}")
+    @ResponseBody
+    public Result save(@PathVariable String type, @PathVariable String code,User user){
+        return userFeign.save(type,code,user);
+    }
+
+
+    //注册时保存农户信息
+    @PostMapping("/farmer/save")
+    @ResponseBody
+    public Result saveFarmer(Farmer farmer){
+        return userFeign.saveFarmer(farmer);
+    }
+
+    //注册时保存普通用户信息
+    @PostMapping("/client/save")
+    @ResponseBody
+    public Result saveClient(Client client){
+        return userFeign.saveClient(client);
+    }
+
+    //注册时保存农户信息
+    @PostMapping("/businesses/save")
+    @ResponseBody
+    public Result saveBusinesses(Businesses businesses){
+        return userFeign.saveBusinesses(businesses);
+    }
+
 
 }

@@ -56,9 +56,15 @@
                                 </div>
                             </div>
                             <div class="layui-form-item">
+                                <label class="layui-form-label">电话:</label>
+                                <div class="layui-input-block">
+                                    <input type="text" id="phone1" name="phone" placeholder="请输入您的电话" class="layui-input"/>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
                                 <label class="layui-form-label layui-form-required">邮箱地址:</label>
                                 <div class="layui-input-block">
-                                    <input type="email"  placeholder="请输入邮箱地址"
+                                    <input type="email" name="email"  placeholder="请输入邮箱地址"
                                            class="layui-input"
                                            lay-verify="required" required>
                                 </div>
@@ -107,14 +113,14 @@
                             <div class="layui-form-item">
                                 <label class="layui-form-label">性别:</label>
                                 <div class="layui-input-inline" style="display: block;width: auto;float: none;">
-                                    <input type="radio" name="gender" value="男" title="男" checked>
-                                    <input type="radio" name="gender" value="女" title="女">
+                                    <input type="radio" name="sex" value="男" title="男" checked>
+                                    <input type="radio" name="sex" value="女" title="女">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">电话:</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="telephone" placeholder="请输入您的电话" class="layui-input"/>
+                                    <input type="text" id="L_phone" name="phone" placeholder="请输入您的电话" class="layui-input" readonly="true" />
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -133,12 +139,29 @@
                             </div>
                             <div class="layui-form-item">
                                 <div class="layui-input-block">
-                                    <button type="button" class="layui-btn layui-btn-primary pre">上一步</button>
+<!--                                    <button type="button" class="layui-btn layui-btn-primary pre">上一步</button>-->
                                     <button class="layui-btn" lay-submit lay-filter="formDemo2">&emsp;提交&emsp;
                                     </button>
                                 </div>
                             </div>
                         </form>
+
+                    </div>
+
+                    <div>
+
+                        <div style="text-align: center;margin-top: 90px;">
+                            <i class="layui-icon layui-circle"
+                               style="color: white;font-size:30px;font-weight:bold;background: #52C41A;padding: 20px;line-height: 80px;">&#xe605;</i>
+                            <div style="font-size: 24px;color: #333;font-weight: 500;margin-top: 30px;">注册成功！
+                            </div>
+                            <div style="font-size: 14px;color: #666;margin-top: 20px;"></div>
+                        </div>
+
+                        <div style="text-align: center;margin-top: 50px;">
+                            <button onclick="location.replace('/user/redirect/login')" class="layui-btn">登录</button>
+                            <!--                            <button class="layui-btn layui-btn-primary">查看账单</button>-->
+                        </div>
 
                     </div>
 
@@ -177,18 +200,89 @@
             }]
         });
 
+        $("#p_djs").hide();
+
+        function sendyzm(obj){
+            var phone = $("#L_phone").val();
+            if(phone) {
+                $.ajax({
+                    url:"/user/sendSms",
+                    data:{mobile:phone},
+                    dataType:"json",
+                    type:"post",
+                    async : false,
+                    cache : false,
+                    success:function(res){
+                        // debugger;
+                        if(res.code==200){
+                            layer.msg("验证码发送成功",{icon:1});
+                        }else{
+                            layer.msg("验证码发送失败",{icon:2});
+                        }
+                    },
+                    error:function(){
+                        alert("验证码发送失败");
+                    }
+                });
+                setTime(obj);//开始倒计时
+            }
+        }
+
+        var countdown = 60;
+        function setTime(obj) {
+            if (countdown == 0) {
+                obj.prop('disabled', false);
+                obj.text("点击获取验证码");
+                countdown = 60;//60秒过后button上的文字初始化,计时器初始化;
+                return;
+            } else {
+                obj.prop('disabled', true);
+                obj.text("("+countdown+"s)后重新发送") ;
+                countdown--;
+            }
+            setTimeout(function() { setTime(obj) },1000) //每1000毫秒执行一次
+        }
+
+
+
+        $('#send_phone').on('click', function(){
+            sendyzm($("#send_phone"));
+        });
+
+
+
+
+
         form.on('submit(formDemo)', function (data) {
-            step.next('#stepForm');
+            var phone1 = document.getElementById("phone1").value;
+            document.getElementById("L_phone").value = phone1;
+            $.post("/user/client/save", data.field, function (res) {
+                layer.closeAll('loading');
+                if (res.code == 200) {
+                    step.next('#stepForm');
+                } else {
+                    layer.msg(res.msg, {icon: 2});
+                }
+            }, 'json');
             return false;
         });
 
         form.on('submit(formDemo2)', function (data) {
-            step.next('#stepForm');
+            var checkcode = $('#L_pass').val();
+            url = "/user/regist/client/"+checkcode;
+            $.post(url, data.field, function (res) {
+                layer.closeAll('loading');
+                if (res.code == 200) {
+                    step.next('#stepForm');
+                } else {
+                    layer.msg(res.msg, {icon: 2});
+                }
+            }, 'json');
             return false;
         });
 
         $('.pre').click(function () {
-            step.pre('#stepForm');
+            // step.pre('#stepForm');
         });
 
         $('.next').click(function () {

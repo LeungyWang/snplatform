@@ -8,6 +8,7 @@ import java.util.List;
 public interface RoleRepository {
     public List<Role> findAll(int index, int limit);
     public Role findById(String id);
+    public String findIdByCode(String rolecode);
     public List<Role> findRoles(String userid);
     //得到权限的值
     public Boolean findChecked(String roleid,int authid);
@@ -17,6 +18,7 @@ public interface RoleRepository {
     public void updateCheck(String roleid,int authid);
     public int count();
     public void save(Role role);
+    public void saveUserRole(String id,String userid,String roleid);
     public void update(Role role);
     public void deleteById(String id);
 }

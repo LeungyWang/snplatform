@@ -11,9 +11,12 @@ spring:
     username: root
     password: 134679
   redis:
-    host: 118.178.121.175
+    host:  118.178.121.175
   rabbitmq:
-    host: 118.178.121.175
+    host:  47.100.35.57
+    port: 5672
+    username: guest
+    password: guest
 eureka:
   client:
     service-url:

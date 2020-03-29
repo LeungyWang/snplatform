@@ -23,6 +23,10 @@
         select * from role where id = #{id}
     </select>
 
+    <select id="findIdByCode" parameterType="String" resultType="String">
+        select id from role where rolecode = #{rolecode}
+    </select>
+
     <select id="findChecked" resultType="Boolean">
         select checked from role_auth where roleid=#{roleid} and authid=#{authid}
     </select>
@@ -30,6 +34,10 @@
 
     <insert id="save" parameterType="Role">
         insert into role(id,rolename,rolecode,remark,createtime) values (#{id},#{rolename},#{rolecode},#{remark},#{createtime})
+    </insert>
+
+    <insert id="saveUserRole" >
+        insert into user_role(id,userid,roleid) values (#{id},#{userid},#{roleid})
     </insert>
     
     <update id="update" parameterType="Role">

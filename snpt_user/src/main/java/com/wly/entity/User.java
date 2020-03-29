@@ -13,7 +13,7 @@ public class User {
     private String sex;
     private String password;
     private String phone;
-    private String status;
+    private int status;
     private List<Role> roles;
     private Date createtime;
 }

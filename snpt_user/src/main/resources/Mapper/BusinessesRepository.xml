@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.BusinessesRepository">
+
+
+    <select id="findAll" resultType="Businesses">
+        select * from businesses limit #{index},#{limit}
+    </select>
+
+
+    <select id="count" resultType="int">
+        select count(id) from businesses
+    </select>
+    
+    <select id="findByPhone" parameterType="String" resultType="Businesses">
+        select * from businesses where phone = #{phone}
+    </select>
+
+    <insert id="save" parameterType="Businesses">
+        insert into businesses(id,ownername,shopname,intro,type,phone,creditno,idno) values (#{id},#{ownername},#{shopname},#{intro},#{type},#{phone},#{creditno},#{idno})
+    </insert>
+    
+    <update id="update" parameterType="Businesses">
+        update businesses set shopname = #{shopname}, ownername = #{ownername} ,intro=#{intro} type=#{type} where id = #{id}
+    </update>
+    
+
+    <delete id="deleteById" parameterType="String">
+        delete from businesses where id = #{id}
+    </delete>
+
+    
+</mapper>

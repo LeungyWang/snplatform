@@ -1,5 +1,8 @@
 package com.wly.feign;
 
+import com.wly.entity.Businesses;
+import com.wly.entity.Client;
+import com.wly.entity.Farmer;
 import com.wly.entity.User;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,18 @@ import java.util.List;
 @FeignClient("user")
 public interface UserFeign {
 
+
+    /**
+     *
+     * 用户注册登录管理
+     *
+     */
+
+
+    //发送短信验证码
+    @RequestMapping(value = "/user/sendsms/{mobile}",method = RequestMethod.POST)
+    public Result sendMessages(@PathVariable String mobile);
+
     @GetMapping("/user/findAll/{index}/{limit}")
     public Result findAll(@PathVariable("index") int index, @PathVariable("limit") int limit);
 
@@ -18,11 +33,27 @@ public interface UserFeign {
     public Result login(@PathVariable("username") String usernmae, @PathVariable("password") String password, @PathVariable("type") String type);
 
 
-    @PostMapping("/user/save")
-    public Result save(@RequestBody User user);
+    @PostMapping("/user/regist/{type}/{code}")
+    public Result save(@PathVariable String type,@PathVariable String code,@RequestBody User user);
 
     @PutMapping("/user/updateStatus/{flag}/{id}")
     public Result updateStatus(@PathVariable int flag,@PathVariable String id);
+
+
+    @PostMapping("/farmer/save")
+    public Result saveFarmer(@RequestBody Farmer farmer);
+
+    @PostMapping("/client/save")
+    public Result saveClient(@RequestBody Client client);
+
+    @PostMapping("/businesses/save")
+    public Result saveBusinesses(@RequestBody Businesses businesses);
+
+    /**
+     *
+     * 角色管理
+     *
+     */
 
     //查找所有的用户角色
     @GetMapping("/role/findAll/{index}/{limit}")
@@ -40,6 +71,12 @@ public interface UserFeign {
     @PutMapping("/role/updateCheck/{roleid}/{authid}")
     public void updateCheck(@PathVariable String roleid,@PathVariable int authid);
 
+    /**
+     *
+     * 权限管理
+     *
+     */
+
     //查询所有权限id
     @GetMapping("/auth/findAuthids")
     public List<Integer> findAuthids();
@@ -47,5 +84,8 @@ public interface UserFeign {
     //查询所有权限
     @GetMapping("/auth/findAll")
     public Result findAllAuth();
+
+
+
 
 }
