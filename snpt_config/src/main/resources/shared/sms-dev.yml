@@ -1,0 +1,14 @@
+server:
+  port: 9050
+spring:
+  rabbitmq:
+    host: 47.100.35.57
+    port: 5672
+    username: guest
+    password: guest
+aliyun:
+  sms:
+    accessKeyId: LTAI4Fv11465FAxHtEbdat9b
+    accessKeySecret: UAukimg39yZZVQZXgDINZx2H8XgDc2
+    template_code: SMS_183261130
+    sign_name: 上理学校SC项目

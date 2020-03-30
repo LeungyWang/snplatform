@@ -13,7 +13,7 @@ spring:
   redis:
     host:  118.178.121.175
   rabbitmq:
-    host:  47.100.35.57
+    host: 47.100.35.57
     port: 5672
     username: guest
     password: guest
