@@ -10,5 +10,5 @@ aliyun:
   sms:
     accessKeyId: LTAI4Fv11465FAxHtEbdat9b
     accessKeySecret: UAukimg39yZZVQZXgDINZx2H8XgDc2
-    template_code: SMS_183261130
+    template_code: SMS_186966351
     sign_name: 上理学校SC项目

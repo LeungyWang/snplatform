@@ -2,6 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wly.repository.GoodsRepository">
 
+    <select id="findAll" resultType="Goods">
+        select * from goods where status="审核中" limit #{index},#{limit}
+    </select>
 
     <select id="findAllByUserId" resultType="Goods">
         select * from goods where applicant= #{param1} limit #{param2},#{param3}
@@ -17,6 +20,10 @@
 
     <select id="countByUserid" resultType="int">
         select count(id) from goods where applicant = #{applicant}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from goods
     </select>
 
     <select id="findById" parameterType="String" resultType="Goods">

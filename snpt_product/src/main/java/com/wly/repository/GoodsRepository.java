@@ -5,6 +5,8 @@ import com.wly.entity.Goods;
 import java.util.List;
 
 public interface GoodsRepository {
+    //查询所有的农产品
+    public  List<Goods> findAll(int index, int limit);
     //查找用户所有的农产品 有分页
     public List<Goods> findAllByUserId(String userid,int index, int limit);
     //查找用户所有的农产品 无分页

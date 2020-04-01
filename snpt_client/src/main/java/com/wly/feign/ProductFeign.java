@@ -10,9 +10,14 @@ import java.util.List;
 @FeignClient("product")
 public interface ProductFeign {
 
+    //查询所有农产品
+    //查找所有产品
+    @GetMapping("/goods/findAll/{index}/{limit}")
+    public Result findAll(@PathVariable int index, @PathVariable int limit);
+
     //查询农户所有的农产品
     @GetMapping("/goods/findAll/{index}/{limit}/{userid}")
-    public Result findAll(@PathVariable int index, @PathVariable int limit, @PathVariable String userid);
+    public Result findAllByuser(@PathVariable int index, @PathVariable int limit, @PathVariable String userid);
 
     //单个产品详情页
     @GetMapping("/goods/findById/{id}")
@@ -30,6 +35,19 @@ public interface ProductFeign {
     @PutMapping("/goods/cancelapply/{id}")
     public Result cancelApply(@PathVariable String id);
 
+    //农户下架农产品
+    @PutMapping("/goods/soldout/{id}")
+    public Result soldout(@PathVariable String id);
+
+    //管理员通过农产品审核
+    @PutMapping("/goods/approve/{id}")
+    public Result approveApply(@PathVariable String id);
+
+    //管理员不通过农产品审核
+    @PutMapping("/goods/disapprove/{id}")
+    public Result disapproveApply(@PathVariable String id);
+
+
     //展示审核通过的蔬菜类农产品
     @GetMapping("/goods/findVegetablesProduct")
     public List<Goods> findVegetablesProduct();
@@ -41,4 +59,16 @@ public interface ProductFeign {
     //展示审核通过的粮食作物类农产品
     @GetMapping("/goods/findCerealsProduct")
     public List<Goods> findCerealsProduct();
+
+    //展示审核通过的种子农资产品
+    @GetMapping("/goods/findSeedProduct")
+    public List<Goods> findSeedProduct();
+
+    //展示审核通过的肥料农资产品
+    @GetMapping("/goods/findFertilizerProduct")
+    public List<Goods> findFertilizerProduct();
+
+    //展示审核通过的肥料农资产品
+    @GetMapping("/goods/findPesticideProduct")
+    public List<Goods> findPesticideProduct();
 }

@@ -19,10 +19,16 @@ public class GoodsController {
     @Autowired
     public IdWorker idWorker;
 
-    //查找功能
+    //查找指定用户的产品
     @GetMapping("/findAll/{index}/{limit}/{userid}")
     public Result findAll(@PathVariable int index, @PathVariable int limit, @PathVariable String userid){
         return new Result(0,"",goodsRepository.countByUserid(userid),goodsRepository.findAllByUserId(userid,index,limit));
+    }
+
+    //查找所有产品正在审核中的产品
+    @GetMapping("/findAll/{index}/{limit}")
+    public Result findAll(@PathVariable int index, @PathVariable int limit){
+        return new Result(0,"",goodsRepository.count(),goodsRepository.findAll(index,limit));
     }
 
     //查找功能
@@ -77,6 +83,27 @@ public class GoodsController {
         return new Result(200,"产品上架申请取消成功！",1,"");
     }
 
+    //农户下架农产品
+    @PutMapping("/soldout/{id}")
+    public Result soldout(@PathVariable String id){
+        goodsRepository.updateStatus("已下架",id);
+        return new Result(200,"产品下架成功！",1,"");
+    }
+
+    //管理员通过农产品审核
+    @PutMapping("/approve/{id}")
+    public Result approveApply(@PathVariable String id){
+        goodsRepository.updateStatus("审核通过",id);
+        return new Result(200,"产品审核通过成功！",1,"");
+    }
+
+    //管理员不通过农产品审核
+    @PutMapping("/disapprove/{id}")
+    public Result disapproveApply(@PathVariable String id){
+        goodsRepository.updateStatus("审核不通过",id);
+        return new Result(200,"产品审核不通过成功！",1,"");
+    }
+
     //展示审核通过的蔬菜类农产品
     @GetMapping("/findVegetablesProduct")
     public List<Goods> findVegetablesProduct(){
@@ -94,6 +121,25 @@ public class GoodsController {
     public List<Goods> findCerealsProduct(){
         return goodsRepository.findAllByCategory("3");
     }
+
+    //展示审核通过的种子农资产品
+    @GetMapping("/findSeedProduct")
+    public List<Goods> findSeedProduct(){
+        return goodsRepository.findAllByCategory("4");
+    }
+
+    //展示审核通过的肥料农资产品
+    @GetMapping("/findFertilizerProduct")
+    public List<Goods> findFertilizerProduct(){
+        return goodsRepository.findAllByCategory("5");
+    }
+
+    //展示审核通过的肥料农资产品
+    @GetMapping("/findPesticideProduct")
+    public List<Goods> findPesticideProduct(){
+        return goodsRepository.findAllByCategory("6");
+    }
+
 
 
 }

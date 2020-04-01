@@ -28,6 +28,14 @@ public class ProductController {
     @Autowired
     private ProductFeign productFeign;
 
+    //查询所有产品
+    @GetMapping("/goods/findAllGoods")
+    @ResponseBody
+    public Result findAll(@RequestParam("page") int page, @RequestParam("limit") int limit){
+        int index = (page-1)*limit;
+        Result goods = productFeign.findAll(index,limit);
+        return goods;
+    }
 
     //查询用户所有农产品功能实现
     @GetMapping("/goods/findAll")
@@ -36,7 +44,7 @@ public class ProductController {
         int index = (page-1)*limit;
         User user = (User) session.getAttribute("user");
         String userid = user.getId();
-        Result goods = productFeign.findAll(index,limit,userid);
+        Result goods = productFeign.findAllByuser(index,limit,userid);
         return goods;
     }
 
@@ -140,6 +148,28 @@ public class ProductController {
         return productFeign.cancelApply(id);
     }
 
+    //农户下架农产品
+    @GetMapping("/goods/soldout")
+    @ResponseBody
+    public Result goodsoldout(@RequestParam("id") String id){
+        return productFeign.soldout(id);
+    }
+
+    //管理员通过上架申请
+    @GetMapping("/goods/approveapply")
+    @ResponseBody
+    public Result approveApply(@RequestParam("id") String id){
+        return productFeign.approveApply(id);
+    }
+
+    //管理员不通过上架申请
+    @GetMapping("/goods/disapproveapply")
+    @ResponseBody
+    public Result disapproveApply(@RequestParam("id") String id){
+        return productFeign.disapproveApply(id);
+    }
+
+    //查找所有已上架产品
     @GetMapping("/goods/findAllProduct")
     public ModelAndView findAllProduct(){
         ModelAndView modelAndView = new ModelAndView();
@@ -147,8 +177,13 @@ public class ProductController {
         modelAndView.addObject("vegetables",productFeign.findVegetablesProduct());
         modelAndView.addObject("fruits",productFeign.findFruitsProduct());
         modelAndView.addObject("cereals",productFeign.findCerealsProduct());
+        modelAndView.addObject("seeds",productFeign.findSeedProduct());
+        modelAndView.addObject("fertilizers",productFeign.findFertilizerProduct());
+        modelAndView.addObject("pesticides",productFeign.findPesticideProduct());
         return modelAndView;
     }
+
+
 
 
 }

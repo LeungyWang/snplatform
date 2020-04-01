@@ -357,8 +357,12 @@
                                         <li class="menu_item_children"><a href="#">水果</a>
                                         </li>
                                         <li class="menu_item_children"><a href="#">粮食</a>
-
+                                        <li class="menu_item_children"><a href="#">种子</a>
+                                    </li>
+                                        <li class="menu_item_children"><a href="#">化肥</a>
                                         </li>
+                                        <li class="menu_item_children"><a href="#">农药</a>
+                                    </li>
                                        
                                     </ul>
                                 </div>
@@ -593,7 +597,148 @@
         </div> 
     </div>
     <!--product area end-->
-    
+    <div class="product_area  mb-64">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="product_header">
+                        <div class="section_title">
+                            <!--                            <p>Recently added our store</p>
+                             -->                           <h2>农资商品</h2>
+                        </div>
+                        <div class="product_tab_btn">
+                            <ul class="nav" role="tablist">
+                                <li>
+                                    <a class="active" data-toggle="tab" href="#seed" role="tab" aria-controls="plant1" aria-selected="true">
+                                        种子
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#fertilizer" role="tab" aria-controls="plant2" aria-selected="false">
+                                        肥料
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#pesticide" role="tab" aria-controls="plant3" aria-selected="false">
+                                        农药
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product_container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tab-content">
+                            <!--                            种子类-->
+                            <div class="tab-pane fade show active" id="seed" role="tabpanel"  >
+                                <div class="product_carousel product_column5 owl-carousel" >
+                                    <div class="product_items" th:each="seed:${seeds}">
+                                        <article class="single_product">
+                                            <figure >
+                                                <div class="product_thumb">
+                                                    <a class="primary_img" th:href="'/product/goods/detail/'+${seed.id}"><img th:src="${seed.picture}" alt=""></a>
+                                                    <div class="label_product">
+                                                        <span class="label_sale">售卖</span>
+                                                        <span class="label_new">新品</span>
+                                                    </div>
+                                                    <div class="action_links">
+                                                        <ul>
+                                                            <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
+                                                            <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+                                                            <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>
+                                                            <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="product_content">
+                                                    <h4 class="product_name"><a th:href="'/product/goods/detail/'+${vegetable.id}" th:text="${vegetable.name}"></a></h4>
+                                                    <p><a href="#">Fruits</a></p>
+                                                    <div class="price_box">
+                                                        <span class="current_price" th:text="${vegetable.price}+'元'"></span>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--                           肥料类-->
+                            <div class="tab-pane fade" id="fertilizer" role="tabpanel">
+                                <div class="product_carousel product_column5 owl-carousel">
+                                    <div class="product_items" th:each="fertilizer:${fertilizers}" >
+                                        <article class="single_product" >
+                                            <figure>
+                                                <div class="product_thumb">
+                                                    <a class="primary_img" th:href="'/product/goods/detail/'+${fertilizer.id}"><img th:src="${fertilizer.picture}" alt=""></a>
+                                                    <div class="label_product">
+                                                        <span class="label_sale">Sale</span>
+                                                        <span class="label_new">New</span>
+                                                    </div>
+                                                    <div class="action_links">
+                                                        <ul>
+                                                            <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
+                                                            <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+                                                            <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>
+                                                            <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="product_content">
+                                                    <h4 class="product_name"><a th:href="'/product/goods/detail/'+${fertilizer.id}" th:text="${fertilizer.name}"></a></h4>
+                                                    <p><a href="#">Fruits</a></p>
+                                                    <div class="price_box">
+                                                        <span class="current_price" th:text="${fertilizer.price}+'元'"></span>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </article>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--                            农药类-->
+                            <div class="tab-pane fade" id="pesticide" role="tabpanel">
+                                <div class="product_carousel product_column5 owl-carousel">
+                                    <div class="product_items" th:each="pesticide:${pesticides}" >
+                                        <article class="single_product">
+                                            <figure>
+                                                <div class="product_thumb">
+                                                    <a class="primary_img" th:href="'/product/goods/detail/'+${pesticide.id}"><img th:src="${pesticide.picture}" alt=""></a>
+                                                    <div class="label_product">
+                                                        <span class="label_sale">Sale</span>
+                                                    </div>
+                                                    <div class="action_links">
+                                                        <ul>
+                                                            <li class="add_to_cart"><a href="cart.html" title="Add to cart"><span class="lnr lnr-cart"></span></a></li>
+                                                            <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
+                                                            <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>
+                                                            <li class="compare"><a href="#" title="Add to Compare"><span class="lnr lnr-sync"></span></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="product_content">
+                                                    <h4 class="product_name"><a th:href="'/product/goods/detail/'+${pesticide.id}" th:text="${pesticide.name}"></a></h4>
+                                                    <p><a href="#">Fruits</a></p>
+                                                    <div class="price_box">
+                                                        <span class="current_price" th:text="${pesticide.price}+'元'"></span>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </article>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--banner area start-->
 <!--    <div class="banner_area">-->
 <!--        <div class="container">-->
