@@ -203,7 +203,7 @@ public class SowController {
     //实现农事记录的增加功能
     @PostMapping("/sowrecord/save")
     @ResponseBody
-    public Result save(@RequestParam("landid") int landid, @RequestParam("seedid") String seedid,@RequestParam("farmworkid") String farmworkid,@RequestParam("dateRange") String dateRange,@RequestParam("timeRange") String timeRange,@RequestParam("content") String content,HttpSession session) throws ParseException {
+    public Result save(@RequestParam("landid") String landid, @RequestParam("seedid") String seedid,@RequestParam("farmworkid") String farmworkid,@RequestParam("dateRange") String dateRange,@RequestParam("timeRange") String timeRange,@RequestParam("content") String content,HttpSession session) throws ParseException {
         SowRecord sowRecord = new SowRecord();
         Seed seed  = new Seed();
         Soil soil  = new Soil();

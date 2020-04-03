@@ -6,10 +6,12 @@ import java.util.Date;
 
 @Data
 public class AgroChemical {
-    private long id;
+    private String id;
     private Soil soil;
     private double organic;//有机质
     private double nitrogen;//全氮
+    private double phosphorus;//全磷
+    private double potassium;//全钾
     private double iron;//铁
     private double manganese;//锰
     private double zinc;//锌

@@ -20,20 +20,25 @@
         select * from agrochemical limit #{param1},#{param2}
     </select>
 
+    <select id="findArgoByuserid" resultMap="agroChemicalMap">
+        select id from  agrochemical WHERE landid in (SELECT id FROM soil WHERE userid=#{userid})
+    </select>
+
     <select id="findAllByuserid" resultMap="agroChemicalMap">
-        SELECT * FROM agrochemical WHERE landid in (SELECT soilid FROM user_soil WHERE userid=#{param1}) limit #{param2}, #{param3}
+        SELECT * FROM agrochemical WHERE landid in (SELECT id FROM soil WHERE userid=#{param1}) limit #{param2}, #{param3}
     </select>
 
-    <select id="findLatestphByid" resultType="AgroChemical">
-        select ph from agrochemical where landid = #{landid} order by date limit 1
+
+    <select id="findphByid" resultType="AgroChemical">
+        select ph from agrochemical where id = #{id}
     </select>
 
-    <select id="findLatestmacroByid" resultType="AgroChemical">
-        select organic, nitrogen, raphosphorus, rapotassium  from  agrochemical  where landid = #{landid} order by date DESC limit 1
+    <select id="findmacroByid" resultType="AgroChemical">
+        select organic, nitrogen, raphosphorus, rapotassium  from  agrochemical  where id = #{id}
     </select>
 
-    <select id="findLatestmicroByid" resultType="AgroChemical">
-        select iron, manganese, zinc from agrochemical where landid = #{landid} order by date limit 1
+    <select id="findmicroByid" resultType="AgroChemical">
+        select iron, manganese, zinc from agrochemical where id = #{id}
     </select>
 
     <select id="findCommentByvalue" resultType="String">
@@ -41,12 +46,12 @@
 
     </select>
 
-    <select id="findById" parameterType="long" resultType="AgroChemical">
-        select * from agrochemical where landid = #{landid}
+    <select id="findById" resultMap="agroChemicalMap">
+        select * from agrochemical where id = #{id}
     </select>
 
     <select id="countByUserid" resultType="int">
-        SELECT COUNT(landid) FROM agrochemical WHERE landid in (SELECT soilid FROM user_soil WHERE userid=#{userid})
+        SELECT COUNT(id) from soil where  userid=#{userid}
     </select>
 
     <select id="countById" resultType="int">
@@ -58,11 +63,11 @@
     </select>
 
     <insert id="save" parameterType="AgroChemical">
-        insert into agrochemical(landid,organic,nitrogen,iron,manganese,zinc,raphosphorus,rapotassium,ph,date) values (#{soil.id},#{organic},#{nitrogen},#{phosphorus},#{potassium},#{ahnitrogen},#{raphosphorus},#{rapotassium},#{ph},#{date})
+        insert into agrochemical(id,landid,organic,nitrogen,phosphorus,potassium,iron,manganese,zinc,raphosphorus,rapotassium,ph,date) values (#{id},#{soil.id},#{organic},#{nitrogen},#{phosphorus},#{potassium},#{iron},#{manganese},#{zinc},#{raphosphorus},#{rapotassium},#{ph},#{date})
     </insert>
 
     <update id="update" parameterType="AgroChemical">
-        update agrochemical set landid = #{soil.id} , organic = #{organic}, nitrogen = #{nitrogen}, iron = #{iron}, manganese = #{manganese}, zinc = #{zinc}, raphosphorus = #{raphosphorus},rapotassium = #{rapotassium},ph = #{ph},date = #{date} where  id = #{id}
+        update agrochemical set landid = #{soil.id} , organic = #{organic}, nitrogen = #{nitrogen}, phosphorus=#{phosphorus},potassium = #{potassium},iron = #{iron}, manganese = #{manganese}, zinc = #{zinc}, raphosphorus = #{raphosphorus},rapotassium = #{rapotassium},ph = #{ph},date = #{date} where  id = #{id}
     </update>
 
     <delete id="deleteById" parameterType="long">

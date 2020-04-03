@@ -5,6 +5,7 @@ import com.wly.repository.SoilRepository;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import util.IdWorker;
 
 
 @RestController
@@ -13,6 +14,9 @@ public class SoilController {
 
     @Autowired
     public SoilRepository soilRepository;
+
+    @Autowired
+    public IdWorker idWorker;
 
     @GetMapping("/findAll/{index}/{limit}")
     public Result findAll(@PathVariable int index, @PathVariable int limit){
@@ -33,7 +37,7 @@ public class SoilController {
 
 
     @GetMapping("/findById/{id}")
-    public Result findById(@PathVariable long id){
+    public Result findById(@PathVariable String id){
         return new Result(0,"",1,soilRepository.findById(id));
     }
 
@@ -44,13 +48,15 @@ public class SoilController {
     }
 
     @DeleteMapping("/deleteById")
-    public Result deleteById(@RequestParam("id") long id){
+    public Result deleteById(@RequestParam("id") String id){
         soilRepository.deleteById(id);
         return new Result(200,"删除成功！",1,"");
     }
 
-    @PostMapping("/save")
-    public Result save(@RequestBody Soil soil){
+    @PostMapping("/save/{userid}")
+    public Result save(@RequestBody Soil soil,@PathVariable String userid){
+        soil.setId("SL"+idWorker.nextId());
+        soil.setUserid(userid);
         soilRepository.save(soil);
         return new Result(200,"保存成功！",0,"");
     }

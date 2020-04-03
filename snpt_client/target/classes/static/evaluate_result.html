@@ -12,6 +12,12 @@
 </head>
 <body>
 <!-- 统计图表 -->
+<br>
+<center><span style="font-size:27px;font-weight: bold" th:text="土壤样品+${agroid}+'质量评估报告'"></span></center>
+<input id="agro" type="hidden" th:value="${agroid}">
+
+
+<br><br>
 <div class="layui-row layui-col-space15">
         <div class="layui-card">
             <div class="layui-card-body">
@@ -58,6 +64,11 @@
             var $ = layui.jquery;
             var layer = layui.layer;
 
+
+
+
+
+
             $(function () {
                 getData1();
                 getData2();
@@ -76,10 +87,11 @@
             // }
 
             function  getData1() {
+                // var id = $("#agro").val();
                 $.ajax({
                     type: 'get',
                     dataType: 'text',
-                    url: '/land/agrochemical/findLatestphByid',
+                    url: '/land/agrochemical/findphByid/'+$("#agro").val(),
                     data: {},
                     cache: false,
                     async: true,
@@ -141,11 +153,11 @@
             }
 
             function getData2() {
-
+                // var id = $("#agro").val();
                 $.ajax({
                     type: 'get',
                     dataType: 'text',
-                    url: '/land/agrochemical/findLatestmacroByid',
+                    url: '/land/agrochemical/findmacroByid/'+$("#agro").val(),
                     data: {},
                     cache: false,
                     async: true,
@@ -209,11 +221,11 @@
             }
 
             function getData3() {
-
+                // var id = $("#agro").();
                 $.ajax({
                     type: 'get',
                     dataType: 'text',
-                    url: '/land/agrochemical/findLatestmicroByid',
+                    url: '/land/agrochemical/findmicroByid/'+$("#agro").val(),
                     data: {},
                     cache: false,
                     async: true,

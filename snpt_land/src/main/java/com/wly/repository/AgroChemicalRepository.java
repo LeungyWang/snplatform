@@ -7,10 +7,11 @@ import java.util.List;
 
 public interface AgroChemicalRepository {
     public List<AgroChemical> findAll(int index, int limit);
-    public AgroChemical findById(long id);
-    public AgroChemical findLatestphByid(long id);
-    public AgroChemical findLatestmacroByid(long id);
-    public AgroChemical findLatestmicroByid(long id);
+    public List<AgroChemical> findArgoByuserid(String userid);
+    public AgroChemical findById(String id);
+    public AgroChemical findphByid(String id);
+    public AgroChemical findmacroByid(String id);
+    public AgroChemical findmicroByid(String id);
     public String findCommentByvalue(double value, String elementid);
     public List<AgroChemical> findAllByuserid(String userid,int index,int limit);
     public int countById(long id);

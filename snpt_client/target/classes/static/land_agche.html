@@ -76,42 +76,56 @@
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required">有机质</label>
+            <label class="layui-form-label layui-form-required">有机质(g/kg)</label>
             <div class="layui-input-block">
                 <input name="organic" placeholder="请输入有机质含量" type="text" class="layui-input" maxlength="20"
                        lay-verType="tips" lay-verify="required" required/>
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required">全氮(%)</label>
+            <label class="layui-form-label layui-form-required">全氮(g/kg)</label>
             <div class="layui-input-block">
                 <input name="nitrogen" placeholder="请输入全氮含量" type="text" class="layui-input" maxlength="20"
                        lay-verType="tips" lay-verify="required" required/>
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required">全磷(%)</label>
+            <label class="layui-form-label layui-form-required">全磷(g/kg)</label>
             <div class="layui-input-block">
                 <input name="phosphorus" placeholder="请输入全磷含量" type="text" class="layui-input" maxlength="20"
                        lay-verType="tips" lay-verify="required" required/>
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required">全钾(%)</label>
+            <label class="layui-form-label layui-form-required">全钾(g/kg)</label>
             <div class="layui-input-block">
                 <input name="potassium" placeholder="请输入全钾含量" type="text" class="layui-input" maxlength="20"
                        lay-verType="tips" lay-verify="required" required/>
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required">碱解氮(ppm)</label>
+            <label class="layui-form-label layui-form-required">铁(g/kg)</label>
             <div class="layui-input-block">
-                <input name="ahnitrogen" placeholder="请输入碱解氮含量" type="text" class="layui-input" maxlength="20"
+                <input name="iron" placeholder="请输入铁含量" type="text" class="layui-input" maxlength="20"
                        lay-verType="tips" lay-verify="required" required/>
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required">速效磷(ppm)</label>
+        <label class="layui-form-label layui-form-required">锰(g/kg)</label>
+        <div class="layui-input-block">
+            <input name="manganese" placeholder="请输入锰含量" type="text" class="layui-input" maxlength="20"
+                   lay-verType="tips" lay-verify="required" required/>
+        </div>
+    </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">锌(g/kg)</label>
+            <div class="layui-input-block">
+                <input name="zinc" placeholder="请输入锌含量" type="text" class="layui-input" maxlength="20"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">速效磷(g/kg)</label>
             <div class="layui-input-block">
                 <input name="raphosphorus" placeholder="请输入速效磷含量" type="text" class="layui-input" maxlength="20"
                        lay-verType="tips" lay-verify="required" required/>
@@ -178,6 +192,8 @@
                     }
                     ,{field:'organic',  title: '有机质'}
                     ,{field:'nitrogen',  title: '全氮(g/kg)'}
+                    ,{field:'phosphorus',  title: '全磷(g/kg)'}
+                    ,{field:'potassium',  title: '全钾(g/kg)'}
                     ,{field:'raphosphorus',  title: '速效磷(g/kg)'}
                     ,{field:'rapotassium',  title: '速效钾(g/kg)'}
                     ,{field:'iron',  title: '有效铁(g/kg)'}
@@ -284,6 +300,7 @@
                             if (res.code == 200) {
                                 layer.close(dIndex);
                                 layer.msg(res.msg, {icon: 1});
+                                form.render();//菜单渲染 把内容加载进去
                             } else {
                                 layer.msg(res.msg, {icon: 2});
                             }

@@ -5,6 +5,7 @@ import com.wly.repository.AgroChemicalRepository;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import util.IdWorker;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -17,9 +18,17 @@ public class AgroChemicalController {
     @Autowired
     public AgroChemicalRepository agroChemicalRepository;
 
+    @Autowired
+    public IdWorker idWorker;
+
     @GetMapping("/findAll/{index}/{limit}")
     public Result findAll(@PathVariable int index, @PathVariable int limit){
         return new Result(0,"",agroChemicalRepository.count(),agroChemicalRepository.findAll(index,limit));
+    }
+
+    @GetMapping("/findById/{id}")
+    public AgroChemical findById(@PathVariable String id){
+        return agroChemicalRepository.findById(id);
     }
 
 
@@ -28,16 +37,21 @@ public class AgroChemicalController {
         return new Result(0,"",agroChemicalRepository.countByUserid(userid),agroChemicalRepository.findAllByuserid(userid,index,limit));
     }
 
-    @GetMapping("/findLatestphByid/{id}")
-    public double findLatestphByid(@PathVariable long id){
-        AgroChemical agroChemical = agroChemicalRepository.findLatestphByid(id);
+    @GetMapping("/findArgoByuserid/{userid}")
+    public Result findArgo(@PathVariable String userid){
+        return new Result(200,"",agroChemicalRepository.countByUserid(userid),agroChemicalRepository.findArgoByuserid(userid));
+    }
+
+    @GetMapping("/findphByid/{id}")
+    public double findLatestphByid(@PathVariable String id){
+        AgroChemical agroChemical = agroChemicalRepository.findphByid(id);
         double ph = agroChemical.getPh();
         return ph;
     }
 
-    @GetMapping("/findLatestmacroByid/{id}")
-    public List<Double> findLatestmacroByid(@PathVariable long id){
-        AgroChemical agroChemical = agroChemicalRepository.findLatestmacroByid(id);
+    @GetMapping("/findmacroByid/{id}")
+    public List<Double> findLatestmacroByid(@PathVariable String id){
+        AgroChemical agroChemical = agroChemicalRepository.findmacroByid(id);
         double organic = agroChemical.getOrganic();
         double nitrogen = agroChemical.getNitrogen();
         double raphosphorus = agroChemical.getRaphosphorus();
@@ -46,9 +60,9 @@ public class AgroChemicalController {
         return value;
     }
 
-    @GetMapping("/findLatestmicroByid/{id}")
-    public List<Double> findLatestmicroByid(@PathVariable long id){
-        AgroChemical agroChemical = agroChemicalRepository.findLatestmicroByid(id);
+    @GetMapping("/findmicroByid/{id}")
+    public List<Double> findLatestmicroByid(@PathVariable String id){
+        AgroChemical agroChemical = agroChemicalRepository.findmicroByid(id);
         double iron = agroChemical.getIron();
         double manganese = agroChemical.getManganese();
         double zinc = agroChemical.getZinc();
@@ -57,13 +71,12 @@ public class AgroChemicalController {
     }
 
     @GetMapping("/getComments/{id}")
-    public List<String> getComments(@PathVariable long id){
-        AgroChemical agroChemical = agroChemicalRepository.findLatestmacroByid(id);
+    public List<String> getComments(@PathVariable String id){
+        AgroChemical agroChemical = agroChemicalRepository.findById(id);
         double organic = agroChemical.getOrganic();
         double nitrogen = agroChemical.getNitrogen();
         double raphosphorus = agroChemical.getRaphosphorus();
         double rapotassium = agroChemical.getRapotassium();
-        agroChemical = agroChemicalRepository.findLatestphByid(id);
         double ph = agroChemical.getPh();
         String ogcomment = agroChemicalRepository.findCommentByvalue(organic,"EL001");
         String ngcomment = agroChemicalRepository.findCommentByvalue(nitrogen,"EL002");
@@ -77,6 +90,7 @@ public class AgroChemicalController {
 
     @PostMapping("/save")
     public Result save(@RequestBody AgroChemical agroChemical){
+        agroChemical.setId("AC"+idWorker.nextId());
         agroChemical.setDate(new Date());
         agroChemicalRepository.save(agroChemical);
         return new Result(200,"保存成功！",0,"");

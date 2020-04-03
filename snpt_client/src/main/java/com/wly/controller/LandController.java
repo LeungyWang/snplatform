@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import javax.swing.text.html.HTML;
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,6 +37,8 @@ public class LandController {
         int index = (page-1)*limit;
         return landFeign.findByUserId(index,limit,userid);
     }
+
+
 
 
 
@@ -68,7 +71,7 @@ public class LandController {
 
     @GetMapping("/findById/{id}")
     @ResponseBody
-    public Result findById(@PathVariable("id") long id){
+    public Result findById(@PathVariable("id") String id){
         return landFeign.findById(id);
 //        return menuFeign.findAll(index,limit);
     }
@@ -81,14 +84,16 @@ public class LandController {
 
     @GetMapping("/deleteById")
     @ResponseBody
-    public Result deleteById(@RequestParam("id") long id){
+    public Result deleteById(@RequestParam("id") String id){
         return landFeign.deleteById(id);
     }
 
     @PostMapping("/save")
     @ResponseBody
-    public Result save(Soil soil){
-        return landFeign.save(soil);
+    public Result save(Soil soil, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        return landFeign.save(soil,userid);
     }
 
 
@@ -114,6 +119,14 @@ public class LandController {
         return landFeign.findAgcheAll(index,limit,userid);
     }
 
+    @GetMapping("/agrochemical/findAgche")
+    @ResponseBody
+    public Result findAgche(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        return landFeign.findArgo(userid);
+    }
+
     @PostMapping("/agrochemical/save")
     @ResponseBody
     public Result savaAgrochemical(AgroChemical agroChemical){
@@ -127,61 +140,90 @@ public class LandController {
     }
 
 
-    @GetMapping("/agrochemical/saveEvaluateid")
+    //保存土壤质量评估报告
+    @GetMapping("/agrochemical/saveEvaluateResult")
     @ResponseBody
-    public void saveEvaluateid(@RequestParam long landid,HttpSession session){
-        session.setAttribute("EvaluateId", landid);
+    public void saveEvaluateResult(@RequestParam String id){
+        List<String> comments = landFeign.getComments(id);
+        AgroChemical agroChemical = landFeign.findAgroById(id);
+        String comment = "";
+        for (int i = 0;i<comments.size();i++){
+            comment = comment + (i+1)+"." + comments.get(i)+"\n"+"\n";
+        }
+        Report report = new Report();
+        report.setComment(comment);
+        report.setAgroChemical(agroChemical);
+        landFeign.saveReport(report);
     }
 
     //返回ph分析图
-    @GetMapping("/agrochemical/findLatestphByid")
+    @GetMapping("/agrochemical/findphByid/{id}")
     @ResponseBody
-    private EchartsMap getPhCharts(HttpSession session){
-        long id =(long) session.getAttribute("EvaluateId");
+    private EchartsMap getPhCharts(@PathVariable String id){
         EchartsMap echartsMap = new EchartsMap();
-        List<Double> value = Arrays.asList(landFeign.findLatestphByid(id));
+        List<Double> value = Arrays.asList(landFeign.findphByid(id));
         echartsMap.setValue(value);
         echartsMap.setName(landFeign.findByTypeid(3));
         return echartsMap;
     }
 
     //返回常规元素分析图
-    @GetMapping("/agrochemical/findLatestmacroByid")
+    @GetMapping("/agrochemical/findmacroByid/{id}")
     @ResponseBody
-    private EchartsMap getMacroCharts(HttpSession session){
-        long id =(long) session.getAttribute("EvaluateId");
+    private EchartsMap getMacroCharts(@PathVariable String id){
         EchartsMap echartsMap = new EchartsMap();
-        echartsMap.setValue(landFeign.findLatestmacroByid(id));
+        echartsMap.setValue(landFeign.findmacroByid(id));
         echartsMap.setName(landFeign.findByTypeid(1));
         return echartsMap;
     }
 
     //返回微量元素分析图
-    @GetMapping("/agrochemical/findLatestmicroByid")
+    @GetMapping("/agrochemical/findmicroByid/{id}")
     @ResponseBody
-    private EchartsMap getMicroCharts(HttpSession session){
-        long id =(long) session.getAttribute("EvaluateId");
+    private EchartsMap getMicroCharts(@PathVariable String id){
         EchartsMap echartsMap = new EchartsMap();
-        echartsMap.setValue(landFeign.findLatestmicroByid(id));
+        echartsMap.setValue(landFeign.findmicroByid(id));
         echartsMap.setName(landFeign.findByTypeid(2));
         return echartsMap;
     }
 
     //返回数据解读
-    @GetMapping("agrochemical/getComments")
-    public ModelAndView getComments(HttpSession session){
-        long id =(long) session.getAttribute("EvaluateId");
-        ModelAndView modelAndView = new ModelAndView();
-        List<String> comments = landFeign.getComments(id);
-        String comment = "";
-        for (int i = 0;i<comments.size();i++){
-            comment = comment + (i+1)+"." + comments.get(i)+"\n"+"\n";
-        }
-        System.out.println(comment);
-        modelAndView.setViewName("evaluate_result");
-        modelAndView.addObject("comment",comment);
-        return modelAndView;
+//    @GetMapping("agrochemical/getComments")
+//    public ModelAndView getComments(HttpSession session){
+//        long id =(long) session.getAttribute("EvaluateId");
+//        ModelAndView modelAndView = new ModelAndView();
+//        List<String> comments = landFeign.getComments(id);
+//        String comment = "";
+//        for (int i = 0;i<comments.size();i++){
+//            comment = comment + (i+1)+"." + comments.get(i)+"\n"+"\n";
+//        }
+//        System.out.println(comment);
+//        modelAndView.setViewName("evaluate_result");
+//        modelAndView.addObject("comment",comment);
+//        return modelAndView;
+//    }
+
+    //查询用户生成的土壤报告
+    @GetMapping("/report/findAll")
+    @ResponseBody
+    public Result findAllReports(@RequestParam("page") int page, @RequestParam("limit") int limit, HttpSession session){
+        int index = (page-1)*limit;
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        Result reports = landFeign.findAllReport(index,limit,userid);
+        return reports;
     }
 
+    //查看土壤报告详情
+    @GetMapping("/report/details/{id}")
+    public ModelAndView ReportDetails(@PathVariable String id){
+        Report report = landFeign.findReportById(id);
+        AgroChemical agroChemical = report.getAgroChemical();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("evaluate_result");
+        modelAndView.addObject("comment",report.getComment());
+        modelAndView.addObject("agroid",agroChemical.getId());
+        return modelAndView;
+    }
 
 }

@@ -7,11 +7,11 @@
     </select>
 
     <select id="findAllByUserId" resultType="Soil">
-        select * FROM soil WHERE id IN (SELECT soilid FROM user_soil WHERE userid=#{param1}) limit #{param2},#{param3}
+        select  * from  soil where userid = #{userid} limit #{index},#{limit}
     </select>
 
     <select id="findSoilByuserid" resultType="Soil">
-        select id,name from soil where id IN (SELECT soilid FROM user_soil WHERE userid=#{userid})
+        select id,name from soil where id in (select landid from agrochemical) and userid=#{userid}
     </select>
 
     <select id="findById" parameterType="long" resultType="Soil">
@@ -19,7 +19,7 @@
     </select>
 
     <select id="countByUserid" resultType="int">
-        select count(id) from user_soil where userid=#{userid}
+        select count(id) from soil where userid=#{userid}
     </select>
 
     <select id="count" resultType="int">
@@ -27,7 +27,7 @@
     </select>
 
     <insert id="save" parameterType="Soil">
-        insert into soil(id,name,perimeter,area,agrotype) values (#{id},#{name},#{perimeter},#{area},#{agrotype})
+        insert into soil(id,name,perimeter,area,userid) values (#{id},#{name},#{perimeter},#{area},#{userid})
     </insert>
 
     <update id="update" parameterType="Soil">

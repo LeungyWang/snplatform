@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class Soil {
-    private long id;
+    private String id;
     private String name;
     private double perimeter;
     private double area;
-    private String agrotype;
+    private String userid;
 }

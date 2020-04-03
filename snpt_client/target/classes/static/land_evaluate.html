@@ -43,10 +43,10 @@
 
                         <form class="layui-form" style="margin: 0 auto;max-width: 460px;padding-top: 60px;">
                             <div class="layui-form-item">
-                                <label class="layui-form-label layui-form-required">土地名称:</label>
+                                <label class="layui-form-label layui-form-required">土壤取样编号:</label>
                                 <div class="layui-input-block">
-                                    <select lay-verify="required" name="landid" id="land">
-                                        <option value="">请选择需要评估的土地名称</option>
+                                    <select lay-verify="required" name="id" id="agro">
+                                        <option value="">请选择需要评估的土壤取样编号</option>
                                     </select>
                                 </div>
                             </div>
@@ -111,36 +111,36 @@
             stepWidth: '3000px',
             height: '500px',
             stepItems: [{
-                title: '选择需要评估的土地名称'
+                title: '选择需要评估的土壤取样编号'
             },  {
                 title: '完成'
             }]
         });
 
 
-        function getsoils() {
+        function getAgro() {
             var html = "";
             $.ajax({ // 使用layui模块化加载
-                url: "/land/soil/findSoilByUserid",
+                url: "/land/agrochemical/findAgche",
                 type: 'GET',
                 dataType: 'json',
                 success: function (datas) {
                     data = datas.data;
                     var selects = '';
                     for (var i = 0; i < data.length; i++) {
-                        html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
+                        html += '<option value="' + data[i].id + '">' + data[i].id + '</option>'
                     }
-                    $("#land").append(html);
+                    $("#agro").append(html);
                     form.render();//菜单渲染 把内容加载进去
                 }
             });
         }
 
-        getsoils();
+        getAgro();
 
 
         form.on('submit(formDemo)', function (data) {
-            var url = "/land/agrochemical/saveEvaluateid";
+            var url = "/land/agrochemical/saveEvaluateResult";
             $.get(url, data.field, function () {
                 layer.closeAll('loading');
             }, 'json');

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.ReportRepository">
+
+    <resultMap id="ReportMap" type="Report">
+        <id column="id" property="id"></id>
+        <result column="comment" property="comment"></result>
+        <result column="createtime" property="createtime"></result>
+        <association property="agroChemical" select="com.wly.repository.AgroChemicalRepository.findById" column="sampleid"></association>
+    </resultMap>
+
+    <select id="findAll" resultType="Report">
+        select * from nutrition_report limit #{param1},#{param2}
+    </select>
+
+    <select id="findAllByUserId" resultMap="ReportMap">
+    select * FROM nutrition_report WHERE sampleid in (SELECT id FROM agrochemical WHERE landid in (SELECT id FROM soil WHERE userid=#{userid}))
+    </select>
+
+    <select id="findById" parameterType="String" resultMap="ReportMap">
+        select * from nutrition_report where id = #{id}
+    </select>
+
+    <select id="countByUserid" resultType="int">
+        select count(landid) from agrochemical where id in (select id from soil where userid=#{userid})
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from nutrition_report
+    </select>
+
+    <insert id="save" parameterType="Report">
+        insert into nutrition_report(id,sampleid,comment,createtime) values (#{id},#{agroChemical.id},#{comment},#{createtime})
+    </insert>
+
+
+    <delete id="deleteById" parameterType="String">
+        delete from nutrition_report where id = #{id}
+    </delete>
+</mapper>
