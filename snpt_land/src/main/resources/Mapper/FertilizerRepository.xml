@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wly.repository.FertilizerRepository">
+    <resultMap id="AgriPruductionMap" type="Fertilizer">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="specification" property="specification"></result>
+        <result column="price" property="price"></result>
+        <result column="quantity" property="quantity"></result>
+        <result column="purchasedate" property="purchasedate"></result>
+        <association property="productionType" select="com.wly.repository.ProductionTypeRepository.findById" column="type"></association>
+    </resultMap>
+
+    <select id="findAllByUserid" resultMap="AgriPruductionMap">
+        select * from fertilizer where userid= #{param1} limit #{param2},#{param3}
+    </select>
 
 
-    <select id="findAllByUserid" resultType="Fertilizer">
-        select id, name, specification, price, quantity, purchasedate from fertilizer where userid= #{param1} limit #{param2},#{param3}
+    <select id="findAllFertilizerByUserid" resultMap="AgriPruductionMap">
+        select * from fertilizer where userid= #{param1}
     </select>
 
     <select id="countByUserid" resultType="int">
         select count(id) from fertilizer where userid = #{userid}
     </select>
 
-    <select id="findById" parameterType="String" resultType="Fertilizer">
-        select name, specification, price, quantity, purchasedate from fertilizer where id = #{id}
+    <select id="findById" parameterType="String" resultMap="AgriPruductionMap">
+        select * from fertilizer where id = #{id}
     </select>
 
     <insert id="save" parameterType="Fertilizer">
-        insert into fertilizer(id,name,specification,price,quantity,purchasedate,userid) values (#{id},#{name},#{specification},#{price},#{quantity},#{purchasedate},#{userid})
+        insert into fertilizer(id,name,specification,price,quantity,type,purchasedate,userid) values (#{id},#{name},#{specification},#{price},#{quantity},#{productionType.id},#{purchasedate},#{userid})
     </insert>
 
     <update id="update" parameterType="Fertilizer">

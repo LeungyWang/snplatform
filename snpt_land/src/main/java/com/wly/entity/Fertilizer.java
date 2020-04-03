@@ -11,6 +11,7 @@ public class Fertilizer {
     private String specification;
     private double price;
     private int quantity;
+    private ProductionType productionType;
     private Date purchasedate;
     private String userid;
 }

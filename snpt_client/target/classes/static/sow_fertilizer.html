@@ -5,7 +5,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>种子信息管理</title>
+    <title>农资信息管理</title>
     <link rel="stylesheet" th:href="@{/assets/libs/layui/css/layui.css}"/>
     <link rel="stylesheet" th:href="@{/assets/module/admin.css?v=316}"/>
     <!--[if lt IE 9]>
@@ -27,9 +27,9 @@
             <div class="layui-form toolbar">
                 <div class="layui-form-item">
                     <div class="layui-inline">
-                        <label class="layui-form-label w-auto">种子名称：</label>
+                        <label class="layui-form-label w-auto">农资名称：</label>
                         <div class="layui-input-inline mr0">
-                            <input name="seedname" class="layui-input" type="text" placeholder="输入种子名称"/>
+                            <input name="seedname" class="layui-input" type="text" placeholder="输入农资名称"/>
                         </div>
                     </div>
 
@@ -63,16 +63,17 @@
         <input name="id" placeholder="" type="text" class="layui-input" maxlength="20" style="display:none"
         />
         <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required">肥料名称</label>
+            <label class="layui-form-label layui-form-required">农资名称</label>
             <div class="layui-input-block">
-                <input name="name" placeholder="请输入肥料名称" type="text" class="layui-input" maxlength="20"
+                <input name="name" placeholder="请输入农资名称" type="text" class="layui-input" maxlength="20"
                        lay-verType="tips" lay-verify="required" required/>
             </div>
         </div>
+
         <div class="layui-form-item">
             <label class="layui-form-label layui-form-required">规格</label>
             <div class="layui-input-block">
-                <input name="specification" placeholder="请输入肥料规格" type="text" class="layui-input" maxlength="20"
+                <input name="specification" placeholder="请输入规格" type="text" class="layui-input" maxlength="20"
                        lay-verType="tips" lay-verify="required" required/>
             </div>
         </div>
@@ -88,6 +89,14 @@
             <div class="layui-input-block">
                 <input name="quantity" placeholder="请输入购买数量" type="text" class="layui-input" maxlength="20"
                        lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">农资种类</label>
+            <div class="layui-input-block">
+                <select name="productionType.id" lay-verify="required" id="productiontype">
+                    <option value="">选择农资种类</option>
+                </select>
             </div>
         </div>
         <div class="layui-form-item">
@@ -137,11 +146,15 @@
             cellMinWidth: 100,
             cols: [
                 [
-                    {field:'id',  title: '肥料编号'}
-                    ,{field:'name',  title: '肥料名称'}
+                    {field:'id',  title: '农资编号'}
+                    ,{field:'name',  title: '名称'}
                     ,{field:'specification',  title: '产品规格'}
                     ,{field:'price',  title: '进价(元)'}
                     ,{field:'quantity',  title: '数量'}
+                    ,{field:'type',  title: '种类', templet:function(data){
+                        return data.productionType.name
+                    }
+                }
                     ,{field:'purchasedate',sort:true,templet: function (d) {
                         return util.toDateString(d.purchasedate);
                     },  title: '采购时间'}
@@ -151,10 +164,30 @@
         });
 
 
+        //获取农资种类信息
+        function getProductionTypes() {
+            var html = "";
+            $.ajax({ // 使用layui模块化加载
+                url: "/sow/productiontype/findAll",
+                type: 'GET',
+                dataType: 'json',
+                success: function (datas) {
+                    data = datas.data;
+                    var selects = '';
+                    for (var i = 0; i < data.length; i++) {
+                        html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
+                    }
+                    $("#productiontype").append(html);
+                    form.render();//菜单渲染 把内容加载进去
+                }
+            });
+        }
+
 
         // 添加
         $('#btnAddUser').click(function () {
             showEditModel();
+            getProductionTypes();
 
         });
 
@@ -171,6 +204,7 @@
             var layEvent = obj.event;
             if (layEvent === 'edit') { // 修改
                 showEditModel(data);
+                getProductionTypes();
             } else if (layEvent === 'del') { // 删除
                 doDel(data.id, data.name);
             } else if (layEvent === 'reset') { // 重置密码
@@ -186,7 +220,7 @@
         function showEditModel(Seed) {
             admin.open({
                 type: 1,
-                title: (Seed ? '修改' : '添加') + '肥料信息',
+                title: (Seed ? '修改' : '添加') + '农资信息',
                 content: $('#modelSeed').html(),
                 success: function (layero, dIndex) {
                     $(layero).children('.layui-layer-content').css('overflow', 'visible');

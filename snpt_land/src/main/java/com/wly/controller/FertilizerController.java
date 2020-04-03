@@ -25,6 +25,12 @@ public class FertilizerController {
     }
 
     //查找功能
+    @GetMapping("/findAllFertilizer/{userid}")
+    public Result findAllF(@PathVariable String userid){
+        return new Result(200,"",fertilizerRepository.countByUserid(userid),fertilizerRepository.findAllFertilizerByUserid(userid));
+    }
+
+    //查找功能
     @GetMapping("/findById/{id}")
     public Result findById(@PathVariable String id){
         return new Result(200,"查询成功！",0,fertilizerRepository.findById(id));

@@ -197,15 +197,20 @@ public class SowController {
     @GetMapping("/farmwork/findAll")
     @ResponseBody
     public Result findAllfarmwork(){
+
         return sowFeign.findAllfarmwork();
     }
 
     //实现农事记录的增加功能
     @PostMapping("/sowrecord/save")
     @ResponseBody
-    public Result save(@RequestParam("landid") String landid, @RequestParam("seedid") String seedid,@RequestParam("farmworkid") String farmworkid,@RequestParam("dateRange") String dateRange,@RequestParam("timeRange") String timeRange,@RequestParam("content") String content,HttpSession session) throws ParseException {
+    public Result save(@RequestParam("landid") String landid, @RequestParam("fertilizerid") String fertilizerid,@RequestParam("farmworkid") String farmworkid,@RequestParam("dateRange") String dateRange,@RequestParam("timeRange") String timeRange,@RequestParam("content") String content,HttpSession session) throws ParseException {
+
         SowRecord sowRecord = new SowRecord();
-        Seed seed  = new Seed();
+        Fertilizer fertilizer  = new Fertilizer();
+        if (fertilizerid.equals("-1")){
+            fertilizer.setName("无");
+        }
         Soil soil  = new Soil();
         FarmWork farmWork = new FarmWork();
         User user = (User) session.getAttribute("user");
@@ -221,13 +226,13 @@ public class SowController {
         String endDate = dates[1].trim();
         Date enddate = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
         //传值
-        seed.setId(seedid);
+        fertilizer.setId(fertilizerid);
         soil.setId(landid);
         farmWork.setId(farmworkid);
         sowRecord.setUserid(userid);
         sowRecord.setContent(content);
         sowRecord.setFarmWork(farmWork);
-        sowRecord.setSeed(seed);
+        sowRecord.setFertilizer(fertilizer);
         sowRecord.setSoil(soil);
         sowRecord.setStartdate(startdate);
         sowRecord.setEnddate(enddate);
@@ -236,6 +241,21 @@ public class SowController {
         return sowFeign.saveSowrecord(sowRecord,userid);
     }
 
+    //查询所有的农资类型
+    @GetMapping("/productiontype/findAll")
+    @ResponseBody
+    public Result findAllPT(){
+        return sowFeign.findAllPT();
+    }
 
+    //查询所有的农资
+    @GetMapping("/fertilizer/findAllFertilizer")
+    @ResponseBody
+    public Result findAllFertilizer(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        Result fertilizers = sowFeign.findAllFertilizer(userid);
+        return fertilizers;
+    }
 
 }

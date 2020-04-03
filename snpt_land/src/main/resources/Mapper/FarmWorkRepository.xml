@@ -8,7 +8,7 @@
     </select>
 
     <select id="findById" parameterType="String" resultType="FarmWork">
-        select name from farmwork where id = #{id}
+        select * from farmwork where id = #{id}
     </select>
 
 </mapper>

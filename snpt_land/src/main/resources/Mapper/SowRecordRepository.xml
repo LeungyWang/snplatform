@@ -10,17 +10,17 @@
         <result column="startdate" property="startdate"></result>
         <result column="enddate" property="enddate"></result>
         <association property="soil" select="com.wly.repository.SoilRepository.findById" column="landid"></association>
-        <association property="seed" select="com.wly.repository.SeedRepository.findById" column="seedid"></association>
+        <association property="fertilizer" select="com.wly.repository.FertilizerRepository.findById" column="productionid"></association>
         <association property="farmWork" select="com.wly.repository.FarmWorkRepository.findById" column="farmworkid"></association>
     </resultMap>
 
 
     <select id="findAllByUserid" resultMap="SowRecordMap">
-        select id, seedid,landid,farmworkid, content, starttime, endtime,startdate,enddate from sowrecord where userid= #{param1} limit #{param2},#{param3}
+        select * from sowrecord where userid= #{param1} limit #{param2},#{param3}
     </select>
 
     <select id="findAll" resultMap="SowRecordMap">
-        select id, seedid,landid, farmworkid,content, starttime, endtime,startdate,enddate from sowrecord where userid= #{param1}
+        select * from sowrecord where userid= #{param1}
     </select>
 
 
@@ -29,11 +29,11 @@
     </select>
 
     <select id="findById" parameterType="String" resultMap="SowRecordMap">
-        select seedid, landid ,farmworkid,content, starttime, endtime,startdate,enddate from sowrecord  where id = #{id}
+        select * from sowrecord  where id = #{id}
     </select>
 
     <insert id="save" parameterType="SowRecord">
-        insert into sowrecord(id,seedid,landid,farmworkid, content,starttime,endtime,startdate,enddate,userid) values (#{id},#{seed.id},#{soil.id},#{farmWork.id},#{content},#{starttime},#{endtime},#{startdate},#{enddate},#{userid})
+        insert into sowrecord(id,productionid,landid,farmworkid, content,starttime,endtime,startdate,enddate,userid) values (#{id},#{fertilizer.id},#{soil.id},#{farmWork.id},#{content},#{starttime},#{endtime},#{startdate},#{enddate},#{userid})
     </insert>
 
 <!--    <update id="update" parameterType="SowRecord">-->

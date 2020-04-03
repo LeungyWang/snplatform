@@ -107,4 +107,15 @@ public interface SowFeign {
     //增加功能
     @PostMapping("/sowrecord/save/{userid}")
     public Result saveSowrecord(@RequestBody SowRecord sowRecord, @PathVariable String userid);
+
+    /**
+     * 农资
+     * @return
+     */
+    //返回农资类型
+    @GetMapping("/prodcutiontype/findAllPT")
+    public Result findAllPT();
+    //返回用户农资
+    @GetMapping("/fertilizer/findAllFertilizer/{userid}")
+    public Result findAllFertilizer(@PathVariable String userid);
 }

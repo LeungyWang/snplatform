@@ -9,7 +9,7 @@ public class SowRecord {
     private String id;
     private  String userid;
     private Soil soil;
-    private Seed seed;
+    private Fertilizer fertilizer;
     private FarmWork farmWork;
     private String content;
     private String starttime;

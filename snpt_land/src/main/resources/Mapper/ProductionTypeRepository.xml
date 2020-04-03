@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.ProductionTypeRepository">
+
+    <select id="findAll" resultType="ProductionType">
+        select * from agriproductiontype limit #{param1},#{param2}
+    </select>
+
+    <select id="findAllPT" resultType="ProductionType">
+        select * from agriproductiontype
+    </select>
+
+    <select id="findById" parameterType="String" resultType="ProductionType">
+        select * from agriproductiontype where id = #{id}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from agriproductiontype
+    </select>
+
+</mapper>
