@@ -183,6 +183,20 @@ public class ProductController {
         return modelAndView;
     }
 
+    /**
+     * 购物车功能实现
+     */
+
+    //用户查看购物车
+    @GetMapping("/cart/findAllCart")
+    public ModelAndView findAllCart(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("shop_cart");
+        modelAndView.addObject("carts",productFeign.findAllCarts(userid));
+        return modelAndView;
+    }
 
 
 

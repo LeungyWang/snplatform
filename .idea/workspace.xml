@@ -2,40 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb049f33-0ec8-44ac-9a34-c5e85a75aedd" name="Default Changelist" comment="2.22 4:02">
-      <change afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/ProductionType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/ProductionTypeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/ProductionType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/repository/ProductionTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/ProductionTypeRepository.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Cart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Catogory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/shop_cart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/controller/CartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/Cart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/Catogory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/CartRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/CatogoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/StatusRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/CartRepository.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/CatogoryRepository.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/StatusRepository.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/SowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/SowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Fertilizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Fertilizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/SowRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/SowRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/SowFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/SowFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/index2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_activity.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_activity.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_fertilizer.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_fertilizer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/controller/SowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/controller/SowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/entity/Fertilizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/entity/Fertilizer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/entity/SowRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/entity/SowRecord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/feign/SowFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/feign/SowFeign.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/index2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/sow_activity.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/sow_activity.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/sow_fertilizer.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/sow_fertilizer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/FertilizerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/FertilizerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/Fertilizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/Fertilizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/SowRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/SowRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/repository/FertilizerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/repository/FertilizerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/FarmWorkRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/FarmWorkRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/FertilizerRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/FertilizerRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/SowRecordRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/SowRecordRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/target/classes/Mapper/FarmWorkRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/target/classes/Mapper/FarmWorkRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/target/classes/Mapper/FertilizerRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/target/classes/Mapper/FertilizerRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/target/classes/Mapper/SowRecordRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/target/classes/Mapper/SowRecordRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/controller/FertilizerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/controller/FertilizerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/entity/Fertilizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/entity/Fertilizer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/entity/SowRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/entity/SowRecord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/repository/FertilizerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_land/target/classes/com/wly/repository/FertilizerRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Goods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/ProductFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/ProductFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/product_goods.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/product_goods.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/product_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/product_manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/src/main/resources/static/shop_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/src/main/resources/static/shop_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/entity/Goods.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/entity/Goods.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/feign/ProductFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/com/wly/feign/ProductFeign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/product_goods.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/product_goods.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/product_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/product_manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_client/target/classes/static/shop_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_client/target/classes/static/shop_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/controller/GoodsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/Goods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/GoodsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/GoodsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/GoodsRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/GoodsRepository.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_product/target/classes/Mapper/GoodsRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_product/target/classes/Mapper/GoodsRepository.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_product/target/classes/com/wly/controller/GoodsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_product/target/classes/com/wly/controller/GoodsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_product/target/classes/com/wly/entity/Goods.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_product/target/classes/com/wly/entity/Goods.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snpt_product/target/classes/com/wly/repository/GoodsRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/snpt_product/target/classes/com/wly/repository/GoodsRepository.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/snpt_eureka/target/" />
@@ -80,67 +81,111 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/SowController.java">
+        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/product_manage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="213" column="32" selection-start-line="213" selection-start-column="32" selection-end-line="213" selection-end-column="32" />
+            <state relative-caret-position="161">
+              <caret line="70" column="33" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/product_goods.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="121" column="40" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/SowRecordController.java">
+        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/shop_cart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="146">
+              <caret line="502" column="169" selection-start-line="502" selection-start-column="169" selection-end-line="502" selection-end-column="169" />
+              <folding>
+                <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/SowRecordRepository.xml">
+        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/product_add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="35" column="143" selection-start-line="35" selection-start-column="143" selection-end-line="35" selection-end-column="143" />
+            <state relative-caret-position="173">
+              <caret line="225" column="31" lean-forward="true" selection-start-line="225" selection-start-column="31" selection-end-line="225" selection-end-column="31" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_fertilizer.html">
+        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/product_details.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="177" selection-start-line="177" selection-end-line="177" />
+            <state relative-caret-position="891">
+              <caret line="508" column="30" selection-start-line="508" selection-start-column="26" selection-end-line="508" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_activity.html">
+        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/land_env.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="213" column="39" selection-start-line="213" selection-start-column="39" selection-end-line="213" selection-end-column="39" />
+            <state relative-caret-position="153">
+              <caret line="9" column="72" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="72" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/FertilizerController.java">
+        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/shop_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="12" column="28" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="28" />
+            <state relative-caret-position="-5065">
+              <caret line="324" column="74" selection-start-line="324" selection-start-column="70" selection-end-line="324" selection-end-column="74" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/SowFeign.java">
+        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/ProductController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1223">
-              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            <state relative-caret-position="307">
+              <caret line="197" selection-start-line="197" selection-end-line="197" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Catogory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Cart.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -158,22 +203,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>3</find>
-      <find>Auth</find>
-      <find>send_phone</find>
-      <find>yzm</find>
-      <find>L_vercode</find>
-      <find>#djs</find>
-      <find>p_djs</find>
-      <find>djs</find>
-      <find>L_pass</find>
-      <find>Farmer</find>
-      <find>Mapped Statements collection already contains value for</find>
-      <find>findAll</find>
-      <find>phone1</find>
-      <find>L_phone</find>
-      <find>734320</find>
-      <find>user</find>
       <find>readonlu</find>
       <find>readonly</find>
       <find>水果</find>
@@ -188,6 +217,22 @@
       <find>Stri</find>
       <find>land</find>
       <find>pt</find>
+      <find>COUPON</find>
+      <find>Quantity</find>
+      <find>logo</find>
+      <find>category</find>
+      <find>catog</find>
+      <find>catogory</find>
+      <find>wishlist</find>
+      <find>findAllByUserId</find>
+      <find>checkbox</find>
+      <find>cart</find>
+      <find>form</find>
+      <find>input</find>
+      <find>allcost</find>
+      <find>check-</find>
+      <find>#price-</find>
+      <find>price-</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -196,27 +241,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/shop_index.html" />
-        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/regist.html" />
-        <option value="$PROJECT_DIR$/snpt_config/src/main/resources/shared/sms-dev.yml" />
-        <option value="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/GoodsRepository.java" />
-        <option value="$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/GoodsRepository.xml" />
-        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/admin_index.html" />
-        <option value="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/ProductFeign.java" />
-        <option value="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/controller/GoodsController.java" />
-        <option value="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/ProductController.java" />
-        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/product_manage.html" />
-        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/product_goods.html" />
-        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/land_info.html" />
-        <option value="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/Soil.java" />
-        <option value="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Soil.java" />
-        <option value="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/SoilRepository.xml" />
-        <option value="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/Classification.java" />
-        <option value="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/repository/ReportRepository.java" />
-        <option value="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/SoilController.java" />
-        <option value="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/repository/SoilRepository.java" />
-        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/land_evaluate.html" />
-        <option value="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/Report.java" />
         <option value="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/ReportRepository.xml" />
         <option value="$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/ReportController.java" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Report.java" />
@@ -247,6 +271,27 @@
         <option value="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/SowFeign.java" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_activity.html" />
         <option value="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/SowController.java" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/GoodsClassify.java" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/Catogory.java" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/Status.java" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/StatusRepository.xml" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/CatogoryRepository.java" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/CatogoryRepository.xml" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/StatusRepository.java" />
+        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/product_goods.html" />
+        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/product_manage.html" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/controller/GoodsController.java" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/Goods.java" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/GoodsRepository.java" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/CartRepository.java" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/controller/CartController.java" />
+        <option value="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/ProductFeign.java" />
+        <option value="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/ProductController.java" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/Cart.java" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/GoodsRepository.xml" />
+        <option value="$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/CartRepository.xml" />
+        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/shop_index.html" />
+        <option value="$PROJECT_DIR$/snpt_client/src/main/resources/static/shop_cart.html" />
       </list>
     </option>
   </component>
@@ -290,7 +335,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -382,6 +426,17 @@
               <item name="snpt_client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="wly" type="462c0819:PsiDirectoryNode" />
+              <item name="filter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snplatform" type="462c0819:PsiDirectoryNode" />
+              <item name="snpt_client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -396,35 +451,25 @@
             <path>
               <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
               <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
               <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_land" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_land" type="462c0819:PsiDirectoryNode" />
+              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
               <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_land" type="462c0819:PsiDirectoryNode" />
+              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
               <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_land" type="462c0819:PsiDirectoryNode" />
+              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -432,7 +477,7 @@
             <path>
               <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
               <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_land" type="462c0819:PsiDirectoryNode" />
+              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -441,7 +486,7 @@
             <path>
               <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
               <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_land" type="462c0819:PsiDirectoryNode" />
+              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -451,7 +496,7 @@
             <path>
               <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
               <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_land" type="462c0819:PsiDirectoryNode" />
+              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -462,7 +507,7 @@
             <path>
               <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
               <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_land" type="462c0819:PsiDirectoryNode" />
+              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -473,7 +518,7 @@
             <path>
               <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
               <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_land" type="462c0819:PsiDirectoryNode" />
+              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -484,7 +529,7 @@
             <path>
               <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
               <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_land" type="462c0819:PsiDirectoryNode" />
+              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
@@ -492,72 +537,17 @@
             <path>
               <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
               <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_land" type="462c0819:PsiDirectoryNode" />
+              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="Mapper" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="wly" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="snpt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snplatform" type="462c0819:PsiDirectoryNode" />
-              <item name="snpt_product" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="wly" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -571,7 +561,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/snpt_product/src/main/resources/Mapper" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -581,12 +571,10 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/snpt_client/src/main/resources/static/layui" />
+      <recent name="$PROJECT_DIR$/snpt_client/src/main/resources/static/layui/css" />
       <recent name="$PROJECT_DIR$/snpt_client/src/main/resources/static" />
-      <recent name="$PROJECT_DIR$/snpt_sms/src/main/resources" />
-      <recent name="$PROJECT_DIR$/snpt_config/src/main/resources/shared" />
-      <recent name="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.wly.entity" />
@@ -595,10 +583,12 @@
       <recent name="com.wly.utils" />
       <recent name="com.wly" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/snpt_client/src/main/resources/static/layui" />
-      <recent name="$PROJECT_DIR$/snpt_client/src/main/resources/static/layui/css" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/snpt_product/src/main/resources/Mapper" />
+      <recent name="$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity" />
       <recent name="$PROJECT_DIR$/snpt_client/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/snpt_land/src/main/resources/Mapper" />
+      <recent name="$PROJECT_DIR$/snpt_sms/src/main/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -696,10 +686,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ClientApplication" />
-        <item itemvalue="Spring Boot.LandApplication" />
+        <item itemvalue="Spring Boot.ProductApplication" />
         <item itemvalue="Spring Boot.ConfigApplication" />
         <item itemvalue="Spring Boot.EurekaApplication" />
-        <item itemvalue="Spring Boot.ProductApplication" />
+        <item itemvalue="Spring Boot.LandApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -764,7 +754,10 @@
       <workItem from="1585645786595" duration="6383000" />
       <workItem from="1585711218483" duration="4949000" />
       <workItem from="1585824555850" duration="15187000" />
-      <workItem from="1585892849023" duration="10577000" />
+      <workItem from="1585892849023" duration="10891000" />
+      <workItem from="1585981349679" duration="6250000" />
+      <workItem from="1586073526401" duration="1865000" />
+      <workItem from="1586076325541" duration="23681000" />
     </task>
     <task id="LOCAL-00001" summary="2.22 4:02">
       <created>1582358580205</created>
@@ -777,7 +770,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="485668000" />
+    <option name="totallyTimeSpent" value="517778000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -792,7 +785,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4965197" visible="true" weight="0.2832618" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4965197" visible="true" weight="0.29542202" />
       <window_info id="Structure" order="1" sideWeight="0.50063694" side_tool="true" weight="0.2790869" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -802,15 +795,15 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985694" visible="true" weight="0.32891566" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4985694" visible="true" weight="0.36506024" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39638555" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32962447" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3192771" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.3192771" />
+      <window_info anchor="bottom" id="Spring" order="10" weight="0.32891566" />
       <window_info anchor="bottom" id="Problems" order="11" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
@@ -875,260 +868,19 @@
     <MESSAGE value="2.22 4:02" />
     <option name="LAST_COMMIT_MESSAGE" value="2.22 4:02" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/ProductController.java</url>
+          <line>197</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/ReportController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
-          <folding>
-            <element signature="e#1158#1159#0" expanded="true" />
-            <element signature="e#1210#1211#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/ProductController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1523">
-          <caret line="56" column="28" selection-start-line="53" selection-start-column="7" selection-end-line="56" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/target/classes/com/wly/controller/LandController.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2642">
-          <folding>
-            <element signature="e#0#7498#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/AgroChemical.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/LandController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2278">
-          <caret line="159" column="45" selection-start-line="159" selection-start-column="45" selection-end-line="159" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Report.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/land_evaluate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="84" selection-start-line="47" selection-start-column="84" selection-end-line="47" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/product_manage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2822">
-          <caret line="166" selection-start-line="166" selection-end-line="166" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/product_goods.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2159">
-          <caret line="127" column="68" selection-start-line="126" selection-start-column="20" selection-end-line="127" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/product_details.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/regist_businesses.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/evaluate_result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3704">
-          <caret line="32" column="37" lean-forward="true" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#center#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/ElementRepository.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/ElementType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/Element.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/PesticideRepository.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/target/classes/com/wly/entity/Fertilizer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#6710#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/SoilRepository.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/repository/ReportRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/AgroChemical.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/LandFeign.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="67" column="22" lean-forward="true" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/land_report.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="136" column="17" lean-forward="true" selection-start-line="133" selection-start-column="20" selection-end-line="136" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/ProductionType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/land_agche.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="226" column="9" selection-start-line="209" selection-start-column="7" selection-end-line="226" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/ReportRepository.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/AgroChemicalRepository.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="20" column="13" selection-start-line="18" selection-start-column="2" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/AgroChemicalController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="26" column="5" selection-start-line="23" selection-start-column="3" selection-end-line="26" selection-end-column="5" />
-          <folding>
-            <element signature="e#879#880#0" expanded="true" />
-            <element signature="e#937#938#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/repository/AgroChemicalRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="23" selection-start-line="21" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/index2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/ProductionTypeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/ProductionTypeRepository.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/land_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-511">
-          <caret line="183" column="20" selection-start-line="183" selection-end-line="184" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Fertilizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/ProductionType.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/SowRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/repository/SowRecordRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1160,17 +912,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/Fertilizer.java">
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/SowRecord.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+        <state relative-caret-position="85">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/FertilizerRepository.xml">
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/SowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="18" column="41" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="41" />
+        <state relative-caret-position="3145">
+          <caret line="213" column="32" selection-start-line="213" selection-start-column="32" selection-end-line="213" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/SowRecordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/entity/Fertilizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -1181,37 +947,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/SowRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_fertilizer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
+        <state relative-caret-position="3009">
           <caret line="177" selection-start-line="177" selection-end-line="177" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/FertilizerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
+        <state relative-caret-position="85">
           <caret line="12" column="28" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/FertilizerRepository.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/sow_activity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
+        <state relative-caret-position="3621">
           <caret line="213" column="39" selection-start-line="213" selection-start-column="39" selection-end-line="213" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/SowFeign.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1223">
+        <state relative-caret-position="85">
           <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1219,24 +985,299 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/assets/images/logo/logo3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/snpt_land/src/main/resources/Mapper/SowRecordRepository.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="35" column="143" selection-start-line="35" selection-start-column="143" selection-end-line="35" selection-end-column="143" />
+        <state relative-caret-position="238">
+          <caret line="14" column="16" selection-start-line="4" selection-start-column="3" selection-end-line="14" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/SowController.java">
+    <entry file="file://$PROJECT_DIR$/snpt_product/target/classes/com/wly/entity/Goods.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="213" column="32" selection-start-line="213" selection-start-column="32" selection-end-line="213" selection-end-column="32" />
+        <state>
+          <folding>
+            <element signature="e#0#10502#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snpt_land/src/main/java/com/wly/controller/SowRecordController.java">
+    <entry file="file://$PROJECT_DIR$/snpt_product/target/classes/com/wly/entity/Catogory.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="-1">
+          <folding>
+            <element signature="e#0#2993#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/Status.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/StatusRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/filter/UserFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Status.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Goods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/UserFeign.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-696">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/LandFeign.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/land_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="136" column="17" lean-forward="true" selection-start-line="133" selection-start-column="20" selection-end-line="136" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/StatusRepository.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/Catogory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms2.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="547" lean-forward="true" selection-start-line="547" selection-end-line="547" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../.m2/repository/org/mybatis/mybatis-spring/1.3.1/mybatis-spring-1.3.1.jar!/org/mybatis/spring/SqlSessionFactoryBean.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="320" selection-start-line="320" selection-end-line="320" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/java/com/wly/controller/GoodsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="124" column="35" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/GoodsRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/feign/ProductFeign.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="82" column="34" selection-start-line="82" selection-start-column="34" selection-end-line="82" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/CatogoryRepository.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/GoodsRepository.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/java/com/wly/controller/CartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="e#782#783#0" expanded="true" />
+            <element signature="e#843#844#0" expanded="true" />
+            <element signature="e#1601#1602#0" expanded="true" />
+            <element signature="e#1652#1653#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/CatogoryRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/Cart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/java/com/wly/repository/CartRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret column="27" lean-forward="true" selection-start-column="27" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/resources/Mapper/CartRepository.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-144">
+          <caret column="39" lean-forward="true" selection-start-column="39" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_product/src/main/java/com/wly/entity/Goods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/controller/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Catogory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/java/com/wly/entity/Cart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/product_manage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="70" column="33" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/land_env.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="72" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/shop_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5065">
+          <caret line="324" column="74" selection-start-line="324" selection-start-column="70" selection-end-line="324" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/product_details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="508" column="30" selection-start-line="508" selection-start-column="26" selection-end-line="508" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/product_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="225" column="31" lean-forward="true" selection-start-line="225" selection-start-column="31" selection-end-line="225" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/product_goods.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="121" column="40" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snpt_client/src/main/resources/static/shop_cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="502" column="169" selection-start-line="502" selection-start-column="169" selection-end-line="502" selection-end-column="169" />
+          <folding>
+            <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

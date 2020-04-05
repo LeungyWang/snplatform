@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.CartRepository">
+    <resultMap id="CartMap" type="Cart">
+        <id column="cart_id" property="cart_id"></id>
+        <result column="customer_id" property="customer_id"></result>
+        <result column="originplace" property="originplace"></result>
+        <result column="product_amount" property="product_amount"></result>
+        <result column="price" property="price"></result>
+        <result column="add_time" property="add_time"></result>
+        <result column="modified_time" property="modified_time"></result>
+        <association property="goods" select="com.wly.repository.GoodsRepository.findById" column="product_id"></association>
+    </resultMap>
+    <select id="findAll" resultMap="CartMap">
+        select * from order_cart limit #{index},#{limit}
+    </select>
+
+    <select id="findAllByUserId" resultMap="CartMap">
+        select * from order_cart where customer_id= #{userid}
+    </select>
+    <select id="countByUserid" resultMap="CartMap">
+        select count(id) from order_cart where customer_id = #{userid}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from order_cart
+    </select>
+
+    <select id="findById" parameterType="String" resultMap="CartMap">
+        select * from order_cart where id = #{id}
+    </select>
+
+    <insert id="save" parameterType="Cart">
+        insert into order_cart(cart_id, customer_id, product_id,product_amount,price) values (#{cart_id},#{customer_id},#{product_id},#{product_amount},#{price})
+    </insert>
+
+    <update id="update" parameterType="Cart">
+        update order_cart set product_amount = #{product_amount} where id = #{id}
+    </update>
+
+
+    <delete id="deleteById" parameterType="String">
+        delete from order_cart where id = #{id}
+    </delete>
+
+
+</mapper>

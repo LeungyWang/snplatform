@@ -40,10 +40,10 @@
 
 <script type="text/html" id="tableBar">
 
-{{#  if(d.status == "审核通过"){ }}
+{{#  if(d.status.code == "400"){ }}
     <span style="color: #4cae4c;">产品通过审核</span>
 {{# } }}
-{{#  if(d.status == "审核中"){ }}
+{{#  if(d.status.code == "300"){ }}
     <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="approveapply"><i
         class="layui-icon layui-icon-edit"></i>审核通过</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="disapproveapply"><i
@@ -68,9 +68,6 @@
                     <div class="layui-inline">
                         <button class="layui-btn icon-btn" lay-filter="formSubSearchTbLtrt" lay-submit>
                             <i class="layui-icon">&#xe615;</i>搜索
-                        </button>
-                        <button class="layui-btn icon-btn" onclick="location.href='/product/redirect/product_add'">
-                            <i class="layui-icon">&#xe654;</i>新增产品
                         </button>
                     </div>
                 </div>

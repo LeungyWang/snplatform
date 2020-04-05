@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.StatusRepository">
+
+    <select id="findAll" resultType="Status">
+        select * from statuscode limit #{index},#{limit}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(code) from statuscode
+    </select>
+
+    <select id="findById" parameterType="String" resultType="Status">
+        select * from statuscode where code = #{code}
+    </select>
+
+    <insert id="save" parameterType="Status">
+        insert into statuscode(code, codename) values (#{code},#{codename})
+    </insert>
+
+    <update id="update" parameterType="Status">
+        update statuscode set #{code}=#{code},codename=#{codename} where id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="String">
+        delete from statuscode where id = #{id}
+    </delete>
+
+
+</mapper>

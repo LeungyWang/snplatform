@@ -40,19 +40,19 @@
 
 <script type="text/html" id="tableBar">
 
-{{#  if(d.status == "审核通过"){ }}
+{{#  if(d.status.code == "400"){ }}
 <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="doSoldout"><i
         class="layui-icon layui-icon-edit"></i>下架农产品</a>
 {{# } }}
-{{#  if(d.status == "未上架"){ }}
+{{#  if(d.status.code == "200"){ }}
     <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="applygood"><i
         class="layui-icon layui-icon-edit"></i>申请上架</a>
 {{# } }}
-{{#  if(d.status == "审核中"){ }}
+{{#  if(d.status.code == "300"){ }}
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="cancelapply"><i
         class="layui-icon layui-icon-edit"></i>取消上架申请</a>
 {{# } }}
-{{#  if(d.status == "已下架"){ }}
+{{#  if(d.status.code == "600"){ }}
 <span style="color: #1b6d85;">产品已下架</span>
 {{# } }}
 
@@ -117,12 +117,17 @@
                 },
                 {field: 'name', align: 'center', sort: true, title: '产品名称'},
                 {field: 'originplace', align: 'center', sort: true, title: '产地'},
-                {field: 'category', align: 'center', sort: true, title: '产品分类'},
+                    {
+                    field: 'category', title: '产品分类', templet: function (data) {
+                        return data.catogory.name
+                    }
+                },
                 {field: 'quantity', align: 'center', sort: true, title: '数量'},
                 {field: 'unit', align: 'center', sort: true, title: '单位'},
                 {field: 'cost', align: 'center', sort: true, title: '成本'},
                 {field: 'price', align: 'center', sort: true, title: '价格'},
-                {align: 'center', toolbar: '#tableBar', title: '状态', minWidth: 200},
+                {align: 'center', toolbar
+                        : '#tableBar', title: '状态', minWidth: 200},
                 {
                     sort: true, align: 'center', templet: function (d) {
                         return util.toDateString(d.applicationtime);

@@ -1,0 +1,616 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>购物车</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    
+    <!-- CSS 
+    ========================= -->
+    <!--bootstrap min css-->
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+    <!--owl carousel min css-->
+    <link rel="stylesheet" th:href="@{/assets/css/owl.carousel.min.css}">
+    <!--slick min css-->
+    <link rel="stylesheet" th:href="@{/assets/css/slick.css}">
+    <!--magnific popup min css-->
+    <link rel="stylesheet" th:href="@{/assets/css/magnific-popup.css}">
+    <!--font awesome css-->
+    <link rel="stylesheet" th:href="@{/assets/css/font.awesome.css}">
+    <!--ionicons css-->
+    <link rel="stylesheet" th:href="@{/assets/css/ionicons.min.css}">
+    <!--linearicons css-->
+    <link rel="stylesheet" th:href="@{/assets/css/linearicons.css}">
+    <!--animate css-->
+    <link rel="stylesheet" th:href="@{/assets/css/animate.css}">
+    <!--jquery ui min css-->
+    <link rel="stylesheet" th:href="@{/assets/css/jquery-ui.min.css}">
+    <!--slinky menu css-->
+    <link rel="stylesheet" th:href="@{/assets/css/slinky.menu.css}">
+    <!--plugins css-->
+    <link rel="stylesheet" th:href="@{/assets/css/plugins.css}">
+    <link rel="stylesheet" th:href="@{/assets/libs/layui/css/layui.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/module/admin.css?v=316}"/>
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+
+    <!--modernizr min js here-->
+    <script th:src="@{/assets/js/vendor/modernizr-3.7.1.min.js}"></script>
+<style>
+
+    [type=checkbox]{
+        zoom:150%;
+    }
+
+</style>
+</head>
+
+<body>
+
+
+    <!--header area start-->
+    
+    <!--offcanvas menu area start-->
+    <div class="off_canvars_overlay">
+
+    </div>
+    <div class="offcanvas_menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="canvas_open">
+                        <a href="javascript:void(0)"><i class="icon-menu"></i></a>
+                    </div>
+
+                    <div class="header_social text-right">
+                        <ul>
+                            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                            <li><a href="#"><i class="ion-social-googleplus-outline"></i></a></li>
+                            <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
+                            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="search_container">
+                        <form action="#">
+                            <div class="hover_category">
+                                <select class="select_option" name="select" id="categori1">
+                                    <option selected value="1">""</option>
+                                </select>
+                            </div>
+                            <div class="search_box">
+                                <input placeholder="搜索产品" type="text">
+                                <button type="submit"><span class="lnr lnr-magnifier"></span></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="header_account_area">
+                        <div class="header_account_list register">
+                            <ul>
+                                <li><a href="login.html">注册</a></li>
+                                <li><span>/</span></li>
+                                <li><a href="login.html">登录</a></li>
+                            </ul>
+                        </div>
+                        <div class="header_account_list  mini_cart_wrapper">
+                            <a href="javascript:void(0)"><span class="lnr lnr-cart"></span><span class="item_count">2</span></a>
+                            <!--mini cart-->
+                            <div class="mini_cart">
+                                <div class="cart_gallery">
+                                    <div class="cart_item">
+                                        <div class="cart_img">
+                                            <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
+                                        </div>
+                                        <div class="cart_info">
+                                            <a href="#">Primis In Faucibus</a>
+                                            <p>1 x <span> $65.00 </span></p>
+                                        </div>
+                                        <div class="cart_remove">
+                                            <a href="#"><i class="icon-x"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="cart_item">
+                                        <div class="cart_img">
+                                            <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
+                                        </div>
+                                        <div class="cart_info">
+                                            <a href="#">Letraset Sheets</a>
+                                            <p>1 x <span> $60.00 </span></p>
+                                        </div>
+                                        <div class="cart_remove">
+                                            <a href="#"><i class="icon-x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mini_cart_table">
+                                    <div class="cart_table_border">
+                                        <div class="cart_total">
+                                            <span>Sub total:</span>
+                                            <span class="price">$125.00</span>
+                                        </div>
+                                        <div class="cart_total mt-10">
+                                            <span>total:</span>
+                                            <span class="price">$125.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mini_cart_footer">
+                                    <div class="cart_button">
+                                        <a href="cart.html"><i class="fa fa-shopping-cart"></i> View cart</a>
+                                    </div>
+                                    <div class="cart_button">
+                                        <a href="checkout.html"><i class="fa fa-sign-in"></i> Checkout</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--mini cart end-->
+                        </div>
+                    </div>
+                    <div class="call-support">
+                        <p><a href="tel:(08)23456789">(08) 23 456 789</a> Customer Support</p>
+                    </div>
+                    <div id="menu" class="text-left ">
+                        <ul class="offcanvas_main_menu">
+                            <li class="menu-item-has-children active">
+                                <a href="#">Home</a>
+                                <ul class="sub-menu">
+                                    <li><a href="index.html">Home 1</a></li>
+                                    <li><a href="index-2.html">Home 2</a></li>
+                                    <li><a href="index-3.html">Home 3</a></li>
+                                    <li><a href="index-4.html">Home 4</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="#">Shop</a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item-has-children">
+                                        <a href="#">Shop Layouts</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="shop.html">shop</a></li>
+                                            <li><a href="shop-fullwidth.html">Full Width</a></li>
+                                            <li><a href="shop-fullwidth-list.html">Full Width list</a></li>
+                                            <li><a href="shop-right-sidebar.html">Right Sidebar </a></li>
+                                            <li><a href="shop-right-sidebar-list.html"> Right Sidebar list</a></li>
+                                            <li><a href="shop-list.html">List View</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a href="#">other Pages</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="cart.html">cart</a></li>
+                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                            <li><a href="checkout.html">Checkout</a></li>
+                                            <li><a href="my-account.html">my account</a></li>
+                                            <li><a href="404.html">Error 404</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a href="#">Product Types</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="product_details.html">product details</a></li>
+                                            <li><a href="product-sidebar.html">product sidebar</a></li>
+                                            <li><a href="product-grouped.html">product grouped</a></li>
+                                            <li><a href="variable-product.html">product variable</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="#">blog</a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog.html">blog</a></li>
+                                    <li><a href="blog-details.html">blog details</a></li>
+                                    <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
+                                    <li><a href="blog-sidebar.html">blog sidebar</a></li>
+                                </ul>
+
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="#">pages </a>
+                                <ul class="sub-menu">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="services.html">services</a></li>
+                                    <li><a href="faq.html">Frequently Questions</a></li>
+                                    <li><a href="contact.html">contact</a></li>
+                                    <li><a href="login.html">login</a></li>
+                                    <li><a href="404.html">Error 404</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="my-account.html">my account</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="about.html">about Us</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="contact.html"> Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="offcanvas_footer">
+                        <span><a href="#"><i class="fa fa-envelope-o"></i> info@yourdomain.com</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--offcanvas menu area end-->
+
+    <header>
+        <div class="main_header">
+            <div class="header_top">
+                <div class="container">
+                    <div class="row align-items-center">
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="header_middle">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2">
+                            <div class="logo">
+                                <a href="index.html"><img src="/assets/images/logo/logo3.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="header_right_info">
+                                <div class="search_container">
+                                    <form action="#">
+                                        <div class="hover_category">
+                                            <select class="select_option" name="select" id="categori2">
+                                            </select>
+                                        </div>
+                                        <div class="search_box">
+                                            <input placeholder="搜索产品" type="text">
+                                            <button type="submit"><span class="lnr lnr-magnifier"></span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="header_account_area">
+                                    <div class="header_account_list register">
+                                        <ul>
+                                            <li><a href="login.html">注册</a></li>
+                                            <li><span>/</span></li>
+                                            <li><a href="login.html">登录</a></li>
+                                        </ul>
+                                    </div>
+<!--                                    <div class="header_account_list header_wishlist">-->
+<!--                                        <a href="wishlist.html"><span class="lnr lnr-heart"></span> <span class="item_count">3</span> </a>-->
+<!--                                    </div>-->
+                                    <div class="header_account_list  mini_cart_wrapper">
+                                        <a href="javascript:void(0)"><span class="lnr lnr-cart"></span><span class="item_count">2</span></a>
+                                        <!--mini cart-->
+                                        <div class="mini_cart">
+                                            <div class="cart_gallery">
+                                                <div class="cart_item">
+                                                    <div class="cart_img">
+                                                        <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
+                                                    </div>
+                                                    <div class="cart_info">
+                                                        <a href="#">Primis In Faucibus</a>
+                                                        <p>1 x <span> $65.00 </span></p>
+                                                    </div>
+                                                    <div class="cart_remove">
+                                                        <a href="#"><i class="icon-x"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="cart_item">
+                                                    <div class="cart_img">
+                                                        <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
+                                                    </div>
+                                                    <div class="cart_info">
+                                                        <a href="#">Letraset Sheets</a>
+                                                        <p>1 x <span> $60.00 </span></p>
+                                                    </div>
+                                                    <div class="cart_remove">
+                                                        <a href="#"><i class="icon-x"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mini_cart_table">
+                                                <div class="cart_table_border">
+                                                    <div class="cart_total">
+                                                        <span>Sub total:</span>
+                                                        <span class="price">$125.00</span>
+                                                    </div>
+                                                    <div class="cart_total mt-10">
+                                                        <span>total:</span>
+                                                        <span class="price">$125.00</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mini_cart_footer">
+                                                <div class="cart_button">
+                                                    <a href="cart.html"><i class="fa fa-shopping-cart"></i> View cart</a>
+                                                </div>
+                                                <div class="cart_button">
+                                                    <a href="checkout.html"><i class="fa fa-sign-in"></i> Checkout</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!--mini cart end-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header_bottom sticky-header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3">
+                            <div class="categories_menu">
+                                <div class="categories_title">
+                                    <h2 class="categori_toggle">分类</h2>
+                                </div>
+                                <div class="categories_menu_toggle">
+                                    <ul>
+                                        <li class="menu_item_children"><a href="#">蔬菜</a>
+
+                                        </li>
+                                        <li class="menu_item_children"><a href="#">水果</a>
+                                        </li>
+                                        <li class="menu_item_children"><a href="#">粮食</a>
+                                        <li class="menu_item_children"><a href="#">种子</a>
+                                        </li>
+                                        <li class="menu_item_children"><a href="#">化肥</a>
+                                        </li>
+                                        <li class="menu_item_children"><a href="#">农药</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!--main menu start-->
+                            <div class="main_menu menu_position">
+                                <nav>
+                                    <ul>
+                                        <li><a class="active"  href="index.html">主页</a>
+                                        </li>
+                                        <li class="mega_items"><a href="shop.html">水果</a>
+                                        </li>
+                                        <li><a href="blog.html">蔬菜</a>
+                                        </li>
+                                        <li><a href="#">粮食</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!--main menu end-->
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="call-support">
+                                <p><a href="tel:(08)23456789">(08) 23 456 789</a> 服务热线</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--header area end-->
+    
+    <!--breadcrumbs area start-->
+    <div class="breadcrumbs_area">
+        <div class="container">   
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb_content">
+                       <h3>购物车</h3>
+                        <ul>
+                            <li><a href="index.html">主页</a></li>
+                            <li>购物车</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>         
+    </div>
+    <!--breadcrumbs area end-->
+    
+     <!--shopping cart area start -->
+    <div class="shopping_cart_area mt-70">
+        <div class="container">  
+            <form action="#"> 
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table_desc">
+                            <div class="cart_page table-responsive">
+                                <table>
+                            <thead>
+                                <tr>
+                                    <th ><input type="checkbox" /></th>
+                                    <th class="product_thumb">图片</th>
+                                    <th class="product_name">产品名称</th>
+                                    <th class="product-price">价格</th>
+                                    <th class="product_quantity">数量</th>
+                                    <th class="product_total">总金额</th>
+                                    <th class="product_remove">删除</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="cart:${carts}">
+                                    <td ><input th:id="'check-'+${cart.cart_id}" type="checkbox"/></td>
+                                    <td class="product_thumb"><a href="#"><img th:src="${cart.goods.picture}" alt=""></a></td>
+                                    <td class="product_name" ><a href="#" th:text="${cart.goods.name}"></a></td>
+                                    <td class="product-price" th:id="'price-'+${cart.cart_id}"  th:text="${cart.price}"></td>
+                                    <td class="product_quantity"><label>数量</label> <input th:id="'count-'+${cart.cart_id}" min="1" max="100" value="1" type="number"></td>
+                                    <td class="product_total" th:text="${cart.price}*${cart.product_amount}" ></td>
+                                    <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>   
+                            </div>  
+                            <div class="cart_submit">
+                                <button type="submit">更新购物车</button>
+                            </div>      
+                        </div>
+                     </div>
+                 </div>
+                 <!--coupon code area start-->
+
+
+<!--                <div class="coupon_area" style="">-->
+<!--                        <div class="col-lg-6 col-md-6">-->
+<!--                            <div class="coupon_code right">-->
+<!--                                <h3>购物车总金额</h3>-->
+<!--                                <div class="coupon_inner">-->
+<!--                                   <div class="cart_subtotal">-->
+<!--                                       <p>总金额</p>-->
+<!--                                       <p class="cart_amount">￥215.00</p>-->
+<!--                                   </div>-->
+<!--&lt;!&ndash;                                   <a href="#">Calculate shipping</a>&ndash;&gt;-->
+
+<!--                                   <div class="cart_subtotal">-->
+<!--                                       <p></p>-->
+<!--                                       <p class="cart_amount"></p>-->
+<!--                                   </div>-->
+<!--                                   <div class="checkout_btn">-->
+<!--                                       <a href="#">结算</a>-->
+<!--                                   </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <!--coupon code area end-->
+            </form>
+        </div>
+    </div>
+    <div style="width: 100%;position: fixed;bottom: 0;height: 60px;box-shadow: 0 0  10px beige;">
+        <div class="layui-row" >
+            <div class="layui-col-md-8 layui-col-md-offset4" >
+                <div style="display: flex;justify-content: space-between;margin-right: 30%">
+                    <div style="display: flex;margin-left: 20px;padding: 10px;align-items: center">
+                        <div><input type="checkbox" />全选</div>
+                        <div style="margin-left: 20px;">删除选中商品</div>
+                    </div>
+                    <div style="display: flex;">
+                        <div style="margin-right: 20px;color: gray;padding: 10px;">已选<span style="color: red;font-weight:bold;margin: 5px ">0</span>商品</div>
+                        <div style="margin-right: 20px;color: gray;padding: 10px;">总价：<span style="color:red;font-size: 20px;font-weight: bold" >￥<span id="allcost"> 0.0</span></span></div>
+                        <div style="height: 60px">
+                            <div style="font-weight: bold;color: white;background: #e64347;height: 60px;padding: 0 20px;font-size: 20px;display: flex;align-items: center;">
+                            <div >
+                                结算
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+     <!--shopping cart area end -->
+    
+<!--    footer area start-->
+<!--    <footer class="footer_widgets footer_border">-->
+
+<!--&lt;!&ndash;        <div class="footer_bottom">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="row align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="col-lg-6 col-md-7">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="copyright_area">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <p>Copyright &copy; 2020 王梁媛.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;             </div>   &ndash;&gt;-->
+<!--&lt;!&ndash;        </div>  &ndash;&gt;-->
+<!--    </footer>-->
+<!--    footer area end-->
+
+<!-- JS
+============================================ -->
+<!--jquery min js-->
+    <script th:src="@{/assets/js/vendor/jquery-3.4.1.min.js}"></script>
+    <!--popper min js-->
+    <script th:src="@{/assets/js/popper.js}"></script>
+    <!--bootstrap min js-->
+    <script th:src="@{/assets/js/bootstrap.min.js}"></script>
+    <!--owl carousel min js-->
+    <script th:src="@{/assets/js/owl.carousel.min.js}"></script>
+    <!--slick min js-->
+    <script th:src="@{/assets/js/slick.min.js}"></script>
+    <!--magnific popup min js-->
+    <script th:src="@{/assets/js/jquery.magnific-popup.min.js}"></script>
+    <!--counterup min js-->
+    <script th:src="@{/assets/js/jquery.counterup.min.js}"></script>
+    <!--jquery countdown min js-->
+    <script th:src="@{/assets/js/jquery.countdown.js}"></script>
+    <!--jquery ui min js-->
+    <script th:src="@{/assets/js/jquery.ui.js}"></script>
+    <!--jquery elevatezoom min js-->
+    <script th:src="@{/assets/js/jquery.elevatezoom.js}"></script>
+    <!--isotope packaged min js-->
+    <script th:src="@{/assets/js/isotope.pkgd.min.js}"></script>
+    <!--slinky menu js-->
+    <script th:src="@{/assets/js/slinky.menu.js}"></script>
+    <!-- Plugins JS -->
+    <script th:src="@{/assets/js/plugins.js}"></script>
+
+    <!-- Main JS -->
+    <script th:src="@{/assets/js/main.js}"></script>
+
+    <script type="text/javascript" th:src="@{/assets/libs/layui/layui.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/common.js?v=316}"></script>
+    <script>
+
+
+        layui.use(['layer', 'form'], function () {
+            var $ = layui.jquery;
+            var layer = layui.layer;
+            var form = layui.form;
+
+            function getSumcost(){
+                /**
+                 * 计算商品总价
+                 */
+                var cost = 0.0;
+                $("[id^=check-]").each(function () {
+                    if (this.checked){
+                        debugger;
+                        var cart_id = this.id.split("-")[1];
+                        var countstr = $("#count-"+cart_id).val();
+                        var count = parseInt(countstr);
+                        var pricestr = $("#price-"+cart_id).text();
+                        var price = parseFloat(pricestr);
+                        cost += count*price;
+                    }
+                });
+                alert(cost);
+                $("#allcost").text(cost);
+                return  cost;
+
+            }
+
+            $("[id^=count-]").click(function () {
+                getSumcost();
+            })
+
+            $("[id^=check-]").click(function () {
+                getSumcost();
+            })
+
+
+
+
+        });
+    </script>
+
+</body>
+
+</html>

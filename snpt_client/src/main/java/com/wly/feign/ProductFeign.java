@@ -1,5 +1,6 @@
 package com.wly.feign;
 
+import com.wly.entity.Cart;
 import com.wly.entity.Goods;
 import entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -71,4 +72,17 @@ public interface ProductFeign {
     //展示审核通过的肥料农资产品
     @GetMapping("/goods/findPesticideProduct")
     public List<Goods> findPesticideProduct();
+
+
+    /**
+     * 购物车功能
+     */
+
+    //查找用户购物车
+    @GetMapping("/cart/findAll/{userid}")
+    public List<Cart> findAllCarts(@PathVariable String userid);
+
+
+
+
 }

@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wly.repository.GoodsRepository">
+        <resultMap id="GoodsdMap" type="Goods">
+            <id column="id" property="id"></id>
+            <result column="name" property="name"></result>
+            <result column="originplace" property="originplace"></result>
+            <result column="picture" property="picture"></result>
+            <result column="quantity" property="quantity"></result>
+            <result column="content" property="content"></result>
+            <result column="unit" property="unit"></result>
+            <result column="cost" property="cost"></result>
+            <result column="price" property="price"></result>
+            <result column="applicant" property="applicant"></result>
+            <result column="applicationtime" property="applicationtime"></result>
+            <association property="catogory" select="com.wly.repository.CatogoryRepository.findById" column="catogory"></association>
+            <association property="status" select="com.wly.repository.StatusRepository.findById" column="status"></association>
+        </resultMap>
 
-    <select id="findAll" resultType="Goods">
-        select * from goods where status="审核中" limit #{index},#{limit}
+    <select id="findAll" resultMap="GoodsdMap">
+        select * from goods where status="300" limit #{index},#{limit}
     </select>
 
-    <select id="findAllByUserId" resultType="Goods">
+    <select id="findAllByUserId" resultMap="GoodsdMap">
         select * from goods where applicant= #{param1} limit #{param2},#{param3}
     </select>
 
-    <select id="findGoodByuserid" resultType="Goods">
+    <select id="findGoodByuserid" resultMap="GoodsdMap">
         select * from goods where applicant= #{param1}
     </select>
 
-    <select id="findAllByCategory" resultType="Goods">
-        select * from goods where category=#{category} and status="审核通过"
+    <select id="findAllByCategory"  parameterType="Catogory" resultMap="GoodsdMap">
+        select * from goods where catogory=#{id}  and status="400"
     </select>
 
     <select id="countByUserid" resultType="int">
@@ -26,20 +41,20 @@
         select count(id) from goods
     </select>
 
-    <select id="findById" parameterType="String" resultType="Goods">
-        select * from goods where id = #{id}
+    <select id="findById" parameterType="String" resultMap="GoodsdMap">
+        select name,originplace,picture,unit,price from goods where id = #{id}
     </select>
 
     <insert id="save" parameterType="Goods">
-        insert into goods(id, name, originplace,category,picture,quantity,content,unit,cost,price, status, applicant,applicationtime) values (#{id},#{name},#{originplace},#{category},#{picture},#{quantity},#{content},#{unit},#{cost},#{price},#{status},#{applicant},#{applicationtime})
+        insert into goods(id, name, originplace,catogory,picture,quantity,content,unit,cost,price, status, applicant,applicationtime) values (#{id},#{name},#{originplace},#{catogory.id},#{picture},#{quantity},#{content},#{unit},#{cost},#{price},#{status.code},#{applicant},#{applicationtime})
     </insert>
 
     <update id="update" parameterType="Goods">
-        update goods set status = #{status} where id = #{id}
+        update goods set status = #{status.code} where id = #{id}
     </update>
 
     <update id="updateStatus" >
-         update goods set status=#{status} where id =#{id}
+         update goods set status=#{status.code} where id =#{id}
     </update>
 
 
