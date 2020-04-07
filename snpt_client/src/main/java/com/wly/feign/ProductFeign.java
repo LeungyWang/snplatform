@@ -82,7 +82,13 @@ public interface ProductFeign {
     @GetMapping("/cart/findAll/{userid}")
     public List<Cart> findAllCarts(@PathVariable String userid);
 
+    //加入购物车
+    @PostMapping("/cart/save")
+    public Result addCart(@RequestBody Cart cart);
 
+    //删除购物车商品
+    @DeleteMapping("/cart/deleteById/{id}")
+    public Result deleteCartById(@PathVariable String id);
 
 
 }

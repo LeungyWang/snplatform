@@ -9,7 +9,7 @@ public class Cart {
     private String cart_id;
     private String customer_id;
     private Goods goods;
-    private String product_amount;
+    private int product_amount;
     private double price;
     private Date add_time;
     private Date modified_time;

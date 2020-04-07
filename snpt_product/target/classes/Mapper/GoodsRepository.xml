@@ -42,7 +42,7 @@
     </select>
 
     <select id="findById" parameterType="String" resultMap="GoodsdMap">
-        select name,originplace,picture,unit,price from goods where id = #{id}
+        select id,applicant,name,originplace,picture,content,unit,price from goods where id = #{id}
     </select>
 
     <insert id="save" parameterType="Goods">

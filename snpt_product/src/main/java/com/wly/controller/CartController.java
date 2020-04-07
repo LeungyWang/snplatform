@@ -39,10 +39,10 @@ public class CartController {
         return cartRepository.findById(id);
     }
 
-    //增加功能
-    @PostMapping("/save/{userid}")
-    public Result save(@RequestBody Cart cart, @PathVariable String userid){
-        cart.setCustomer_id(userid);
+    //加入购物车功能
+    @PostMapping("/save")
+    public Result save(@RequestBody Cart cart){
+        cart.setCart_id("CT"+idWorker.nextId());
         cartRepository.save(cart);
         return new Result(200,"保存成功！",0,"");
     }

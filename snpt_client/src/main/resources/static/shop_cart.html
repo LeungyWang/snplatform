@@ -51,10 +51,7 @@
 </head>
 
 <body>
-
-
     <!--header area start-->
-    
     <!--offcanvas menu area start-->
     <div class="off_canvars_overlay">
 
@@ -432,7 +429,7 @@
                                 <table>
                             <thead>
                                 <tr>
-                                    <th ><input type="checkbox" /></th>
+                                    <th ><input type="checkbox" id="checkedbox"/></th>
                                     <th class="product_thumb">图片</th>
                                     <th class="product_name">产品名称</th>
                                     <th class="product-price">价格</th>
@@ -447,9 +444,9 @@
                                     <td class="product_thumb"><a href="#"><img th:src="${cart.goods.picture}" alt=""></a></td>
                                     <td class="product_name" ><a href="#" th:text="${cart.goods.name}"></a></td>
                                     <td class="product-price" th:id="'price-'+${cart.cart_id}"  th:text="${cart.price}"></td>
-                                    <td class="product_quantity"><label>数量</label> <input th:id="'count-'+${cart.cart_id}" min="1" max="100" value="1" type="number"></td>
+                                    <td class="product_quantity"><label>数量</label> <input th:id="'count-'+${cart.cart_id}" min="1" max="100" th:value="${cart.product_amount}" type="number"></td>
                                     <td class="product_total" th:text="${cart.price}*${cart.product_amount}" ></td>
-                                    <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                                    <td class="product_remove"><a th:href="'/product/cart/delete/'+${cart.cart_id}"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                             </tbody>
                         </table>   
@@ -495,11 +492,11 @@
             <div class="layui-col-md-8 layui-col-md-offset4" >
                 <div style="display: flex;justify-content: space-between;margin-right: 30%">
                     <div style="display: flex;margin-left: 20px;padding: 10px;align-items: center">
-                        <div><input type="checkbox" />全选</div>
-                        <div style="margin-left: 20px;">删除选中商品</div>
+<!--                        <div><input type="checkbox" id="checkbox" />全选</div>-->
+<!--                        <div style="margin-left: 20px;">删除选中商品</div>-->
                     </div>
                     <div style="display: flex;">
-                        <div style="margin-right: 20px;color: gray;padding: 10px;">已选<span style="color: red;font-weight:bold;margin: 5px ">0</span>商品</div>
+<!--                        <div style="margin-right: 20px;color: gray;padding: 10px;">已选<span style="color: red;font-weight:bold;margin: 5px ">0</span>商品</div>-->
                         <div style="margin-right: 20px;color: gray;padding: 10px;">总价：<span style="color:red;font-size: 20px;font-weight: bold" >￥<span id="allcost"> 0.0</span></span></div>
                         <div style="height: 60px">
                             <div style="font-weight: bold;color: white;background: #e64347;height: 60px;padding: 0 20px;font-size: 20px;display: flex;align-items: center;">
@@ -561,15 +558,11 @@
     <script th:src="@{/assets/js/slinky.menu.js}"></script>
     <!-- Plugins JS -->
     <script th:src="@{/assets/js/plugins.js}"></script>
-
     <!-- Main JS -->
     <script th:src="@{/assets/js/main.js}"></script>
-
     <script type="text/javascript" th:src="@{/assets/libs/layui/layui.js}"></script>
     <script type="text/javascript" th:src="@{/assets/js/common.js?v=316}"></script>
     <script>
-
-
         layui.use(['layer', 'form'], function () {
             var $ = layui.jquery;
             var layer = layui.layer;
@@ -582,7 +575,7 @@
                 var cost = 0.0;
                 $("[id^=check-]").each(function () {
                     if (this.checked){
-                        debugger;
+                        // debugger;
                         var cart_id = this.id.split("-")[1];
                         var countstr = $("#count-"+cart_id).val();
                         var count = parseInt(countstr);
@@ -591,23 +584,31 @@
                         cost += count*price;
                     }
                 });
-                alert(cost);
                 $("#allcost").text(cost);
                 return  cost;
 
             }
-
             $("[id^=count-]").click(function () {
                 getSumcost();
-            })
-
+            });
             $("[id^=check-]").click(function () {
                 getSumcost();
-            })
+            });
 
-
-
-
+            $("#checkedbox").click(function () {
+                if (this.checked){
+                $("[id^=check-]").each(function () {
+                   this.checked = true;
+                   getSumcost();
+                });
+                }
+                else {
+                    $("[id^=check-]").each(function () {
+                        this.checked = false;
+                        getSumcost();
+                    });
+                }
+            });
         });
     </script>
 

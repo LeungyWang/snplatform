@@ -38,6 +38,9 @@
 
     <!-- Main Style CSS -->
     <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <!-- layui -->
+    <link rel="stylesheet" th:href="@{/assets/libs/layui/css/layui.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/module/admin.css?v=316}"/>
 
     <!--modernizr min js here-->
     <script th:src="@{/assets/js/vendor/modernizr-3.7.1.min.js}"></script>
@@ -95,55 +98,55 @@
                        <div class="header_account_list  mini_cart_wrapper">
                            <a href="javascript:void(0)"><span class="lnr lnr-cart"></span><span class="item_count">2</span></a>
                            <!--mini cart-->
-<!--                           <div class="mini_cart">-->
-<!--                               <div class="cart_gallery">-->
-<!--                                   <div class="cart_item">-->
-<!--                                       <div class="cart_img">-->
-<!--                                           <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>-->
-<!--                                       </div>-->
-<!--                                       <div class="cart_info">-->
-<!--                                           <a href="#">Primis In Faucibus</a>-->
-<!--                                           <p>1 x <span> $65.00 </span></p>-->
-<!--                                       </div>-->
-<!--                                       <div class="cart_remove">-->
-<!--                                           <a href="#"><i class="icon-x"></i></a>-->
-<!--                                       </div>-->
-<!--                                   </div>-->
-<!--                                   <div class="cart_item">-->
-<!--                                       <div class="cart_img">-->
-<!--                                           <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>-->
-<!--                                       </div>-->
-<!--                                       <div class="cart_info">-->
-<!--                                           <a href="#">Letraset Sheets</a>-->
-<!--                                           <p>1 x <span> $60.00 </span></p>-->
-<!--                                       </div>-->
-<!--                                       <div class="cart_remove">-->
-<!--                                           <a href="#"><i class="icon-x"></i></a>-->
-<!--                                       </div>-->
-<!--                                   </div>-->
-<!--                               </div>-->
-<!--                               <div class="mini_cart_table">-->
-<!--                                   <div class="cart_table_border">-->
-<!--                                       <div class="cart_total">-->
-<!--                                           <span>Sub total:</span>-->
-<!--                                           <span class="price">$125.00</span>-->
-<!--                                       </div>-->
-<!--                                       <div class="cart_total mt-10">-->
-<!--                                           <span>total:</span>-->
-<!--                                           <span class="price">$125.00</span>-->
-<!--                                       </div>-->
-<!--                                   </div>-->
-<!--                               </div>-->
-<!--                               <div class="mini_cart_footer">-->
-<!--                                   <div class="cart_button">-->
-<!--                                       <a href="cart.html"><i class="fa fa-shopping-cart"></i> View cart</a>-->
-<!--                                   </div>-->
-<!--                                   <div class="cart_button">-->
-<!--                                       <a href="checkout.html"><i class="fa fa-sign-in"></i> Checkout</a>-->
-<!--                                   </div>-->
+                           <div class="mini_cart">
+                               <div class="cart_gallery">
+                                   <div class="cart_item">
+                                       <div class="cart_img">
+                                           <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
+                                       </div>
+                                       <div class="cart_info">
+                                           <a href="#">Primis In Faucibus</a>
+                                           <p>1 x <span> $65.00 </span></p>
+                                       </div>
+                                       <div class="cart_remove">
+                                           <a href="#"><i class="icon-x"></i></a>
+                                       </div>
+                                   </div>
+                                   <div class="cart_item">
+                                       <div class="cart_img">
+                                           <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
+                                       </div>
+                                       <div class="cart_info">
+                                           <a href="#">Letraset Sheets</a>
+                                           <p>1 x <span> $60.00 </span></p>
+                                       </div>
+                                       <div class="cart_remove">
+                                           <a href="#"><i class="icon-x"></i></a>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="mini_cart_table">
+                                   <div class="cart_table_border">
+                                       <div class="cart_total">
+                                           <span>Sub total:</span>
+                                           <span class="price">$125.00</span>
+                                       </div>
+                                       <div class="cart_total mt-10">
+                                           <span>total:</span>
+                                           <span class="price">$125.00</span>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="mini_cart_footer">
+                                   <div class="cart_button">
+                                       <a href="cart.html"><i class="fa fa-shopping-cart"></i> View cart</a>
+                                   </div>
+                                   <div class="cart_button">
+                                       <a href="checkout.html"><i class="fa fa-sign-in"></i> Checkout</a>
+                                   </div>
 
-<!--                               </div>-->
-<!--                           </div>-->
+                               </div>
+                           </div>
                                 <!--mini cart end-->
                            </div>
                         </div>
@@ -238,6 +241,7 @@
     </div>
     <!--offcanvas menu area end-->
 
+
    <header>
        <div class="main_header">
            <div class="header_top">
@@ -278,69 +282,69 @@
                                            <li><a href="login.html">登录</a></li>
                                        </ul>
                                    </div>
-                                   <div class="header_account_list header_wishlist">
-                                       <a href="wishlist.html"><span class="lnr lnr-heart"></span> <span class="item_count">3</span> </a>
-                                   </div>
+                                   <!--                                    <div class="header_account_list header_wishlist">-->
+                                   <!--                                        <a href="wishlist.html"><span class="lnr lnr-heart"></span> <span class="item_count">3</span> </a>-->
+                                   <!--                                    </div>-->
                                    <div class="header_account_list  mini_cart_wrapper">
                                        <a href="javascript:void(0)"><span class="lnr lnr-cart"></span><span class="item_count">2</span></a>
                                        <!--mini cart-->
-<!--                                       <div class="mini_cart">-->
-<!--                                           <div class="cart_gallery">-->
-<!--                                               <div class="cart_item">-->
-<!--                                                   <div class="cart_img">-->
-<!--                                                       <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>-->
-<!--                                                   </div>-->
-<!--                                                   <div class="cart_info">-->
-<!--                                                       <a href="#">Primis In Faucibus</a>-->
-<!--                                                       <p>1 x <span> $65.00 </span></p>-->
-<!--                                                   </div>-->
-<!--                                                   <div class="cart_remove">-->
-<!--                                                       <a href="#"><i class="icon-x"></i></a>-->
-<!--                                                   </div>-->
-<!--                                               </div>-->
-<!--                                               <div class="cart_item">-->
-<!--                                                   <div class="cart_img">-->
-<!--                                                       <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>-->
-<!--                                                   </div>-->
-<!--                                                   <div class="cart_info">-->
-<!--                                                       <a href="#">Letraset Sheets</a>-->
-<!--                                                       <p>1 x <span> $60.00 </span></p>-->
-<!--                                                   </div>-->
-<!--                                                   <div class="cart_remove">-->
-<!--                                                       <a href="#"><i class="icon-x"></i></a>-->
-<!--                                                   </div>-->
-<!--                                               </div>-->
-<!--                                           </div>-->
-<!--                                           <div class="mini_cart_table">-->
-<!--                                               <div class="cart_table_border">-->
-<!--                                                   <div class="cart_total">-->
-<!--                                                       <span>Sub total:</span>-->
-<!--                                                       <span class="price">$125.00</span>-->
-<!--                                                   </div>-->
-<!--                                                   <div class="cart_total mt-10">-->
-<!--                                                       <span>total:</span>-->
-<!--                                                       <span class="price">$125.00</span>-->
-<!--                                                   </div>-->
-<!--                                               </div>-->
-<!--                                           </div>-->
-<!--                                           <div class="mini_cart_footer">-->
-<!--                                               <div class="cart_button">-->
-<!--                                                   <a href="cart.html"><i class="fa fa-shopping-cart"></i> View cart</a>-->
-<!--                                               </div>-->
-<!--                                               <div class="cart_button">-->
-<!--                                                   <a href="checkout.html"><i class="fa fa-sign-in"></i> Checkout</a>-->
-<!--                                               </div>-->
+                                       <div class="mini_cart">
+                                           <div class="cart_gallery">
+                                               <div class="cart_item">
+                                                   <div class="cart_img">
+                                                       <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
+                                                   </div>
+                                                   <div class="cart_info">
+                                                       <a href="#">Primis In Faucibus</a>
+                                                       <p>1 x <span> $65.00 </span></p>
+                                                   </div>
+                                                   <div class="cart_remove">
+                                                       <a href="#"><i class="icon-x"></i></a>
+                                                   </div>
+                                               </div>
+                                               <div class="cart_item">
+                                                   <div class="cart_img">
+                                                       <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
+                                                   </div>
+                                                   <div class="cart_info">
+                                                       <a href="#">Letraset Sheets</a>
+                                                       <p>1 x <span> $60.00 </span></p>
+                                                   </div>
+                                                   <div class="cart_remove">
+                                                       <a href="#"><i class="icon-x"></i></a>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="mini_cart_table">
+                                               <div class="cart_table_border">
+                                                   <div class="cart_total">
+                                                       <span>Sub total:</span>
+                                                       <span class="price">$125.00</span>
+                                                   </div>
+                                                   <div class="cart_total mt-10">
+                                                       <span>total:</span>
+                                                       <span class="price">$125.00</span>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="mini_cart_footer">
+                                               <div class="cart_button">
+                                                   <a href="/product/cart/findAllCart"><i class="fa fa-shopping-cart"></i> 查看购物车</a>
+                                               </div>
+                                               <div class="cart_button">
+                                                   <a href="#"><i class="fa fa-sign-in"></i> 结算 </a>
+                                               </div>
 
-<!--                                           </div>-->
-<!--                                       </div>-->
-                                        <!--mini cart end-->
+                                           </div>
+                                       </div>
+                                       <!--mini cart end-->
                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
            <div class="header_bottom sticky-header">
                <div class="container">
                    <div class="row align-items-center">
@@ -357,7 +361,11 @@
                                        <li class="menu_item_children"><a href="#">水果</a>
                                        </li>
                                        <li class="menu_item_children"><a href="#">粮食</a>
-
+                                       <li class="menu_item_children"><a href="#">种子</a>
+                                       </li>
+                                       <li class="menu_item_children"><a href="#">化肥</a>
+                                       </li>
+                                       <li class="menu_item_children"><a href="#">农药</a>
                                        </li>
 
                                    </ul>
@@ -454,8 +462,8 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="product_d_right">
                        <form action="#">
-                           
-                            <h1><a href="#" th:text="${product.name}"></a></h1>
+                           <input type="hidden" id="productid" th:value="${product.id}" >
+                           <h1><a href="#" th:text="${product.name}"></a></h1>
                             <div class="product_nav">
                                 <ul>
                                     <li class="prev"><a href="product_details.html"><i class="fa fa-angle-left"></i></a></li>
@@ -469,12 +477,13 @@
                                    <li><a href="#"><i class="icon-star"></i></a></li>
                                    <li><a href="#"><i class="icon-star"></i></a></li>
                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                    <li class="review"><a href="#"> 产品星级 </a></li>
+                                    <li class="review"><a href="#"> 卖家信用星级 </a></li>
+                                    <input type="hidden" id="sellerid" th:value="${product.applicant}" >
                                 </ul>
-                                
+
                             </div>
                             <div class="price_box">
-                                <span class="current_price" th:text="${product.price}+'元/'+${product.unit}"></span>
+                                <span class="current_price" id="price" th:text="${product.price}+'元/'+${product.unit}"></span>
 
                             </div>
                             <div class="product_desc">
@@ -491,19 +500,17 @@
 <!--                                </ul>-->
 <!--                            </div>-->
                             <div class="product_variant quantity">
-                                <label>数量</label>
-                                <input min="1" max="100" value="1" type="number">
-                                <button class="button" type="submit">购买</button>
-                                
+                                <label>购买数量</label>
+                                <input min="1" max="100" value="1" type="number" id="ammount">
                             </div>
-<!--                            <div class=" product_d_action">-->
-<!--                               <ul>-->
-<!--                                   <li><a href="#" title="Add to wishlist">+ Add to Wishlist</a></li>-->
+                            <div class=" product_d_action">
+                                   <button class="button" type="button" id="buy" style="margin-left: 50%;">购买</button>
+                                   <button class="button" type="button" id="addcart" style="margin-left: 30px;">加入购物车</button>
+                                   <!--                                   <li><a href="#" title="Add to wishlist">+ Add to Wishlist</a></li>-->
 <!--                                   <li><a href="#" title="Add to wishlist">+ Compare</a></li>-->
-<!--                               </ul>-->
-<!--                            </div>-->
+                            </div>
                             <div class="product_meta">
-<!--                                <span>类别: <a href="#">Clothing</a></span>-->
+                                <!--                                <span>类别: <a href="#">Clothing</a></span>-->
                             </div>
                             
                         </form>
@@ -536,7 +543,7 @@
                             </ul>
                         </div>
                         <div class="tab-content">
-                            <div class="tab-pane fade show active" id="info" role="tabpanel" >
+                            <div class="tab-pane fade show active" role="tabpanel" id="info" >
                                 <div class="product_info_content"  th:utext="${product.content}">
 
 <!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>-->
@@ -787,28 +794,49 @@
    <script th:src="@{/assets/js/bootstrap.min.js}"></script>
    <!--owl carousel min js-->
    <script th:src="@{/assets/js/owl.carousel.min.js}"></script>
-   <!--slick min js-->
-<!--   <script th:src="@{/assets/js/slick.min.js}"></script>-->
-   <!--magnific popup min js-->
-<!--   <script th:src="@{/assets/js/jquery.magnific-popup.min.js}"></script>-->
-<!--   &lt;!&ndash;counterup min js&ndash;&gt;-->
-<!--   <script th:src="@{/assets/js/jquery.counterup.min.js}"></script>-->
-<!--   &lt;!&ndash;jquery countdown min js&ndash;&gt;-->
-<!--   <script th:src="@{/assets/js/jquery.countdown.js}"></script>-->
-<!--   &lt;!&ndash;jquery ui min js&ndash;&gt;-->
-<!--   <script th:src="@{/assets/js/jquery.ui.js}"></script>-->
-<!--   &lt;!&ndash;jquery elevatezoom min js&ndash;&gt;-->
-<!--   <script th:src="@{/assets/js/jquery.elevatezoom.js}"></script>-->
-<!--   &lt;!&ndash;isotope packaged min js&ndash;&gt;-->
-<!--   <script th:src="@{/assets/js/isotope.pkgd.min.js}"></script>-->
-<!--   &lt;!&ndash;slinky menu js&ndash;&gt;-->
-<!--   <script th:src="@{/assets/js/slinky.menu.js}"></script>-->
-<!--   &lt;!&ndash; Plugins JS &ndash;&gt;-->
-<!--   <script th:src="@{/assets/js/plugins.js}"></script>-->
-
+   <script type="text/javascript" th:src="@{/assets/libs/layui/layui.js}"></script>
+   <script type="text/javascript" th:src="@{/assets/js/common.js?v=316}"></script>
    <!-- Main JS -->
    <script th:src="@{/assets/js/main.js}"></script>
 
+        <script>
+            layui.use(['layer', 'form'], function () {
+                var $ = layui.jquery;
+                var layer = layui.layer;
+                var form = layui.form;
+
+                $("#addcart").click(function () {
+                    debugger;
+                    var productid = $("#productid").val();
+                    var ammountstr = $("#ammount").val();
+                    var amount = parseInt(ammountstr);
+                    var pricetext = $("#price").text();
+                    var price = parseFloat(pricetext.split("元/")[0]);
+                        $.ajax({
+                            url: "/product/cart/addCart",
+                            data: {productid: productid,product_amount:amount,price:price},
+                            dataType: "json",
+                            type: "post",
+                            async: false,
+                            cache: false,
+                            success: function (res) {
+                                // debugger;
+                                if (res.code == 200) {
+                                    layer.msg("加入购物车成功~", {icon: 1});
+                                } else {
+                                    layer.msg("加入购物车失败", {icon: 2});
+                                }
+                            },
+                            error: function () {
+                                alert("加入购物车失败");
+                            }
+                        });
+                })
+
+            });
+
+
+        </script>
 
 
 </body>

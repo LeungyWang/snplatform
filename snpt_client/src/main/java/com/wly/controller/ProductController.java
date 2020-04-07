@@ -1,5 +1,6 @@
 package com.wly.controller;
 
+import com.wly.entity.Cart;
 import com.wly.entity.Goods;
 import com.wly.entity.User;
 import com.wly.feign.ProductFeign;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
@@ -198,6 +201,28 @@ public class ProductController {
         return modelAndView;
     }
 
+    //加入购物车功能
+    @PostMapping("/cart/addCart")
+    @ResponseBody
+    public Result addCart(@RequestParam("productid") String productid,@RequestParam("product_amount") int amount,@RequestParam ("price") double price, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        Cart cart = new Cart();
+        Goods goods = new Goods();
+        goods.setId(productid);
+        cart.setGoods(goods);
+        cart.setPrice(price);
+        cart.setProduct_amount(amount);
+        cart.setCustomer_id(userid);
+        return productFeign.addCart(cart);
+    }
 
+    //删除购物车商品
+    @GetMapping("/cart/delete/{id}")
+    public void deleteById(ServletResponse servletResponse, @PathVariable String id) throws IOException {
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+        productFeign.deleteCartById(id);
+        response.sendRedirect("/product/cart/findAllCart");
+    }
 
 }
