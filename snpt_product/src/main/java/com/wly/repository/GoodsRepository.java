@@ -17,6 +17,7 @@ public interface GoodsRepository {
     public List<Goods> findAllByCategory(Catogory ct);
     //通过Id查找农产品
     public Goods findById(String id);
+    public Goods findCartById(String id);
     public int countByUserid(String userid);
     //新增农产品
     public void save(Goods goods);

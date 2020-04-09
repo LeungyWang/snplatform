@@ -54,7 +54,6 @@
     <!--header area start-->
     <!--offcanvas menu area start-->
     <div class="off_canvars_overlay">
-
     </div>
     <div class="offcanvas_menu">
         <div class="container">
@@ -86,6 +85,10 @@
                             </div>
                         </form>
                     </div>
+                    <form th:action="@{/product/order/addPre}" method="post" id="cartForm">
+                        <input type="hidden" name="orderInfoStr" id="orderInfo">
+                    </form>
+                    <input type="hidden" th:value="${carts}" id="carts">
                     <div class="header_account_area">
                         <div class="header_account_list register">
                             <ul>
@@ -141,7 +144,7 @@
                                         <a href="cart.html"><i class="fa fa-shopping-cart"></i> View cart</a>
                                     </div>
                                     <div class="cart_button">
-                                        <a href="checkout.html"><i class="fa fa-sign-in"></i> Checkout</a>
+                                        <a href="product_checkout.html"><i class="fa fa-sign-in"></i> Checkout</a>
                                     </div>
 
                                 </div>
@@ -182,7 +185,7 @@
                                         <ul class="sub-menu">
                                             <li><a href="cart.html">cart</a></li>
                                             <li><a href="wishlist.html">Wishlist</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
+                                            <li><a href="product_checkout.html">Checkout</a></li>
                                             <li><a href="my-account.html">my account</a></li>
                                             <li><a href="404.html">Error 404</a></li>
                                         </ul>
@@ -330,7 +333,7 @@
                                                     <a href="cart.html"><i class="fa fa-shopping-cart"></i> View cart</a>
                                                 </div>
                                                 <div class="cart_button">
-                                                    <a href="checkout.html"><i class="fa fa-sign-in"></i> Checkout</a>
+                                                    <a href="product_checkout.html"><i class="fa fa-sign-in"></i> Checkout</a>
                                                 </div>
 
                                             </div>
@@ -498,8 +501,8 @@
                     <div style="display: flex;">
 <!--                        <div style="margin-right: 20px;color: gray;padding: 10px;">已选<span style="color: red;font-weight:bold;margin: 5px ">0</span>商品</div>-->
                         <div style="margin-right: 20px;color: gray;padding: 10px;">总价：<span style="color:red;font-size: 20px;font-weight: bold" >￥<span id="allcost"> 0.0</span></span></div>
-                        <div style="height: 60px">
-                            <div style="font-weight: bold;color: white;background: #e64347;height: 60px;padding: 0 20px;font-size: 20px;display: flex;align-items: center;">
+                        <div style="height: 60px" id="checkout">
+                            <div style="cursor: pointer;font-weight: bold;color: white;background: #e64347;height: 60px;padding: 0 20px;font-size: 20px;display: flex;align-items: center;">
                             <div >
                                 结算
                             </div>
@@ -609,6 +612,36 @@
                     });
                 }
             });
+
+            $("#checkout").click(function () {
+                var arr = [];
+                var goods = {};
+                var cart = {};
+                $("[id^=check-]").each(function () {
+                    // debugger;
+                    var carts = JSON.parse($("#carts").val());
+                    if (this.checked) {
+                        // debugger;
+                        var id = this.id.split("-")[1];
+                        var count = $("#count-"+id).val();
+                        for (var x = 0;x< carts.length;x++){
+                            var ca = carts[x];
+                            if (id == ca.cart_id){
+                                cart = ca;
+                                cart.product_amount = parseInt(count);
+                            }
+                        }
+                        arr.push(cart);
+                    }
+                });
+                console.log(arr);
+                console.log(JSON.stringify(arr));
+                $("#orderInfo").val(JSON.stringify(arr));
+                //表单提交操作
+                $("#cartForm").submit();
+            })
+
+
         });
     </script>
 

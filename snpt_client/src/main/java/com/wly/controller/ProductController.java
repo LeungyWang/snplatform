@@ -1,5 +1,6 @@
 package com.wly.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.wly.entity.Cart;
 import com.wly.entity.Goods;
 import com.wly.entity.User;
@@ -7,6 +8,7 @@ import com.wly.feign.ProductFeign;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,10 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 @RequestMapping("product")
@@ -196,8 +195,9 @@ public class ProductController {
         User user = (User) session.getAttribute("user");
         String userid = user.getId();
         ModelAndView modelAndView = new ModelAndView();
+        JSON shop_cart_json = (JSON) JSON.toJSON(productFeign.findAllCarts(userid));
         modelAndView.setViewName("shop_cart");
-        modelAndView.addObject("carts",productFeign.findAllCarts(userid));
+        modelAndView.addObject("carts",shop_cart_json);
         return modelAndView;
     }
 
@@ -225,4 +225,14 @@ public class ProductController {
         response.sendRedirect("/product/cart/findAllCart");
     }
 
+
+    //提交购物车内容
+    @PostMapping("/order/addPre")
+    public String addPre(@RequestParam("orderInfoStr") String orderInfoStr, Model model){
+        System.err.println(orderInfoStr);
+        //把字符串转换成json
+        List<Cart> Carts =  JSON.parseArray(orderInfoStr,Cart.class);
+        model.addAttribute("carts",Carts);
+        return "product_checkout";
+    }
 }

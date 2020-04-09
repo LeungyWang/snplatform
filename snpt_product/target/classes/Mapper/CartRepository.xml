@@ -9,7 +9,7 @@
         <result column="price" property="price"></result>
         <result column="add_time" property="add_time"></result>
         <result column="modified_time" property="modified_time"></result>
-        <association property="goods" select="com.wly.repository.GoodsRepository.findById" column="product_id"></association>
+        <association property="goods" select="com.wly.repository.GoodsRepository.findCartById" column="product_id"></association>
     </resultMap>
     <select id="findAll" resultMap="CartMap">
         select * from order_cart limit #{index},#{limit}

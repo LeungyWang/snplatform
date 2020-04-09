@@ -45,6 +45,12 @@
         select id,applicant,name,originplace,picture,content,unit,price from goods where id = #{id}
     </select>
 
+    <select id="findCartById" parameterType="String" resultMap="GoodsdMap">
+        select id,applicant,name,originplace,picture,unit,price from goods where id = #{id}
+    </select>
+
+
+
     <insert id="save" parameterType="Goods">
         insert into goods(id, name, originplace,catogory,picture,quantity,content,unit,cost,price, status, applicant,applicationtime) values (#{id},#{name},#{originplace},#{catogory.id},#{picture},#{quantity},#{content},#{unit},#{cost},#{price},#{status.code},#{applicant},#{applicationtime})
     </insert>

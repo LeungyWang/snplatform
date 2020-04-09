@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.OrderRepository">
+
+    <select id="findAll" resultType="Order">
+        select * from order_master limit #{index},#{limit}
+    </select>
+
+    <select id="findAllByUserId" resultType="Order">
+        select * from order_master where customer_id= #{userid} limit #{param2},#{param3}
+    </select>
+
+    <select id="findOrderByuserid" resultType="Order">
+        select * from order_master where customer_id= #{userid}
+    </select>
+
+    <select id="countByUserid" resultType="int">
+        select count(order_id) from order_master where customer_id = #{userid}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(order_id) from order_master
+    </select>
+
+    <select id="findById" parameterType="String" resultType="Order">
+        select * from order_master where order_id = #{order_id}
+    </select>
+
+    <insert id="save" parameterType="Order">
+        insert into order_master(order_id, customer_id, shipping_user,province,city,district,address,payment_method,order_money,payment_money,order_status) values (#{order_id},#{customer_id},#{shipping_user},#{province},#{city},#{district},#{address},#{payment_method},#{order_money},#{payment_money},#{order_status})
+    </insert>
+
+<!--    <update id="update" parameterType="Goods">-->
+<!--        update goods set status = #{status.code} where id = #{id}-->
+<!--    </update>-->
+
+<!--    <update id="updateStatus" >-->
+<!--         update goods set status=#{status.code} where id =#{id}-->
+<!--    </update>-->
+
+
+<!--    <delete id="deleteById" parameterType="String">-->
+<!--        delete from goods where id = #{id}-->
+<!--    </delete>-->
+
+
+</mapper>
