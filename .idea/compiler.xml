@@ -7,13 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="snpt_client" />
+        <module name="snpt_kmeans" />
         <module name="snpt_config" />
+        <module name="snpt_product" />
         <module name="snpt_land" />
-        <module name="snpt_sow" />
         <module name="snpt_common" />
         <module name="snpt_sms" />
         <module name="snpt_user" />
-        <module name="snpt_product" />
+        <module name="snpt_sow" />
         <module name="snpt_eureka" />
       </profile>
     </annotationProcessing>
@@ -23,6 +24,7 @@
       <module name="snpt_common" target="1.8" />
       <module name="snpt_config" target="1.8" />
       <module name="snpt_eureka" target="1.8" />
+      <module name="snpt_kmeans" target="1.8" />
       <module name="snpt_land" target="1.8" />
       <module name="snpt_product" target="1.8" />
       <module name="snpt_sms" target="1.8" />
@@ -36,6 +38,7 @@
       <module name="snpt_common" options="-parameters" />
       <module name="snpt_config" options="-parameters" />
       <module name="snpt_eureka" options="-parameters" />
+      <module name="snpt_kmeans" options="-parameters" />
       <module name="snpt_land" options="-parameters" />
       <module name="snpt_product" options="-parameters" />
       <module name="snpt_sms" options="-parameters" />

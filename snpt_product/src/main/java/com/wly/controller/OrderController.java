@@ -44,11 +44,11 @@ public class OrderController {
 
     //新增订单功能
     @PostMapping("/save/{userid}")
-    public Result save(@RequestBody Order order, @PathVariable String userid){
+    public void save(@RequestBody Order order, @PathVariable String userid){
         order.setOrder_status(1);
         order.setCustomer_id(userid);
         order.setOrder_id("OD"+idWorker.nextId());
-        return new Result(200,"保存成功！",0,"");
+        orderRepository.save(order);
     }
 
     //删除功能

@@ -18,6 +18,7 @@
         <module>snpt_user</module>
         <module>snpt_product</module>
         <module>snpt_sms</module>
+        <module>snpt_kmeans</module>
     </modules>
 
     <parent>

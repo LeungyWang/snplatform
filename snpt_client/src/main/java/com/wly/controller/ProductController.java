@@ -1,8 +1,10 @@
 package com.wly.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.netflix.ribbon.proxy.annotation.Http;
 import com.wly.entity.Cart;
 import com.wly.entity.Goods;
+import com.wly.entity.Order;
 import com.wly.entity.User;
 import com.wly.feign.ProductFeign;
 import entity.Result;
@@ -226,13 +228,29 @@ public class ProductController {
     }
 
 
-    //提交购物车内容
+    //提交购物车内容到订单页面
     @PostMapping("/order/addPre")
-    public String addPre(@RequestParam("orderInfoStr") String orderInfoStr, Model model){
+    public String addPre(@RequestParam("orderInfoStr") String orderInfoStr,@RequestParam("allcost") Double allcost,Model model){
         System.err.println(orderInfoStr);
         //把字符串转换成json
         List<Cart> Carts =  JSON.parseArray(orderInfoStr,Cart.class);
         model.addAttribute("carts",Carts);
+        model.addAttribute("allcost",allcost);
+        model.addAttribute("orderInfo",orderInfoStr);
         return "product_checkout";
     }
+
+    //下单功能实现
+    @PostMapping("/order/add")
+    public String addOrder(Order order, HttpSession session)  {
+        //设置订单状态为已下单
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        System.err.println(order);
+        productFeign.saveOrder(order,userid);
+        return "product_checkout";
+    }
+
+
+
 }

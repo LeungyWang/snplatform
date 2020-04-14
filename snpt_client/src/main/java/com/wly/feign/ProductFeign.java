@@ -2,6 +2,7 @@ package com.wly.feign;
 
 import com.wly.entity.Cart;
 import com.wly.entity.Goods;
+import com.wly.entity.Order;
 import entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -89,6 +90,15 @@ public interface ProductFeign {
     //删除购物车商品
     @DeleteMapping("/cart/deleteById/{id}")
     public Result deleteCartById(@PathVariable String id);
+
+
+    /**
+     * 下单功能
+     */
+
+    //提交订单
+    @PostMapping("/order/save/{userid}")
+    public void saveOrder(Order order,@PathVariable String userid);
 
 
 }

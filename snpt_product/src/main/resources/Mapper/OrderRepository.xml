@@ -27,7 +27,7 @@
     </select>
 
     <insert id="save" parameterType="Order">
-        insert into order_master(order_id, customer_id, shipping_user,province,city,district,address,payment_method,order_money,payment_money,order_status) values (#{order_id},#{customer_id},#{shipping_user},#{province},#{city},#{district},#{address},#{payment_method},#{order_money},#{payment_money},#{order_status})
+        insert into order_master(order_id, customer_id, shipping_user,phone,province,city,district,address,payment_method,order_money,payment_money,order_status) values (#{order_id},#{customer_id},#{shipping_user},#{phone},#{province},#{city},#{district},#{address},#{payment_method},#{order_money},#{payment_money},#{order_status})
     </insert>
 
 <!--    <update id="update" parameterType="Goods">-->

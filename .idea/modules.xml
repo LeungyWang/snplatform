@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/snpt_common/snpt_common.iml" filepath="$PROJECT_DIR$/snpt_common/snpt_common.iml" />
       <module fileurl="file://$PROJECT_DIR$/snpt_config/snpt_config.iml" filepath="$PROJECT_DIR$/snpt_config/snpt_config.iml" />
       <module fileurl="file://$PROJECT_DIR$/snpt_eureka/snpt_eureka.iml" filepath="$PROJECT_DIR$/snpt_eureka/snpt_eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/snpt_kmeans/snpt_kmeans.iml" filepath="$PROJECT_DIR$/snpt_kmeans/snpt_kmeans.iml" />
       <module fileurl="file://$PROJECT_DIR$/snpt_land/snpt_land.iml" filepath="$PROJECT_DIR$/snpt_land/snpt_land.iml" />
       <module fileurl="file://$PROJECT_DIR$/snpt_product/snpt_product.iml" filepath="$PROJECT_DIR$/snpt_product/snpt_product.iml" />
       <module fileurl="file://$PROJECT_DIR$/snpt_sms/snpt_sms.iml" filepath="$PROJECT_DIR$/snpt_sms/snpt_sms.iml" />
