@@ -240,17 +240,63 @@ public class ProductController {
         return "product_checkout";
     }
 
+
+    /**
+     * 下单功能
+     * @param order
+     * @param session
+     * @return
+     */
+
     //下单功能实现
     @PostMapping("/order/add")
-    public String addOrder(Order order, HttpSession session)  {
+    public String addOrder(Order order,HttpSession session)  {
         //设置订单状态为已下单
         User user = (User) session.getAttribute("user");
+        String orderInfoStr = order.getOrderInfoStr();
+        System.err.println(orderInfoStr);
         String userid = user.getId();
         System.err.println(order);
         productFeign.saveOrder(order,userid);
         return "product_checkout";
     }
 
+    /**
+     * 商家订单管理功能
+     */
 
+    //查询卖家所有订单功能实现
+    @GetMapping("/bs/order/findAll")
+    @ResponseBody
+    public Result findBUserOrder(@RequestParam("page") int page, @RequestParam("limit") int limit, HttpSession session){
+        int index = (page-1)*limit;
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        Result orders = productFeign.findOrderByBuser(index,limit,userid);
+        return orders;
+    }
+
+    //查询卖家所有订单产品功能实现
+    @GetMapping("/orderdetails/findAll/{order_id}")
+    @ResponseBody
+    public Result findOrderDetails(@RequestParam("page") int page, @RequestParam("limit") int limit,@PathVariable String order_id){
+        int index = (page-1)*limit;
+        Result details = productFeign.findDetailsByOrder(order_id,index,limit);
+        return details;
+    }
+
+    //卖家发货
+    @GetMapping("/order/deliver")
+    @ResponseBody
+    public Result deliver(@RequestParam String order_id)  {
+        return productFeign.deliver(order_id);
+    }
+
+    //用户收货
+    @GetMapping("/order/receive")
+    @ResponseBody
+    public Result receive(@RequestParam String order_id)  {
+        return productFeign.receive(order_id);
+    }
 
 }

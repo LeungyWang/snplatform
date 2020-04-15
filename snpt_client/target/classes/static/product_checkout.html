@@ -86,9 +86,6 @@
                         </div>
                     </form>
                 </div>
-                <form th:action="@{/product/order/addPre}" method="post" id="cartForm">
-                    <input type="hidden" name="orderInfoStr" id="orderInfo">
-                </form>
                 <input type="hidden" th:value="${carts}" id="carts">
                 <div class="header_account_area">
                     <div class="header_account_list register">
@@ -472,7 +469,7 @@
                             </div>
                             <input type="hidden" name="order_money" th:value="${allcost}">
                             <input type="hidden" name="payment_money" th:value="${allcost}">
-
+                            <input type="hidden" name="orderInfoStr" id="orderInfo" th:value="${orderInfo}">
                         </div>
                         <br>
                         <div class="order_button">

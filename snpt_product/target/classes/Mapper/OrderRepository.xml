@@ -6,16 +6,23 @@
         select * from order_master limit #{index},#{limit}
     </select>
 
-    <select id="findAllByUserId" resultType="Order">
+<!--    查询顾客订单-->
+    <select id="findOrderByCUserId" resultType="Order">
         select * from order_master where customer_id= #{userid} limit #{param2},#{param3}
+    </select>
+
+<!--    查询商户订单-->
+    <select id="findOrderByBUserid" resultType="Order">
+       SELECT * FROM order_master WHERE order_id in (SELECT order_id FROM order_detail WHERE product_id in (SELECT id FROM goods WHERE applicant=#{userid}) ) limit #{index},#{limit}
     </select>
 
     <select id="findOrderByuserid" resultType="Order">
         select * from order_master where customer_id= #{userid}
     </select>
 
+<!--    查询商户订单数-->
     <select id="countByUserid" resultType="int">
-        select count(order_id) from order_master where customer_id = #{userid}
+       SELECT count(order_id) FROM order_master WHERE order_id in (SELECT order_id FROM order_detail WHERE product_id in (SELECT id FROM goods WHERE applicant=#{userid}) )
     </select>
 
     <select id="count" resultType="int">
@@ -30,18 +37,12 @@
         insert into order_master(order_id, customer_id, shipping_user,phone,province,city,district,address,payment_method,order_money,payment_money,order_status) values (#{order_id},#{customer_id},#{shipping_user},#{phone},#{province},#{city},#{district},#{address},#{payment_method},#{order_money},#{payment_money},#{order_status})
     </insert>
 
-<!--    <update id="update" parameterType="Goods">-->
-<!--        update goods set status = #{status.code} where id = #{id}-->
-<!--    </update>-->
+    <update id="updateOrderShipping" >
+         update order_master set shipping_time=#{shipping_time} where order_id =#{order_id}
+    </update>
 
-<!--    <update id="updateStatus" >-->
-<!--         update goods set status=#{status.code} where id =#{id}-->
-<!--    </update>-->
-
-
-<!--    <delete id="deleteById" parameterType="String">-->
-<!--        delete from goods where id = #{id}-->
-<!--    </delete>-->
-
+    <update id="updateOrderReceive" >
+         update order_master set receive_time=#{receive_time} where order_id =#{order_id}
+    </update>
 
 </mapper>

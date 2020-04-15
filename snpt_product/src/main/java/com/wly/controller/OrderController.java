@@ -1,12 +1,16 @@
 package com.wly.controller;
 
-import com.wly.entity.Catogory;
-import com.wly.entity.Order;
+import com.alibaba.fastjson.JSON;
+import com.wly.entity.*;
+import com.wly.repository.OrderDetailsRepository;
 import com.wly.repository.OrderRepository;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import util.IdWorker;
+
+import java.util.Date;
+import java.util.List;
 
 
 @RestController
@@ -17,25 +21,23 @@ public class OrderController {
     public OrderRepository orderRepository;
 
     @Autowired
+    public OrderDetailsRepository orderDetailsRepository;
+
+    @Autowired
     public IdWorker idWorker;
 
     //查找顾客所有订单
-    @GetMapping("/findAll/{userid}")
-    public Result findAll(@PathVariable String userid){
+    @GetMapping("/cs/findAll/{userid}")
+    public Result findAllCS(@PathVariable String userid){
         return new Result(0,"",orderRepository.countByUserid(userid),orderRepository.findOrderByuserid(userid));
     }
 
-//    //查找所有产品正在审核中的产品
-//    @GetMapping("/findAll/{index}/{limit}")
-//    public Result findAll(@PathVariable int index, @PathVariable int limit){
-//        return new Result(0,"",goodsRepository.count(),goodsRepository.findAll(index,limit));
-//    }
+    //查找卖家的所有订单
+    @GetMapping("/bs/findAll/{userid}/{index}/{limit}")
+    public Result findAllBS(@PathVariable String userid,@PathVariable int index,@PathVariable int limit){
+        return new Result(0,"",orderRepository.countByUserid(userid),orderRepository.findOrderByBUserid(userid,index,limit));
+    }
 
-    //查找功能
-//    @GetMapping("/findAll/{userid}")
-//    public Result findAll(@PathVariable String userid){
-//        return new Result(0,"",goodsRepository.countByUserid(userid),goodsRepository.findGoodByuserid(userid));
-//    }
     //查找功能
     @GetMapping("/findById/{id}")
     public Order findById(@PathVariable String id){
@@ -44,11 +46,26 @@ public class OrderController {
 
     //新增订单功能
     @PostMapping("/save/{userid}")
-    public void save(@RequestBody Order order, @PathVariable String userid){
+    public void save(@RequestBody Order order,@PathVariable String userid){
+        //保存订单
+        String orderInfoStr = order.getOrderInfoStr();
         order.setOrder_status(1);
         order.setCustomer_id(userid);
-        order.setOrder_id("OD"+idWorker.nextId());
+        String orderid = "OD"+idWorker.nextId();
+        order.setOrder_id(orderid);
         orderRepository.save(order);
+        //保存订单下的商品到数据库中
+        List<Cart> Carts =  JSON.parseArray(orderInfoStr,Cart.class);
+        for (int i = 0;i<Carts.size();i++){
+            Cart cart = Carts.get(i);
+            Goods good = cart.getGoods();
+            OrderDetails orderDetail = new OrderDetails();
+            orderDetail.setGoods(good);
+            orderDetail.setOrder_detailid("DT"+idWorker.nextId());
+            orderDetail.setOrder_id(orderid);
+            orderDetail.setProduct_cnt(cart.getProduct_amount());
+            orderDetailsRepository.save(orderDetail);
+        }
     }
 
     //删除功能
@@ -58,45 +75,18 @@ public class OrderController {
         return new Result(200,"删除成功！",0,"");
     }
 
-//    //修改功能
-//    @PutMapping("/update/{status}")
-//    public Result update(@RequestBody Goods goods){
-//        goodsRepository.update(goods);
-//        return new Result(200,"修改成功！",1,"");
-//    }
+    //订单发货功能
+    @PutMapping("/deliver/{order_id}")
+    public Result deliver(@PathVariable String order_id){
+        orderRepository.updateOrderShipping(new Date(),order_id);
+        return new Result(200,"产品发货成功！",1,"");
+    }
 
-//    //农产品申请上架
-//    @PutMapping("/verifyapply/{id}")
-//    public Result verifyApply(@PathVariable String id){
-//        goodsRepository.updateStatus(statusRepository.findById("300"),id);
-//        return new Result(200,"产品正在审核中！",1,"");
-//    }
-//
-//    //农产品取消上架申请
-//    @PutMapping("/cancelapply/{id}")
-//    public Result cancelApply(@PathVariable String id){
-//        goodsRepository.updateStatus(statusRepository.findById("200"),id);
-//        return new Result(200,"产品上架申请取消成功！",1,"");
-//    }
-//
-//    //农户下架农产品
-//    @PutMapping("/soldout/{id}")
-//    public Result soldout(@PathVariable String id){
-//        goodsRepository.updateStatus(statusRepository.findById("600"),id);
-//        return new Result(200,"产品下架成功！",1,"");
-//    }
-//
-//    //管理员通过农产品审核
-//    @PutMapping("/approve/{id}")
-//    public Result approveApply(@PathVariable String id){
-//        goodsRepository.updateStatus(statusRepository.findById("400"),id);
-//        return new Result(200,"产品审核通过成功！",1,"");
-//    }
-//
-//    //管理员不通过农产品审核
-//    @PutMapping("/disapprove/{id}")
-//    public Result disapproveApply(@PathVariable String id){
-//        goodsRepository.updateStatus(statusRepository.findById("500"),id);
-//        return new Result(200,"产品审核不通过成功！",1,"");
-//    }
+    //订单收货功能
+    @PutMapping("/receive/{order_id}")
+    public Result receive(@PathVariable String order_id){
+        orderRepository.updateOrderReceive(new Date(),order_id);
+        return new Result(200,"产品收货成功！",1,"");
+    }
+
 }

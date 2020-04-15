@@ -98,7 +98,26 @@ public interface ProductFeign {
 
     //提交订单
     @PostMapping("/order/save/{userid}")
-    public void saveOrder(Order order,@PathVariable String userid);
+    public void saveOrder(Order order,@PathVariable("userid") String userid);
 
+    /**
+     * 商户订单管理功能
+     */
+
+    //查询卖家订单
+    @GetMapping("/order/bs/findAll/{userid}/{index}/{limit}")
+    public Result findOrderByBuser(@PathVariable int index, @PathVariable int limit, @PathVariable String userid);
+
+    //查询订单下的所有产品 有分页
+    @GetMapping("/orderdetails/findAll/{order_id}/{index}/{limit}")
+    public Result findDetailsByOrder(@PathVariable String order_id, @PathVariable int index, @PathVariable int limit);
+
+    //产品发货功能
+    @PutMapping("/order/deliver/{order_id}")
+    public Result deliver(@PathVariable String order_id);
+
+    //产品收货功能
+    @PutMapping("/order/receive/{order_id}")
+    public Result receive(@PathVariable String order_id);
 
 }

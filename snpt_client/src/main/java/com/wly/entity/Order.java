@@ -23,4 +23,5 @@ public class Order {
     private Date receive_time;
     private Date modified_time;
     private Date create_time;
+    private String orderInfoStr;
 }

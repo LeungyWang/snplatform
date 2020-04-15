@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.OrderDetailsRepository">
+    <resultMap id="DetailsMap" type="OrderDetails">
+        <id column="order_detailid" property="order_detailid"></id>
+        <result column="product_cnt" property="product_cnt"></result>
+        <result column="order_id" property="order_id"></result>
+        <result column="modified_time" property="modified_time"></result>
+        <association property="goods" select="com.wly.repository.GoodsRepository.findById" column="product_id"></association>
+    </resultMap>
+
+    <select id="findAll" resultMap="DetailsMap">
+        select * from order_detail limit #{index},#{limit}
+    </select>
+<!--查找订单产品-->
+    <select id="findAllByOrderId" resultMap="DetailsMap">
+        select * from order_detail where order_id= #{order_id} limit #{index},#{limit}
+    </select>
+
+    <select id="findOrderByOrderid" resultMap="DetailsMap">
+        select * from order_detail where order_id= #{order_id}
+    </select>
+
+    <select id="countByOrderid" resultType="int">
+        select count(order_detailid) from order_detail where order_id = #{order_id}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(order_detailid) from order_detail
+    </select>
+
+    <select id="findById" parameterType="String" resultMap="DetailsMap">
+        select * from order_detail where order_detailid = #{orderdetailid}
+    </select>
+
+    <insert id="save" parameterType="OrderDetails">
+        insert into order_detail(order_detailid, order_id, product_id,product_cnt) values (#{order_detailid},#{order_id},#{goods.id},#{product_cnt})
+    </insert>
+
+<!--    <update id="update" parameterType="Goods">-->
+<!--        update goods set status = #{status.code} where id = #{id}-->
+<!--    </update>-->
+
+<!--    <update id="updateStatus" >-->
+<!--         update goods set status=#{status.code} where id =#{id}-->
+<!--    </update>-->
+
+
+<!--    <delete id="deleteById" parameterType="String">-->
+<!--        delete from goods where id = #{id}-->
+<!--    </delete>-->
+
+
+</mapper>
