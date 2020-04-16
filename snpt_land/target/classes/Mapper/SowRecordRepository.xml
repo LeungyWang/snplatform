@@ -23,6 +23,9 @@
         select * from sowrecord where userid= #{param1}
     </select>
 
+    <select id="countSoilRecord" resultType="int">
+SELECT count(id) FROM sowrecord WHERE DATE_FORMAT( createtime, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' ) AND landid=#{landid} and farmworkid=#{farmworkid}
+    </select>
 
     <select id="countByUserid" resultType="int">
         select count(id) from sowrecord where userid = #{userid}
@@ -33,7 +36,7 @@
     </select>
 
     <insert id="save" parameterType="SowRecord">
-        insert into sowrecord(id,productionid,landid,farmworkid, content,starttime,endtime,startdate,enddate,userid) values (#{id},#{fertilizer.id},#{soil.id},#{farmWork.id},#{content},#{starttime},#{endtime},#{startdate},#{enddate},#{userid})
+        insert into sowrecord(id,productionid,landid,farmworkid, content,starttime,endtime,startdate,enddate,createtime,userid) values (#{id},#{fertilizer.id},#{soil.id},#{farmWork.id},#{content},#{starttime},#{endtime},#{startdate},#{enddate},#{createtime},#{userid})
     </insert>
 
 <!--    <update id="update" parameterType="SowRecord">-->

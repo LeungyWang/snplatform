@@ -11,6 +11,10 @@
         select * from farmwork limit #{param1},#{param2}
     </select>
 
+    <select id="findById" parameterType="String" resultType="FarmWork">
+        select * from farmwork where id = #{id}
+    </select>
+
     <select id="count" resultType="int">
         select count(id) from farmwork
     </select>

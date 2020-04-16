@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import javax.swing.text.html.HTML;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -301,5 +302,76 @@ public class LandController {
     public Result updateFStd(FertilityStandard standard){
         return landFeign.updateFStandard(standard);
     }
+
+    /**
+     * 土地农事统计图
+     */
+
+    //返回土地月施肥记录
+    @GetMapping("/soil/frecordcharts")
+    @ResponseBody
+    private EchartsMap getSoilRecordCharts(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        EchartsMap echartsMap = new EchartsMap();
+        List<String> names = new ArrayList<String>();
+        List<Double> value = new ArrayList<Double>();
+        List<Soil> soils = landFeign.findNameByuserid(userid);
+        for (int i=0;i<soils.size();i++){
+            Soil soil = soils.get(i);
+            names.add(soil.getName());
+            String soilid = soil.getId();
+            Double v = Double.valueOf(landFeign.countSoilRecord(soilid,"3"));
+            value.add(v);
+        }
+        echartsMap.setValue(value);
+        echartsMap.setName(names);
+        return echartsMap;
+    }
+
+    //返回土地月施药记录图
+    @GetMapping("/soil/precordcharts")
+    @ResponseBody
+    private EchartsMap getSoilPRecordCharts(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        EchartsMap echartsMap = new EchartsMap();
+        List<String> names = new ArrayList<String>();
+        List<Double> value = new ArrayList<Double>();
+        List<Soil> soils = landFeign.findNameByuserid(userid);
+        for (int i=0;i<soils.size();i++){
+            Soil soil = soils.get(i);
+            names.add(soil.getName());
+            String soilid = soil.getId();
+            Double v = Double.valueOf(landFeign.countSoilRecord(soilid,"7"));
+            value.add(v);
+        }
+        echartsMap.setValue(value);
+        echartsMap.setName(names);
+        return echartsMap;
+    }
+
+    //返回土地月播种记录图
+    @GetMapping("/soil/srecordcharts")
+    @ResponseBody
+    private EchartsMap getSoilSRecordCharts(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        EchartsMap echartsMap = new EchartsMap();
+        List<String> names = new ArrayList<String>();
+        List<Double> value = new ArrayList<Double>();
+        List<Soil> soils = landFeign.findNameByuserid(userid);
+        for (int i=0;i<soils.size();i++){
+            Soil soil = soils.get(i);
+            names.add(soil.getName());
+            String soilid = soil.getId();
+            Double v = Double.valueOf(landFeign.countSoilRecord(soilid,"2"));
+            value.add(v);
+        }
+        echartsMap.setValue(value);
+        echartsMap.setName(names);
+        return echartsMap;
+    }
+
 
 }

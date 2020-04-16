@@ -138,6 +138,7 @@ public class UserController {
                     user.setId(id);
                     user.setNickname(nickname);
                     session.setAttribute("user", user);
+                    session.setAttribute("roles",userFeign.findRoles(id));
                     return result;
                 case "admin":
                     Admin admin = new Admin();

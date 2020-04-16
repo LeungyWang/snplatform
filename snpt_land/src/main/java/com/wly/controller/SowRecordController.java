@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import util.IdWorker;
 
+import java.util.Date;
+
 @RestController
 @RequestMapping("/sowrecord")
 public class SowRecordController {
@@ -35,11 +37,18 @@ public class SowRecordController {
         return new Result(200,"查询成功！",0,sowRecordRepository.findById(id));
     }
 
+    //查找土地该月的农事id次数
+    @GetMapping("/findSoilRecord/{landid}/{farmworkid}")
+    public int findSoilRecord(@PathVariable String landid,@PathVariable String farmworkid){
+        return sowRecordRepository.countSoilRecord(landid,farmworkid);
+    }
+
     //增加功能
     @PostMapping("/save/{userid}")
     public Result save(@RequestBody SowRecord sowRecord, @PathVariable String userid){
         sowRecord.setUserid(userid);
         sowRecord.setId("SR"+idWorker.nextId());
+        sowRecord.setCreatetime(new Date());
         sowRecordRepository.save(sowRecord);
         return new Result(200,"保存成功！",0,"");
     }

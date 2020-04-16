@@ -7,7 +7,7 @@ public interface FarmWorkRepository {
 
     public List<FarmWork> findAll();
     public List<FarmWork> findAllWorks(int index, int limit);
-    public List<FarmWork> findByid(String id);
+    public List<FarmWork> findById(String id);
     public int count();
     public void save(FarmWork farmWork);
     public void update(FarmWork farmWork);

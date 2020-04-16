@@ -1,9 +1,6 @@
 package com.wly.feign;
 
-import com.wly.entity.Businesses;
-import com.wly.entity.Client;
-import com.wly.entity.Farmer;
-import com.wly.entity.User;
+import com.wly.entity.*;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -68,6 +65,10 @@ public interface UserFeign {
     //取消权限
     @PutMapping("/role/updateCheck/{roleid}/{authid}")
     public void updateCheck(@PathVariable String roleid,@PathVariable int authid);
+
+    //查找用户的所有角色
+    @GetMapping("/user/findRolesByuserid/{userid}")
+    public List<Role> findRoles(@PathVariable("userid") String userid);
 
     /**
      *

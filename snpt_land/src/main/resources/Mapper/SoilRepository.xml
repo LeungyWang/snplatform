@@ -14,6 +14,10 @@
         select id,name from soil where id in (select landid from agrochemical) and userid=#{userid}
     </select>
 
+    <select id="findNameByuserid" resultType="Soil">
+        select id,name from soil where userid=#{userid}
+    </select>
+
     <select id="findById" parameterType="long" resultType="Soil">
         select * from soil where id = #{id}
     </select>

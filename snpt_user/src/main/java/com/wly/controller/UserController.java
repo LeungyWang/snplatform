@@ -1,5 +1,6 @@
 package com.wly.controller;
 
+import com.wly.entity.Role;
 import com.wly.entity.User;
 import com.wly.repository.AdminRepository;
 import com.wly.repository.RoleRepository;
@@ -51,6 +52,12 @@ public class UserController {
             user.setRoles(roleRepository.findRoles(userid));
         }
         return new Result(0,"",userRepository.count(),users);
+    }
+
+    //查找用户的所有角色
+    @GetMapping("/findRolesByuserid/{userid}")
+    public List<Role> findRoles(@PathVariable("userid") String userid){
+        return roleRepository.findRoles(userid);
     }
 
     /**

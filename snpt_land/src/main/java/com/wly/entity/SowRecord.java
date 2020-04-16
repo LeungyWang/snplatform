@@ -16,5 +16,5 @@ public class SowRecord {
     private String endtime;
     private Date startdate;
     private Date enddate;
-
+    private Date createtime;
 }

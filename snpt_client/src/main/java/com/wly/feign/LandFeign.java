@@ -141,6 +141,15 @@ public interface LandFeign {
     @PutMapping("/fertilitystandard/update")
     public Result updateFStandard(@RequestBody FertilityStandard standard);
 
+    /**
+     * 农事统计功能实现
+     */
 
+    @GetMapping("/soil/findNameByuserid/{userid}")
+    public List<Soil> findNameByuserid(@PathVariable String userid);
+
+    //查找土地该月的农事id次数
+    @GetMapping("/sowrecord/findSoilRecord/{landid}/{farmworkid}")
+    public int countSoilRecord(@PathVariable String landid,@PathVariable String farmworkid);
 
 }

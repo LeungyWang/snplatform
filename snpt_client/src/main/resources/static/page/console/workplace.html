@@ -113,11 +113,66 @@
     </div>
     <!-- 快捷方式 -->
     <div class="layui-row layui-col-space15">
-        <div class="layui-col-lg8 layui-col-md7">
-            <div class="layui-card">
-                <iframe allowtransparency="true" frameborder="0" width="410" height="98" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=1&z=1&t=1&v=0&d=2&bd=0&k=&f=&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=410&h=98&align=center"></iframe>
+        <div class="layui-col-lg12 layui-col-md8">
+            <div class="layui-card" style="margin-left: 250px">
+                <iframe  allowtransparency="true" frameborder="0" width="410" height="98" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=1&z=1&t=1&v=0&d=2&bd=0&k=&f=&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=410&h=98&align=center"></iframe>
             </div>
 
+        </div>
+    </div>
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
+            <div class="layui-card">
+                <div class="layui-card-header">本月土地施肥情况统计</div>
+                <div class="layui-card-body">
+                    <div id="fertility" style="height: 330px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
+            <div class="layui-card">
+                <div class="layui-card-header">本月土地施药情况统计</div>
+                <div class="layui-card-body">
+                    <div id="pesticide" style="height: 330px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
+            <div class="layui-card">
+                <div class="layui-card-header">本月土地播种情况统计</div>
+                <div class="layui-card-body">
+                    <div id="seed" style="height: 330px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-xs12">
+        <div class="layui-card">
+            <div class="layui-card-body">
+                <div class="layui-tab layui-tab-brief" lay-filter="tabZZT">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">订单成交金额</li>
+                        <li>农资消耗成本</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            <div class="layui-row layui-col-space30">
+                                <div class="layui-col-xs12 layui-col-md12">
+                                    <div id="xse" style="height: 300px;margin-top: 20px;margin-left: 20px"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-tab-item">
+                            <div class="layui-row layui-col-space30">
+                                <div class="layui-col-xs12 layui-col-md12">
+                                    <div id="fwl" style="height: 300px;margin-top: 20px;margin-left: 20px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 <br>
@@ -132,58 +187,233 @@
 <!-- js部分 -->
 <script type="text/javascript" th:src="@{/assets/libs/layui/layui.js}"></script>
 <script type="text/javascript" th:src="@{/assets/js/common.js?v=316}"></script>
-<!--<script>-->
-<!--    layui.use(['layer', 'carousel', 'table'], function () {-->
-<!--        var $ = layui.jquery;-->
-<!--        var layer = layui.layer;-->
-<!--        var carousel = layui.carousel;-->
-<!--        var table = layui.table;-->
-<!--        var device = layui.device();-->
+<script th:src="@{/assets/libs/echarts/echarts.min.js}"></script>
+<script th:src="@{/assets/libs/echarts/echartsTheme.js}"></script>
 
-<!--        // 渲染轮播-->
-<!--        carousel.render({-->
-<!--            elem: '.layui-carousel',-->
-<!--            width: '100%',-->
-<!--            height: '60px',-->
-<!--            arrow: 'none',-->
-<!--            autoplay: true,-->
-<!--            trigger: device.ios || device.android ? 'click' : 'hover',-->
-<!--            anim: 'fade'-->
-<!--        });-->
+<script>
+    layui.use(['layer','element'], function () {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var element = layui.element;
+        var myCharts3 = echarts.init(document.getElementById('xse'), myEchartsTheme);
+        var option3 = {
+            title: {
+                text: '订单成交金额',
+                textStyle: {
+                    color: '#000',
+                    fontSize: 14
+                }
+            },
+            tooltip: {},
+            grid: {
+                left: '0',
+                right: '0',
+                bottom: '0',
+                containLabel: true
+            },
+            xAxis: {
+                data: ['1月', '2月', '3月', '4月', '6月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+            },
+            yAxis: {},
+            series: [{
+                type: 'bar',
+                data: [726, 1013, 690, 892, 982, 570, 536, 546, 988, 1002, 206, 506],
+                barMaxWidth: 45
+            }]
+        };
+        myCharts3.setOption(option3);
 
-<!--        // 渲染表格-->
-<!--        table.render({-->
-<!--            elem: '#consoleHotTb1',-->
-<!--            data: [-->
-<!--                {searchNum: 666, userNum: 333},-->
-<!--                {searchNum: 666, userNum: 333},-->
-<!--                {searchNum: 666, userNum: 333},-->
-<!--                {searchNum: 666, userNum: 333},-->
-<!--                {searchNum: 666, userNum: 333},-->
-<!--                {searchNum: 666, userNum: 333},-->
-<!--                {searchNum: 666, userNum: 333},-->
-<!--                {searchNum: 666, userNum: 333},-->
-<!--                {searchNum: 666, userNum: 333},-->
-<!--                {searchNum: 666, userNum: 333},-->
-<!--                {searchNum: 666, userNum: 333},-->
-<!--                {searchNum: 666, userNum: 333}-->
-<!--            ],-->
-<!--            page: {limit: 12},-->
-<!--            cols: [[-->
-<!--                {type: 'numbers', fixed: 'left'},-->
-<!--                {-->
-<!--                    title: '搜索关键词', templet: function (d) {-->
-<!--                        return '<span class="layui-text"><a href="javascript:;">搜索关键词</a></span>';-->
-<!--                    }-->
-<!--                },-->
-<!--                {field: 'searchNum', title: '搜索次数', sort: true},-->
-<!--                {field: 'userNum', title: '用户数', sort: true},-->
-<!--            ]],-->
-<!--            skin: 'line'-->
-<!--        });-->
+        // 渲染访问量图表
+        var myCharts4 = echarts.init(document.getElementById('fwl'), myEchartsTheme);
+        var option4 = {
+            title: {
+                text: '农资消耗成本',
+                textStyle: {
+                    color: '#000',
+                    fontSize: 14
+                }
+            },
+            tooltip: {},
+            grid: {
+                left: '0',
+                right: '0',
+                bottom: '0',
+                containLabel: true
+            },
+            xAxis: {
+                data: ['1月', '2月', '3月', '4月', '6月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+            },
+            yAxis: {},
+            series: [{
+                type: 'bar',
+                data: [558, 856, 880, 1325, 982, 856, 655, 546, 988, 985, 568, 302],
+                barMaxWidth: 45
+            }]
+        };
+        myCharts4.setOption(option4);
 
-<!--    });-->
-<!--</script>-->
+        // 切换选项卡重新渲染
+        element.on('tab(tabZZT)', function (data) {
+            if (data.index == 0) {
+                myCharts3.resize();
+            } else {
+                myCharts4.resize();
+            }
+        });
+
+
+
+        $(function () {
+            getData1();
+            getData2();
+            getData3();
+        });
+
+        function  getData1() {
+            // var id = $("#agro").val();
+            $.ajax({
+                type: 'get',
+                dataType: 'text',
+                url: '/land/soil/frecordcharts',
+                cache: false,
+                async: true,
+                success: function (data) {
+                    var data = eval('(' + data + ')');
+                    var data1 = new Array();
+                    var data2 = new Array();
+                    for (var i = 0; i < data.value.length; i++) {
+                        data1[i] = data.name[i];
+                        data2[i] = data.value[i];
+                    }
+                    // 渲染土地施肥情况统计
+                    var myCharts1 = echarts.init(document.getElementById('fertility'));
+                    var options1 = {
+                        xAxis: {
+                            name:'\n土地名称',
+                            type: 'category',
+                            data: data1,
+                            nameLocation:"middle"
+                        },
+                        yAxis: {
+                            name:'施肥次数',
+                            nameTextStyle: {
+                                color: '#2F4F4F'
+                            },
+                            type: 'value'
+                        },
+                        series: [{
+                            data: data2,
+                            barWidth: '40%',
+                            color: '#2F4F4F',
+                            type: 'bar'
+                        }]
+                    };
+                    myCharts1.setOption(options1);
+                    window.onresize = function () {
+                        myCharts1.resize();}
+                    // 赋值
+                }
+            });
+        }
+
+        function getData2() {
+            // var id = $("#agro").val();
+            $.ajax({
+                type: 'get',
+                dataType: 'text',
+                url: '/land/soil/precordcharts',
+                cache: false,
+                async: true,
+                success: function (data) {
+                    var data = eval('(' + data + ')');
+                    var data1 = new Array();
+                    var data2 = new Array();
+                    for (var i = 0; i < data.value.length; i++) {
+                        data1[i] = data.name[i];
+                        data2[i] = data.value[i];
+                    }
+                    var myCharts2 = echarts.init(document.getElementById('pesticide'));
+                    var options2 = {
+                        xAxis: {
+                            name:'\n土地名称',
+                            type: 'category',
+                            data: data1,
+                            nameLocation:"middle"
+                        },
+                        yAxis: {
+                            name:'施药次数',
+                            nameTextStyle: {
+                                color: '#00868B'
+                            },
+                            type: 'value'
+                        },
+                        series: [{
+                            data: data2,
+                            barWidth: '40%',
+                            color: '#00868B',
+                            type: 'bar'
+                        }]
+                    };
+                    myCharts2.setOption(options2);
+                    window.onresize = function () {
+                        myCharts2.resize();}
+                }
+            });
+
+
+        }
+
+        function getData3() {
+            // var id = $("#agro").val();
+            $.ajax({
+                type: 'get',
+                dataType: 'text',
+                url: '/land/soil/srecordcharts',
+                cache: false,
+                async: true,
+                success: function (data) {
+                    var data = eval('(' + data + ')');
+                    var data1 = new Array();
+                    var data2 = new Array();
+                    for (var i = 0; i < data.value.length; i++) {
+                        data1[i] = data.name[i];
+                        data2[i] = data.value[i];
+                    }
+                    var myCharts3 = echarts.init(document.getElementById('seed'));
+                    var options3 = {
+                        xAxis: {
+                            name:'\n土地名称',
+                            type: 'category',
+                            data: data1,
+                            nameLocation:"middle"
+                        },
+                        yAxis: {
+                            name:'播种次数',
+                            nameTextStyle: {
+                                color: '#CD5C5C'
+                            },
+                            type: 'value'
+                        },
+                        series: [{
+                            data: data2,
+                            barWidth: '40%',
+                            color: '#CD5C5C',
+                            type: 'bar'
+                        }]
+                    };
+                    myCharts3.setOption(options3);
+                    window.onresize = function () {
+                        myCharts3.resize();}
+                }
+            });
+
+
+        }
+        // -------------------------------------------------------------------------
+
+
+    });
+</script>
 </body>
 
 </html>

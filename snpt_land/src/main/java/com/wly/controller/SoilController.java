@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import util.IdWorker;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/soil")
@@ -34,6 +36,10 @@ public class SoilController {
 
     }
 
+    @GetMapping("/findNameByuserid/{userid}")
+    public List<Soil> findNameByuserid(@PathVariable String userid){
+        return soilRepository.findNameByuserid(userid);
+    }
 
 
     @GetMapping("/findById/{id}")
@@ -60,6 +66,11 @@ public class SoilController {
         soilRepository.save(soil);
         return new Result(200,"保存成功！",0,"");
     }
+
+    /**
+     * 土地农事统计
+     */
+
 
 
 
