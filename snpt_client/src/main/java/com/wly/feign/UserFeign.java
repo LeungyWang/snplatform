@@ -20,8 +20,6 @@ public interface UserFeign {
      * 用户注册登录管理
      *
      */
-
-
     //发送短信验证码
     @RequestMapping(value = "/user/sendsms/{mobile}",method = RequestMethod.POST)
     public Result sendMessages(@PathVariable String mobile);

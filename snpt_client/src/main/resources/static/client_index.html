@@ -39,12 +39,15 @@
                     <li><a href="#contact" class="scroll">农资信息管理系统</a></li>
                     <li><a href="#contact" class="scroll">科普农业</a></li>
                     <li><a href="#contact" class="scroll">数据农业</a></li>
-                    <li th:if="${not #strings.isEmpty(session.user)}"><a href="#contact" class="scroll" th:text="'欢迎您的登录，'+${session.user.nickname}">
+                    <li th:if="${not #strings.isEmpty(session.user)}"><a href="" class="scroll" th:text="'欢迎您，'+${session.user.nickname}">
+                    <li th:if="${not #strings.isEmpty(session.user)}"><a href="/user/logout" class="scroll" th:text="退出登录">
+                    <li th:if="${not #strings.isEmpty(session.admin)}"><a href="" class="scroll" th:text="'欢迎您，'+${session.admin.name}">
+                    <li th:if="${not #strings.isEmpty(session.admin)}"><a href="/user/logout" class="scroll" th:text="退出登录">
 <!--                        <span th:text="'欢迎您的登录，'+${session.user.name}" th:remove="tag"></span>-->
                     </a>
                     </li>
-                    <li th:if="${#strings.isEmpty(session.user)}"><a href="/user/redirect/login" class="scroll">登录</a></li>
-                    <li th:if="${ #strings.isEmpty(session.user)}"><a href="/user/redirect/regist" class="scroll">注册</a></li>
+                    <li th:if="${#strings.isEmpty(session.user) && #strings.isEmpty(session.admin)}"><a href="/user/redirect/login" class="scroll">登录</a></li>
+                    <li th:if="${#strings.isEmpty(session.user) && #strings.isEmpty(session.admin)}"><a href="/user/redirect/regist" class="scroll">注册</a></li>
 
                 </ul>
             </div>

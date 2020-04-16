@@ -7,8 +7,26 @@
         select * from farmwork
     </select>
 
-    <select id="findById" parameterType="String" resultType="FarmWork">
-        select * from farmwork where id = #{id}
+    <select id="findAllWorks" resultType="FarmWork">
+        select * from farmwork limit #{param1},#{param2}
     </select>
+
+    <select id="count" resultType="int">
+        select count(id) from farmwork
+    </select>
+
+    <insert id="save" parameterType="FarmWork">
+        insert into farmwork(id,name) values (#{id},#{name})
+    </insert>
+
+    <update id="update" parameterType="FarmWork">
+        update farmwork set id=#{id}, name = #{name} where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="String">
+    delete from farmwork where id = #{id}
+    </delete>
+
+
 
 </mapper>

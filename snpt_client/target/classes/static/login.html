@@ -121,9 +121,12 @@
                 if (res.code == 200) {
                     layer.msg(res.msg, {icon: 1});
                     location.replace('/land/redirect/client_index');
-                } else {
+                }else if (res.code == 201){
+                    layer.msg(res.msg, {icon: 1});
+                    location.replace('/user/redirect/admin_index');
+                }
+                else {
                     layer.msg(res.msg, {icon: 2});
-
                 }
             }, 'json');
 

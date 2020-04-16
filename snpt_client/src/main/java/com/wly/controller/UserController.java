@@ -1,15 +1,14 @@
 package com.wly.controller;
 
-import com.wly.entity.Businesses;
-import com.wly.entity.Client;
-import com.wly.entity.Farmer;
-import com.wly.entity.User;
+import com.wly.entity.*;
 import com.wly.feign.UserFeign;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -125,7 +124,7 @@ public class UserController {
 
     @GetMapping("/login")
     @ResponseBody
-    public Result login(@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("type") String type,HttpSession session){
+    public Result login(@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("type") String type, HttpSession session){
         Result result = userFeign.login(username,password,type);
         Object object = result.getData();
         if (object!=null) {
@@ -141,19 +140,25 @@ public class UserController {
                     session.setAttribute("user", user);
                     return result;
                 case "admin":
-//                    Admin admin = new Admin();
-//                    idStr = hashMap.get("id")+"";
-//                    id = Long.parseLong(idStr);
-//                    String adminname = (String) hashMap.get("name");
-//                    admin.setId(id);
-//                    admin.setUsername(adminname);
-//                    session.setAttribute("admin",admin);
-//                    result = "main";
-                    break;
+                    Admin admin = new Admin();
+                    id = hashMap.get("id")+"";
+                    String adminname = (String) hashMap.get("name");
+                    admin.setId(id);
+                    admin.setName(adminname);
+                    session.setAttribute("admin",admin);
+                    return result;
             }
         }
         return result;
     }
+
+    //登出功能
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "client_index";
+    }
+
 
     /**
      *

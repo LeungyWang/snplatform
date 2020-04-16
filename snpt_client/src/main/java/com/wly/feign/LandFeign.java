@@ -1,9 +1,6 @@
 package com.wly.feign;
 
-import com.wly.entity.AgroChemical;
-import com.wly.entity.EchartsMap;
-import com.wly.entity.Report;
-import com.wly.entity.Soil;
+import com.wly.entity.*;
 import entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -87,5 +84,63 @@ public interface LandFeign {
 
     @GetMapping("/report/findAllByUserId/{index}/{limit}/{userid}")
     public Result findAllReport(@PathVariable int index, @PathVariable int limit, @PathVariable String userid);
+
+
+    /**
+     * 土壤参数设置功能
+     */
+
+    //查找所有土壤元素
+    @GetMapping("/element/findAll/{index}/{limit}")
+    public Result findAllElement(@PathVariable int index, @PathVariable int limit);
+
+    @GetMapping("/element/findAll")
+    public Result findElements();
+
+    //保存土壤元素信息
+    @PostMapping("/element/save")
+    public Result saveElement(@RequestBody Element element);
+
+    //删除土壤元素信息
+    @DeleteMapping("/element/deleteById")
+    public Result deleteElementById(@RequestParam("id") String id);
+
+    //修改土壤元素信息
+    @PutMapping("/element/update")
+    public Result updateElement(@RequestBody Element element);
+
+    //查找所有土壤分级标准
+    @GetMapping("/elementstandard/findAll/{index}/{limit}")
+    public Result findAllStandard(@PathVariable int index, @PathVariable int limit);
+
+    //保存土壤分级标准
+    @PostMapping("/elementstandard/save")
+    public Result saveStandard(@RequestBody ElementStandard standard);
+
+    //删除土壤分级标准
+    @DeleteMapping("/elementstandard/deleteById")
+    public Result deleteStandardById(@RequestParam("id") String id);
+
+    //修改土壤分级标准
+    @PutMapping("/fertilitystandard/update")
+    public Result updateStandard(@RequestBody ElementStandard standard);
+
+    //查找所有土壤肥力分级
+    @GetMapping("/fertilitystandard/findAll/{index}/{limit}")
+    public Result findAllFStandard(@PathVariable int index, @PathVariable int limit);
+
+    //保存土壤肥力分级
+    @PostMapping("/fertilitystandard/save")
+    public Result saveFStandard(@RequestBody FertilityStandard standard);
+
+    //删除土壤肥力分级
+    @DeleteMapping("/fertilitystandard/deleteById")
+    public Result deleteFStandardById(@RequestParam("id") int id);
+
+    //修改土壤肥力分级
+    @PutMapping("/fertilitystandard/update")
+    public Result updateFStandard(@RequestBody FertilityStandard standard);
+
+
 
 }

@@ -2,10 +2,7 @@ package com.wly.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.netflix.ribbon.proxy.annotation.Http;
-import com.wly.entity.Cart;
-import com.wly.entity.Goods;
-import com.wly.entity.Order;
-import com.wly.entity.User;
+import com.wly.entity.*;
 import com.wly.feign.ProductFeign;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -298,5 +295,42 @@ public class ProductController {
     public Result receive(@RequestParam String order_id)  {
         return productFeign.receive(order_id);
     }
+
+    /**
+     * 产品分类管理
+     * @param page
+     * @param limit
+     * @return
+     */
+
+    //查找产品分类
+    @GetMapping("/goodstype/findAll")
+    @ResponseBody
+    public Result findTypes(@RequestParam("page") int page, @RequestParam("limit") int limit){
+        int index = (page-1)*limit;
+        return productFeign.findAllTypes(index,limit);
+    }
+
+    //增加产品分类
+    @PostMapping("/goodstype/save")
+    @ResponseBody
+    public Result saveType(GoodsType type){
+        return productFeign.saveType(type);
+    }
+
+    //删除产品分类
+    @GetMapping("/goodstype/deleteById")
+    @ResponseBody
+    public Result deleteType(@RequestParam("id") String id){
+        return productFeign.deleteType(id);
+    }
+
+    //修改产品分类
+    @PostMapping("/goodstype/update")
+    @ResponseBody
+    public Result updateType(GoodsType type){
+        return productFeign.updateType(type);
+    }
+
 
 }

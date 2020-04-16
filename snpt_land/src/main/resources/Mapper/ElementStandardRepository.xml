@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.ElementStandardRepository">
+
+    <resultMap id="ElementStandardMap" type="ElementStandard">
+        <id column="id" property="id"></id>
+        <result column="value" property="value"></result>
+        <result column="points" property="points"></result>
+        <association property="element" select="com.wly.repository.ElementRepository.findById" column="elementid"></association>
+    </resultMap>
+
+    <select id="findAll" resultMap="ElementStandardMap">
+        select * from elementstandard limit #{param1},#{param2}
+    </select>
+
+    <select id="findById" parameterType="String">
+        select * from elementstandard where id = #{id}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from elementstandard
+    </select>
+
+    <insert id="save" parameterType="ElementStandard">
+        insert into elementstandard(id,elementid,value,points,comment) values (#{id},#{element.id},#{value},#{points},#{comment})
+    </insert>
+
+    <update id="update" parameterType="ElementStandard">
+        update elementstandard set id=#{id}, elementid = #{element.id}, value = #{value}, points = #{points},comment=#{comment} where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="String">
+        delete from elementstandard where id = #{id}
+    </delete>
+</mapper>

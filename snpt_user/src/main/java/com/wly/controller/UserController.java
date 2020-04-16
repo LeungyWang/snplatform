@@ -1,6 +1,7 @@
 package com.wly.controller;
 
 import com.wly.entity.User;
+import com.wly.repository.AdminRepository;
 import com.wly.repository.RoleRepository;
 import com.wly.repository.UserRepository;
 import entity.Result;
@@ -23,6 +24,9 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private AdminRepository adminRepository;
 
     @Autowired
     private RoleRepository roleRepository;
@@ -67,7 +71,10 @@ public class UserController {
                 }
                 break;
             case "admin":
-//                object = adminRepository.login(username,password);
+                object = adminRepository.login(username,password);
+                if (object!=null){
+                    return new Result(201, "登录成功！", 1, object);
+                }
                 break;
         }
         return new Result(500,"用户名或密码错误！",1,object);

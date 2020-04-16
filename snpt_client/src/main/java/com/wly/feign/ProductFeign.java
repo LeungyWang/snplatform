@@ -2,6 +2,7 @@ package com.wly.feign;
 
 import com.wly.entity.Cart;
 import com.wly.entity.Goods;
+import com.wly.entity.GoodsType;
 import com.wly.entity.Order;
 import entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -120,4 +121,30 @@ public interface ProductFeign {
     @PutMapping("/order/receive/{order_id}")
     public Result receive(@PathVariable String order_id);
 
+    /**
+     * 产品分类管理
+     */
+
+    //返回农资类型
+    @GetMapping("/prodcutiontype/findAllPT")
+    public Result findAllPT();
+    //返回用户农资
+    @GetMapping("/fertilizer/findAllFertilizer/{userid}")
+    public Result findAllFertilizer(@PathVariable String userid);
+
+    //查找所有产品分类
+    @GetMapping("/goodstype/findAll/{index}/{limit}")
+    public Result findAllTypes(@PathVariable int index, @PathVariable int limit);
+
+    //保存产品分类
+    @PostMapping("/goodstype/save")
+    public Result saveType(@RequestBody GoodsType goodsType);
+
+    //删除产品分类
+    @DeleteMapping("/goodstype/deleteById")
+    public Result deleteType(@RequestParam("id") String id);
+
+    //修改产品分类
+    @PutMapping("/goodstype/update")
+    public Result updateType(@RequestBody GoodsType goodsType);
 }

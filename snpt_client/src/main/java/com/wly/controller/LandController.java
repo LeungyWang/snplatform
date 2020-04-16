@@ -38,10 +38,6 @@ public class LandController {
         return landFeign.findByUserId(index,limit,userid);
     }
 
-
-
-
-
     @GetMapping("/soil/findSoilByUserid")
     @ResponseBody
     public Result findSoilByUserid(HttpSession session){
@@ -49,8 +45,6 @@ public class LandController {
         String userid = user.getId();
         return landFeign.findSoilByuserid(userid);
     }
-
-
 
     @GetMapping("/soil/findSoil")
     @ResponseBody
@@ -187,22 +181,6 @@ public class LandController {
         return echartsMap;
     }
 
-    //返回数据解读
-//    @GetMapping("agrochemical/getComments")
-//    public ModelAndView getComments(HttpSession session){
-//        long id =(long) session.getAttribute("EvaluateId");
-//        ModelAndView modelAndView = new ModelAndView();
-//        List<String> comments = landFeign.getComments(id);
-//        String comment = "";
-//        for (int i = 0;i<comments.size();i++){
-//            comment = comment + (i+1)+"." + comments.get(i)+"\n"+"\n";
-//        }
-//        System.out.println(comment);
-//        modelAndView.setViewName("evaluate_result");
-//        modelAndView.addObject("comment",comment);
-//        return modelAndView;
-//    }
-
     //查询用户生成的土壤报告
     @GetMapping("/report/findAll")
     @ResponseBody
@@ -224,6 +202,104 @@ public class LandController {
         modelAndView.addObject("comment",report.getComment());
         modelAndView.addObject("agroid",agroChemical.getId());
         return modelAndView;
+    }
+
+
+    /**
+     * 管理员土壤参数设置功能
+     */
+
+    //查找元素信息
+    @GetMapping("/element/findAll")
+    @ResponseBody
+    public Result findEleAll(@RequestParam("page") int page, @RequestParam("limit") int limit){
+        int index = (page-1)*limit;
+        return landFeign.findAllElement(index,limit);
+    }
+
+    //查找元素信息
+    @GetMapping("/element/findElements")
+    @ResponseBody
+    public Result findElements(){
+        return landFeign.findElements();
+    }
+
+    //增加元素信息
+    @PostMapping("/element/save")
+    @ResponseBody
+    public Result saveElement(Element element){
+        return landFeign.saveElement(element);
+    }
+
+    //删除元素信息
+    @GetMapping("/element/deleteById")
+    @ResponseBody
+    public Result deleteEleById(@RequestParam("id") String id){
+        return landFeign.deleteElementById(id);
+    }
+
+    //修改元素信息
+    @PostMapping("/element/update")
+    @ResponseBody
+    public Result updateElement(Element element){
+        return landFeign.updateElement(element);
+    }
+
+    //查找分级标准信息
+    @GetMapping("/standard/findAll")
+    @ResponseBody
+    public Result findStdAll(@RequestParam("page") int page, @RequestParam("limit") int limit){
+        int index = (page-1)*limit;
+        return landFeign.findAllStandard(index,limit);
+    }
+
+    //增加分级标准信息
+    @PostMapping("/standard/save")
+    @ResponseBody
+    public Result saveStandard(ElementStandard standard){
+        return landFeign.saveStandard(standard);
+    }
+
+    //删除分级标准信息
+    @GetMapping("/standard/deleteById")
+    @ResponseBody
+    public Result deleteStdById(@RequestParam("id") String id){
+        return landFeign.deleteStandardById(id);
+    }
+
+    //修改分级标准信息
+    @ResponseBody
+    public Result updateStd(ElementStandard standard){
+        return landFeign.updateStandard(standard);
+    }
+
+    //查找土壤肥力信息
+    @GetMapping("/fstandard/findAll")
+    @ResponseBody
+    public Result findFStdAll(@RequestParam("page") int page, @RequestParam("limit") int limit){
+        int index = (page-1)*limit;
+        return landFeign.findAllFStandard(index,limit);
+    }
+
+    //增加土壤肥力分级信息
+    @PostMapping("/fstandard/save")
+    @ResponseBody
+    public Result saveFStandard(FertilityStandard standard){
+        return landFeign.saveFStandard(standard);
+    }
+
+    //删除土壤肥力分级信息
+    @GetMapping("/fstandard/deleteById")
+    @ResponseBody
+    public Result deleteFStdById(@RequestParam("id") int id){
+        return landFeign.deleteFStandardById(id);
+    }
+
+    //修改土壤肥力分级信息
+    @PostMapping("/fstandard/update")
+    @ResponseBody
+    public Result updateFStd(FertilityStandard standard){
+        return landFeign.updateFStandard(standard);
     }
 
 }

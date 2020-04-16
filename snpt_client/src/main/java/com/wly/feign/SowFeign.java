@@ -1,9 +1,6 @@
 package com.wly.feign;
 
-import com.wly.entity.Fertilizer;
-import com.wly.entity.Pesticide;
-import com.wly.entity.Seed;
-import com.wly.entity.SowRecord;
+import com.wly.entity.*;
 import entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -104,6 +101,23 @@ public interface SowFeign {
     @GetMapping("/farmwork/findAll")
     public Result findAllfarmwork();
 
+    //查找所有农事类型
+    @GetMapping("/farmwork/findAll/{index}/{limit}")
+    public Result findAllFarmwork(@PathVariable int index, @PathVariable int limit);
+
+    //保存农事类型
+    @PostMapping("/farmwork/save")
+    public Result saveFarmwork(@RequestBody FarmWork farmWork);
+
+    //删除农事类型
+    @DeleteMapping("/farmwork/deleteById")
+    public Result deleteFarmwork(@RequestParam("id") String id);
+
+    //修改农事类型
+    @PutMapping("/farmwork/update")
+    public Result updateFarmwork(@RequestBody FarmWork farmWork);
+
+
     //增加功能
     @PostMapping("/sowrecord/save/{userid}")
     public Result saveSowrecord(@RequestBody SowRecord sowRecord, @PathVariable String userid);
@@ -115,7 +129,26 @@ public interface SowFeign {
     //返回农资类型
     @GetMapping("/prodcutiontype/findAllPT")
     public Result findAllPT();
+
     //返回用户农资
     @GetMapping("/fertilizer/findAllFertilizer/{userid}")
     public Result findAllFertilizer(@PathVariable String userid);
+
+    //查找所有农资类型
+    @GetMapping("/agrotype/findAll/{index}/{limit}")
+    public Result findAllTypes(@PathVariable int index, @PathVariable int limit);
+
+    //保存农资类型
+    @PostMapping("/agrotype/save")
+    public Result saveType(@RequestBody AgroType agroType);
+
+    //删除农资类型
+    @DeleteMapping("/agrotype/deleteById")
+    public Result deleteType(@RequestParam("id") String id);
+
+    //修改农资类型
+    @PutMapping("/agrotype/update")
+    public Result updateType(@RequestBody AgroType agroType);
+
+
 }

@@ -23,7 +23,7 @@
     </insert>
 
     <update id="update" parameterType="Catogory">
-        update goodsclassify set name=#{name},introduce=#{introduce} where id=#{id}
+        update goodsclassify set id=#{id},name=#{name},introduce=#{introduce} where id=#{id}
     </update>
 
     <delete id="deleteById" parameterType="Catogory">

@@ -258,4 +258,64 @@ public class SowController {
         return fertilizers;
     }
 
+
+    //查找农资类型
+    @GetMapping("/agrotype/findAll")
+    @ResponseBody
+    public Result findTypes(@RequestParam("page") int page, @RequestParam("limit") int limit){
+        int index = (page-1)*limit;
+        return sowFeign.findAllTypes(index,limit);
+    }
+
+    //增加农资类型
+    @PostMapping("/agrotype/save")
+    @ResponseBody
+    public Result saveType(AgroType type){
+        return sowFeign.saveType(type);
+    }
+
+    //删除农资类型
+    @GetMapping("/agrotype/deleteById")
+    @ResponseBody
+    public Result deleteType(@RequestParam("id") String id){
+        return sowFeign.deleteType(id);
+    }
+
+    //修改农资类型
+    @PostMapping("/agrotype/update")
+    @ResponseBody
+    public Result updateType(AgroType type){
+        return sowFeign.updateType(type);
+    }
+
+
+    //查找农事类型
+    @GetMapping("/farmwork/findFarmworks")
+    @ResponseBody
+    public Result findFarmwork(@RequestParam("page") int page, @RequestParam("limit") int limit){
+        int index = (page-1)*limit;
+        return sowFeign.findAllFarmwork(index,limit);
+    }
+
+    //增加农事类型
+    @PostMapping("/farmwork/save")
+    @ResponseBody
+    public Result saveFarmwork(FarmWork farmWork){
+        return sowFeign.saveFarmwork(farmWork);
+    }
+
+    //删除农事类型
+    @GetMapping("/farmwork/deleteById")
+    @ResponseBody
+    public Result deleteFarmwork(@RequestParam("id") String id){
+        return sowFeign.deleteFarmwork(id);
+    }
+
+    //修改农事类型
+    @PostMapping("/farmwork/update")
+    @ResponseBody
+    public Result updateFarmwork(FarmWork farmWork){
+        return sowFeign.updateFarmwork(farmWork);
+    }
+
 }
