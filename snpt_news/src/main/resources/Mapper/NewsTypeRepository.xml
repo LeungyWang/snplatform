@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.ElementRepository">
+
+    <select id="findByTypeid" parameterType="int" resultType="Element">
+        select name from element where type = #{type}
+    </select>
+
+    <select id="findById" parameterType="String" resultMap="ElementMap">
+        select * from element where id = #{id}
+    </select>
+
+    <select id="findAll" resultMap="ElementMap">
+        select * from element limit #{param1},#{param2}
+    </select>
+
+    <select id="findElements" resultMap="ElementMap">
+        select * from element
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from element
+    </select>
+
+    <insert id="save" parameterType="Element">
+        insert into element(id,name,type) values (#{id},#{name},#{type.id})
+    </insert>
+
+    <update id="update" parameterType="Element">
+        update element set id=#{id}, name = #{name}, type = #{type.id} where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="String">
+        delete from element where id = #{id}
+    </delete>
+</mapper>

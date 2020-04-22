@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wly.repository.NewsTypeRepository">
+
+    <select id="findAll" parameterType="int" resultType="NewsType">
+        select * from news_type limit #{index},#{limit}
+    </select>
+
+    <select id="findNewsType"  resultType="NewsType">
+        select * from news_type
+    </select>
+
+    <select id="count" resultType="int">
+        select count(newstypeid) from news_type
+    </select>
+
+    <insert id="save" parameterType="NewsType">
+        insert into news_type(newstypeid,newstypename) values (#{newstypeid},#{newstypename})
+    </insert>
+
+    <update id="update" parameterType="NewsType">
+        update news_type set newstypeid=#{newstypeid}, newstypename = #{newstypename}  where newstypeid = #{newstypeid}
+    </update>
+
+    <delete id="deleteById" parameterType="int">
+        delete from news_type where newstypeid = #{newstypeid}
+    </delete>
+</mapper>
