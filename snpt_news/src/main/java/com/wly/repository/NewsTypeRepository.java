@@ -1,15 +1,15 @@
 package com.wly.repository;
-import com.wly.entity.Element;
+import com.wly.entity.NewsType;
 
 import java.util.List;
 
-public interface ElementRepository {
-    public List<Element> findAll(int index, int limit);
-    public List<Element> findElements();
-    public List<Element> findByTypeid(int id);
+public interface NewsTypeRepository {
+    public List<NewsType> findAll(int index, int limit);
+    //查找所有的资讯板块
+    public List<NewsType> findNewsType();
+    public NewsType findById(int newstypeid);
     public int count();
-    public void save(Element element);
-    public void update(Element element);
-    public void deleteById(String id);
-
+    public void save(NewsType newsType);
+    public void update(NewsType newsType);
+    public void deleteById(int id);
 }

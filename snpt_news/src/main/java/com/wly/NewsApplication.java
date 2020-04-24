@@ -10,10 +10,10 @@ import util.IdWorker;
 
 @SpringBootApplication
 @MapperScan("com.wly.repository")
-public class ProductApplication {
+public class NewsApplication {
     public static void main(String[] args) {
 
-        SpringApplication.run(ProductApplication.class,args);
+        SpringApplication.run(NewsApplication.class,args);
     }
     @Bean
     public IdWorker idWorkker(){

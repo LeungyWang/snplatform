@@ -19,6 +19,7 @@
         <module>snpt_product</module>
         <module>snpt_sms</module>
         <module>snpt_kmeans</module>
+        <module>snpt_news</module>
     </modules>
 
     <parent>

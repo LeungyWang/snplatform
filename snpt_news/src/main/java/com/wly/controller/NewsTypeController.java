@@ -1,42 +1,49 @@
 package com.wly.controller;
 
-import com.wly.entity.AgroType;
-import com.wly.entity.ElementStandard;
-import com.wly.repository.AgroTypeRepository;
-import com.wly.repository.ElementStandardRepository;
+import com.wly.entity.NewsType;
+import com.wly.repository.NewsTypeRepository;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/agrotype")
-public class AgroTypeController {
+@RequestMapping("/newstype")
+public class NewsTypeController {
 
     @Autowired
-    public AgroTypeRepository agroTypeRepository;
+    public NewsTypeRepository newsTypeRepository;
 
 
+    //查找所有的资讯类型 有分页
     @GetMapping("/findAll/{index}/{limit}")
     public Result findAll(@PathVariable int index, @PathVariable int limit){
-        return new Result(0,"",agroTypeRepository.count(),agroTypeRepository.findAll(index,limit));
+        return new Result(0,"",newsTypeRepository.count(),newsTypeRepository.findAll(index,limit));
+    }
+
+    //查找所有的资讯类型 无分页
+    @GetMapping("/findAll")
+    public List<NewsType> findAll(){
+        return newsTypeRepository.findNewsType();
     }
 
     @PutMapping("/update")
-    public Result update(@RequestBody AgroType agroType){
-        agroTypeRepository.update(agroType);
+    public Result update(@RequestBody NewsType newsType){
+        newsTypeRepository.update(newsType);
         return new Result(200,"修改成功！",1,"");
     }
 
-    @DeleteMapping("/deleteById")
-    public Result deleteById(@RequestParam("id") String id){
-        agroTypeRepository.deleteById(id);
+    @DeleteMapping("/deleteById/{id}")
+    public Result deleteById(@PathVariable("id") Integer id){
+        newsTypeRepository.deleteById(id);
         return new Result(200,"删除成功！",1,"");
     }
 
     //增加功能
     @PostMapping("/save")
-    public Result save(@RequestBody AgroType agroType){
-        agroTypeRepository.save(agroType);
+    public Result save(@RequestBody NewsType newsType){
+        newsTypeRepository.save(newsType);
         return new Result(200,"保存成功！",0,"");
     }
 }

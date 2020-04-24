@@ -1,47 +1,54 @@
 package com.wly.controller;
 
+import com.wly.entity.News;
 import com.wly.entity.NewsType;
+import com.wly.repository.NewsRepository;
 import com.wly.repository.NewsTypeRepository;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/newstype")
-public class NewsTypeController {
+@RequestMapping("/news")
+public class NewsController {
 
     @Autowired
-    public NewsTypeRepository newsTypeRepository;
+    public NewsRepository newsRepository;
 
 
-    //查找所有的资讯类型 有分页
+    //查找所有的资讯 有分页
     @GetMapping("/findAll/{index}/{limit}")
     public Result findAll(@PathVariable int index, @PathVariable int limit){
-        return new Result(0,"",newsTypeRepository.count(),newsTypeRepository.findAll(index,limit));
+        return new Result(0,"",newsRepository.count(),newsRepository.findAll(index,limit));
     }
 
-    //查找所有的资讯类型 无分页
-    @GetMapping("/findAll")
-    public Result findAll(){
-        return new Result(0,"",newsTypeRepository.count(),newsTypeRepository.findNewsType());
+    //查找所有的资讯 无分页
+    @GetMapping("/findAll/{newstypeid}")
+    public List<News> findAll(@PathVariable int newstypeid){
+        return newsRepository.findNews(newstypeid);
     }
 
-    @PutMapping("/update")
-    public Result update(@RequestBody NewsType newsType){
-        newsTypeRepository.update(newsType);
-        return new Result(200,"修改成功！",1,"");
+    //根据Id查找农业资讯 资讯详情页
+    @GetMapping("/findById/{newsid}")
+    public News findById(@PathVariable int newsid){
+        return newsRepository.findById(newsid);
     }
 
-    @DeleteMapping("/deleteById")
-    public Result deleteById(@RequestParam("id") Integer id){
-        newsTypeRepository.deleteById(id);
-        return new Result(200,"删除成功！",1,"");
+    //发布资讯
+    @PutMapping("/releaseNews/{newsid}/{adminid}")
+    public Result updateStatus(@PathVariable int newsid,@PathVariable String adminid){
+        newsRepository.updateStatus(newsid,adminid);
+        return new Result(200,"资讯发布成功！",1,"");
     }
 
-    //增加功能
-    @PostMapping("/save")
-    public Result save(@RequestBody NewsType newsType){
-        newsTypeRepository.save(newsType);
-        return new Result(200,"保存成功！",0,"");
+    //删除资讯
+    @DeleteMapping("/deleteById/{id}")
+    public Result deleteById(@PathVariable("id") Integer newsid){
+        newsRepository.deleteById(newsid);
+        return new Result(200,"资讯删除成功！",1,"");
     }
+
+
 }

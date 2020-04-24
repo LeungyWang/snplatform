@@ -37,7 +37,7 @@
                     <li><a href="#news" class="scroll"> 新闻资讯</a></li>
                     <li><a href="#gallery" class="scroll">惠农商城</a></li>
                     <li><a href="#contact" class="scroll">农资信息管理系统</a></li>
-                    <li><a href="#contact" class="scroll">科普农业</a></li>
+                    <li><a href="#contact" class="scroll">农业资讯</a></li>
                     <li><a href="#contact" class="scroll">数据农业</a></li>
                     <li th:if="${not #strings.isEmpty(session.user)}"><a href="" class="scroll" th:text="'欢迎您，'+${session.user.nickname}">
                     <li th:if="${not #strings.isEmpty(session.user)}"><a href="/user/logout" class="scroll" th:text="退出登录">
@@ -89,7 +89,7 @@
     <div class="col-md-3 w3_b3">
         <div class="w3_gap2">
             <i class="fa fa-life-ring" aria-hidden="true"></i>
-            <h3>数据农业</h3>
+            <a href="/news/1/index"> <h3>农业资讯</h3></a>
         </div>
     </div>
     <div class="col-md-3 w3_b4">

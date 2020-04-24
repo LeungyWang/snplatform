@@ -5,14 +5,10 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class News {
+public class NewsComemnt {
+    private String commentid;
+    private User user;
     private String newsid;
-    private String title;
-    private String content;
-    private String source;
-    private Date release_time;
-    private NewsType newsType;
-    private Integer hits;
-    private Integer status;
-    private String auditor;
+    private String review_content;
+    private Date review_time;
 }
