@@ -19,10 +19,13 @@
     <insert id="save" parameterType="Farmer">
         insert into farmer(id,name,phone,idno,creditno,province,district,county,village) values (#{id},#{name},#{phone},#{idno},#{creditno},#{province},#{district},#{county},#{village})
     </insert>
-    
+
+<!--    修改农户土地所在地信息-->
     <update id="update" parameterType="Farmer">
-        update farmer set province = #{province}, district = #{district}, county = #{county}, village = #{village} where id = #{id}
+        update farmer set province = #{province}, district = #{district}, county = #{county}, village = #{village} where phone = #{phone}
     </update>
+
+
     
 
     <delete id="deleteById" parameterType="String">

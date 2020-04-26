@@ -52,20 +52,21 @@
                                 <label class="layui-form-label layui-form-required">身份证号:</label>
                                 <div class="layui-input-block">
                                     <input type="text" name="idno" placeholder="请输入身份证号" class="layui-input"
-                                           lay-verType="tips" lay-verify="required" required/>
+                                           lay-verType="tips" lay-verify="idno" required/>
                                 </div>
                             </div>
                             <div class="layui-form-item">
-                                <label class="layui-form-label">电话:</label>
+                                <label class="layui-form-label layui-form-required">电话:</label>
                                 <div class="layui-input-block">
-                                    <input type="text" id="phone1" name="phone" placeholder="请输入您的电话" class="layui-input"/>
+                                    <input type="text" id="phone1" name="phone" placeholder="请输入您的电话" class="layui-input"
+                                           lay-verType="tips" lay-verify="phone" required/>
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label layui-form-required">银行卡号:</label>
                                 <div class="layui-input-block">
                                     <input type="text" name="creditno" placeholder="请输入银行卡号" class="layui-input"
-                                           lay-verType="tips" lay-verify="required" required/>
+                                           lay-verType="tips" lay-verify="credit" required/>
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -110,7 +111,7 @@
                                 <label class="layui-form-label layui-form-required">用户名:</label>
                                 <div class="layui-input-block">
                                     <input type="text" name="username" placeholder="请输入用户名" class="layui-input"
-                                           lay-verType="tips" lay-verify="required" required/>
+                                           lay-verType="tips" lay-verify="username" required/>
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -124,7 +125,7 @@
                                 <label class="layui-form-label">密码：</label>
                                 <div class="layui-input-block">
                                     <input name="password" type="password" placeholder="密码" class="layui-input"
-                                           lay-verType="tips" lay-verify="required" required/>
+                                           lay-verType="tips" lay-verify="password" required/>
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -137,7 +138,7 @@
                             <div class="layui-form-item">
                                 <label class="layui-form-label">电话:</label>
                                 <div class="layui-input-block">
-                                    <input type="text" id="L_phone" name="phone" placeholder="请输入您的手机号" class="layui-input" readonly="true"/>
+                                    <input type="text" id="L_phone" name="phone" placeholder="" class="layui-input" readonly="true"/>
                                 </div>
                             </div>
                             <div class="layui-form-item">
@@ -214,6 +215,14 @@
             }, {
                 title: '注册完成'
             }]
+        });
+
+        form.verify({
+            idno: [/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/, '请输入正确的身份证号']
+            ,phone: [/^1[3456789]\d{9}$/, '请输入正确的手机号码']
+            ,credit: [/^([1-9]{1})(\d{15}|\d{16}|\d{18})$/, '请输入正确的银行卡号']
+            ,password: [/^(\w){6,20}$/, '密码必须由6-20位（字母、数字、下划线）组成']
+            ,username: [/^[a-zA-Z0-9_-]{4,16}$/, '用户名必须由4到16位（字母，数字，下划线，减号）组成']
         });
 
         $("#p_djs").hide();

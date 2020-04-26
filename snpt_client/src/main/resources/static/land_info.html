@@ -29,7 +29,7 @@
                     <div class="layui-inline">
                         <label class="layui-form-label w-auto">土地名称：</label>
                         <div class="layui-input-inline mr0">
-                            <input name="id" class="layui-input" type="text" placeholder="输入土地名称"/>
+                            <input id="demoReload"  class="layui-input" type="text" placeholder="输入土地名称"/>
                         </div>
                     </div>
 
@@ -186,9 +186,22 @@
 
         // 搜索
         form.on('submit(formSubSearchUser)', function (data) {
-            var id = data.field.id;
-            insTb.reload({where: data.field}, "data");
-
+            // insTb.reload({where: { "id": data.field.lid }
+            alert(data.field.lid);
+            table.reload('tableUser', {
+                url: 'https://www.easy-mock.com/mock/5c131015dada7b27ac3a5c36/titi/noData'
+                // ,methods:"post"
+                ,request: {
+                    pageName: 'page' //页码的参数名称，默认：page
+                    ,limitName: 'pageSize' //每页数据量的参数名，默认：limit
+                }
+                ,where: {
+                    query : inputVal
+                }
+                ,page: {
+                    curr: 1
+                }
+            });
         });
 
         // 工具条点击事件
@@ -244,7 +257,7 @@
 
         // 删除
         function doDel(id, name) {
-            layer.confirm('确定要删除“' + name + '”吗？', {
+            layer.confirm('确定要删除土地“' + name + '”吗？', {
                 skin: 'layui-layer-admin',
                 shade: .1
             }, function (i) {

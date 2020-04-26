@@ -27,9 +27,9 @@
             <div class="layui-form toolbar">
                 <div class="layui-form-item">
                     <div class="layui-inline">
-                        <label class="layui-form-label w-auto">取样编号：</label>
+                        <label class="layui-form-label w-auto">报告编号：</label>
                         <div class="layui-input-inline mr0">
-                            <input name="id" class="layui-input" type="text" placeholder="输入取样编号"/>
+                            <input name="id" class="layui-input" type="text" placeholder="输入报告编号"/>
                         </div>
                     </div>
 
@@ -57,46 +57,6 @@
     <input type="checkbox" lay-filter="ckStateUser" value="{{d.userId}}" lay-skin="switch"
            lay-text="正常|锁定" {{d.state==0?'checked':''}}/>
 </script>
-<!-- 表单弹窗 -->
-<!--<script type="text/html" id="modelUser">-->
-<!--    <form id="modelUserForm" lay-filter="modelUserForm" class="layui-form model-form">-->
-
-<!--        <div class="layui-form-item">-->
-<!--            <label class="layui-form-label layui-form-required">名称</label>-->
-<!--            <div class="layui-input-block">-->
-<!--                <input name="name" placeholder="请输入土地名称" type="text" class="layui-input" maxlength="20"-->
-<!--                       lay-verType="tips" lay-verify="required" required/>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="layui-form-item">-->
-<!--            <label class="layui-form-label layui-form-required">周长(米)</label>-->
-<!--            <div class="layui-input-block">-->
-<!--                <input name="perimeter" placeholder="请输入土地周长" type="text" class="layui-input" maxlength="20"-->
-<!--                       lay-verType="tips" lay-verify="required" required/>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="layui-form-item">-->
-<!--            <label class="layui-form-label layui-form-required">面积(亩)</label>-->
-<!--            <div class="layui-input-block">-->
-<!--                <input name="area" placeholder="请输入土地面积" type="text" class="layui-input" maxlength="20"-->
-<!--                       lay-verType="tips" lay-verify="required" required/>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--&lt;!&ndash;        <div class="layui-form-item">&ndash;&gt;-->
-<!--&lt;!&ndash;            <label class="layui-form-label layui-form-required">土壤类型</label>&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="layui-input-block">&ndash;&gt;-->
-<!--&lt;!&ndash;                <select name="agrotype" lay-verify="required" id="agrotype">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <option value="">选择土壤类型</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                </select>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-
-<!--        <div class="layui-form-item text-right">-->
-<!--            <button class="layui-btn layui-btn-primary" type="button" ew-event="closePageDialog">取消</button>-->
-<!--            <button class="layui-btn" lay-filter="modelSubmitUser" lay-submit>保存</button>-->
-<!--        </div>-->
-<!--    </form>-->
-<!--</script>-->
 
 <!-- js部分 -->
 <script type="text/javascript" th:src="@{/assets/libs/layui/layui.js}"></script>
@@ -117,10 +77,6 @@
         var util = layui.util;
         var admin = layui.admin;
 
-
-
-
-
         // 渲染表格
         var insTb = table.render({
             elem: '#tableUser',
@@ -135,7 +91,9 @@
                         return data.agroChemical.id
                     }
                 }
-                    ,{field:'createtime',  title: '报告生成时间'}
+                    ,{field:'createtime',sort:true,templet: function (d) {
+                        return util.toDateString(d.createtime);
+                    },  title: '报告生成时间'}
                     ,{align: 'center', toolbar: '#tableBarUser', title: '操作', minWidth: 200}
             ]
             ]
@@ -195,7 +153,7 @@
             if (layEvent === 'details') { // 修改
                 showDetails(data);
             } else if (layEvent === 'del') { // 删除
-                doDel(data.id, data.name);
+                doDel(data.id);
             } else if (layEvent === 'reset') { // 重置密码
                 resetPsw(data.userId, data.nickName);
             }
@@ -207,51 +165,15 @@
             window.open(url,"_blank");
         }
 
-
-
-        // 显示表单弹窗
-        // function showEditModel(mUser) {
-        //     admin.open({
-        //         type: 1,
-        //         title: (mUser ? '修改' : '添加') + '土地信息',
-        //         content: $('#modelUser').html(),
-        //         success: function (layero, dIndex) {
-        //             $(layero).children('.layui-layer-content').css('overflow', 'visible');
-        //             var url = mUser ? '/land/update' : '/land/save';
-        //             // mUser && (mUser.name = mUser.roles[0].roleId);
-        //             if (url=='/land/update'){
-        //                 getcurrenttype(mUser.agrotype);
-        //                 form.val('modelUserForm', mUser);
-        //             }
-        //             // 回显数据
-        //             // 表单提交事件
-        //             form.on('submit(modelSubmitUser)', function (data) {
-        //                 layer.load(2);
-        //                 $.post(url, data.field, function (res) {
-        //                     layer.closeAll('loading');
-        //                     if (res.code == 200) {
-        //                         layer.close(dIndex);
-        //                         layer.msg(res.msg, {icon: 1});
-        //                         insTb.reload({}, 'data');
-        //                     } else {
-        //                         layer.msg(res.msg, {icon: 2});
-        //                     }
-        //                 }, 'json');
-        //                 return false;
-        //             });
-        //         }
-        //     });
-        // }
-
         // 删除
-        function doDel(id, name) {
-            layer.confirm('确定要删除“' + name + '”吗？', {
+        function doDel(id) {
+            layer.confirm('确定要删除编号为“' + id + '”的报告吗？', {
                 skin: 'layui-layer-admin',
                 shade: .1
             }, function (i) {
                 layer.close(i);
                 layer.load(2);
-                $.get('/land/deleteById', {
+                $.get('/land/report/deleteById', {
                     id: id
                 }, function (res) {
                     layer.closeAll('loading');

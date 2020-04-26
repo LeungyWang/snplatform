@@ -27,9 +27,9 @@
             <div class="layui-form toolbar">
                 <div class="layui-form-item">
                     <div class="layui-inline">
-                        <label class="layui-form-label w-auto">土地编号：</label>
+                        <label class="layui-form-label w-auto">取样编号：</label>
                         <div class="layui-input-inline mr0">
-                            <input name="id" class="layui-input" type="text" placeholder="输入土地编号"/>
+                            <input name="id" class="layui-input" type="text" placeholder="输入取样编号"/>
                         </div>
                     </div>
 
@@ -200,7 +200,9 @@
                     ,{field:'manganese',  title: '有效锰(g/kg)'}
                     ,{field:'zinc',  title: '有效锌(g/kg)'}
                     ,{field:'ph',  title: '酸碱值'}
-                    ,{field:'date',  title: '取样日期'}
+                    ,{field:'date',sort:true,templet: function (d) {
+                        return util.toDateString(d.date);
+                    },  title: '取样日期'}
                 ,{align: 'center', toolbar: '#tableBarUser', title: '操作', minWidth: 200}
             ]
             ]
@@ -266,7 +268,7 @@
             if (layEvent === 'edit') { // 修改
                 showEditModel(data);
             } else if (layEvent === 'del') { // 删除
-                doDel(data.id, data.name);
+                doDel(data.id);
             } else if (layEvent === 'reset') { // 重置密码
                 resetPsw(data.userId, data.nickName);
             }
@@ -313,8 +315,8 @@
 
 
         // 删除
-        function doDel(id, name) {
-            layer.confirm('确定要删除“' + name + '”吗？', {
+        function doDel(id) {
+            layer.confirm('确定要删除取样编号为“' + id + '”的取样数据吗？', {
                 skin: 'layui-layer-admin',
                 shade: .1
             }, function (i) {

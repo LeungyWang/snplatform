@@ -11,6 +11,10 @@
         select count(id) from fertility_standard
     </select>
 
+    <select id="findByLevel" resultType="FertilityStandard">
+        select * from fertility_standard where level = #{level}
+    </select>
+
     <insert id="save" parameterType="FertilityStandard">
         insert into fertility_standard(id,level,comment) values (#{id},#{level},#{comment})
     </insert>

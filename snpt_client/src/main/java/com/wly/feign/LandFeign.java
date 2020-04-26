@@ -85,6 +85,9 @@ public interface LandFeign {
     @GetMapping("/report/findAllByUserId/{index}/{limit}/{userid}")
     public Result findAllReport(@PathVariable int index, @PathVariable int limit, @PathVariable String userid);
 
+    @DeleteMapping("/report/deleteById")
+    public Result deleteReportById(@RequestParam("id") String id);
+
 
     /**
      * 土壤参数设置功能
@@ -151,5 +154,17 @@ public interface LandFeign {
     //查找土地该月的农事id次数
     @GetMapping("/sowrecord/findSoilRecord/{landid}/{farmworkid}")
     public int countSoilRecord(@PathVariable String landid,@PathVariable String farmworkid);
+
+    /**
+     * 土壤质量智能评级
+     */
+
+    //获取土地肥力分级
+    @GetMapping("/predict/soil/{n}/{p}/{k}")
+    public Integer PythonPredcit(@PathVariable double n,@PathVariable double p,@PathVariable double k);
+
+    //获取土地肥力分级评价
+    @GetMapping("/fertilitystandard/findByLevel/{level}")
+    public FertilityStandard findByLevel(@PathVariable Integer level);
 
 }

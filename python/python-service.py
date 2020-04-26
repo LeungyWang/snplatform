@@ -12,7 +12,7 @@ app = Flask(__name__)
 def health():
     result = {'status': 'UP'}
     return Response(json.dumps(result), mimetype='application/json')
-@app.route('/kmeans/predict/<float:n>/<float:p>/<float:k>',methods=['GET'])
+@app.route('/predict/<float:n>/<float:p>/<float:k>',methods=['GET'])
 def data_predict(n,p,k):
     clustering_df = get_data()
     clustering_data = np.array(clustering_df[['nitrogen','phosphorus','potassium']])

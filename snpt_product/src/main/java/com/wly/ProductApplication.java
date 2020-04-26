@@ -15,14 +15,9 @@ public class ProductApplication {
 
         SpringApplication.run(ProductApplication.class,args);
     }
+
     @Bean
     public IdWorker idWorkker(){
         return new IdWorker(1, 1);
     }
-    @Bean
-    @LoadBalanced
-    RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-
 }

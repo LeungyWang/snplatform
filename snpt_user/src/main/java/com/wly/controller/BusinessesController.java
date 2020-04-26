@@ -22,18 +22,22 @@ public class BusinessesController {
     public IdWorker idWorker;
 
 
-    //查找所有农户
+    //查找所有商户
     @GetMapping("/findAll/{index}/{limit}")
     public Result findAll(@PathVariable("index") int index, @PathVariable("limit") int limit){
         List<Businesses> businesses = businessesRepository.findAll(index,limit);
         return new Result(0,"",businessesRepository.count(),businesses);
     }
 
-
+    //查找商户个人信息
+    @GetMapping("/findInfoByPhone/{phone}")
+    public Businesses findInfoByPhone(@PathVariable String phone){
+        return businessesRepository.findByPhone(phone);
+    }
 
 
     /**
-     * 农户信息保存
+     *商户信息保存
      * @param businesses
      */
     @PostMapping("/save")
@@ -53,7 +57,7 @@ public class BusinessesController {
         businessesRepository.update(businesses);
     }
 
-    //删除用户
+    //删除商户
     @DeleteMapping("/deleteById/{id}")
     public void deleteById(@PathVariable("id") String id){
         businessesRepository.deleteById(id);

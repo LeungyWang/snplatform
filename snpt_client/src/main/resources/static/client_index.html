@@ -32,13 +32,12 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div class="w3menu navbar-left">
                 <ul class="nav navbar">
-                    <li><a href="#banner" class="scroll">首页</a></li>
-                    <li><a href="#about" class="scroll">关于我们</a></li>
-                    <li><a href="#news" class="scroll"> 新闻资讯</a></li>
-                    <li><a href="#gallery" class="scroll">惠农商城</a></li>
-                    <li><a href="#contact" class="scroll">农资信息管理系统</a></li>
-                    <li><a href="#contact" class="scroll">农业资讯</a></li>
-                    <li><a href="#contact" class="scroll">数据农业</a></li>
+                    <li><a href="#" class="scroll">首页</a></li>
+                    <li><a href="#" class="scroll">关于我们</a></li>
+                    <li><a href="/product/goods/findAllProduct" class="scroll">惠农商城</a></li>
+                    <li><a href="/land/redirect/index2" class="scroll">三农信息管理系统</a></li>
+                    <li><a href="/news/1/index" class="scroll">农业资讯</a></li>
+                    <li><a href="/news/1/index" class="scroll">农业科普</a></li>
                     <li th:if="${not #strings.isEmpty(session.user)}"><a href="" class="scroll" th:text="'欢迎您，'+${session.user.nickname}">
                     <li th:if="${not #strings.isEmpty(session.user)}"><a href="/user/logout" class="scroll" th:text="退出登录">
                     <li th:if="${not #strings.isEmpty(session.admin)}"><a href="" class="scroll" th:text="'欢迎您，'+${session.admin.name}">
@@ -83,7 +82,7 @@
     <div class="col-md-3 w3_b2">
         <div class="w3_gap1">
             <i class="fa fa-lock" aria-hidden="true"></i>
-        <a href="/land/redirect/index2"><h3>农资信息管理系统</h3></a>
+        <a href="/land/redirect/index2"><h3>三农信息管理系统</h3></a>
         </div>
     </div>
     <div class="col-md-3 w3_b3">

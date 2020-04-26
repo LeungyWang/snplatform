@@ -196,14 +196,30 @@ public class LandController {
     //查看土壤报告详情
     @GetMapping("/report/details/{id}")
     public ModelAndView ReportDetails(@PathVariable String id){
+//        土壤元素评价
         Report report = landFeign.findReportById(id);
         AgroChemical agroChemical = report.getAgroChemical();
+//        土地肥力分级
+        Double nitrogen = agroChemical.getNitrogen();
+        Double phosphorus  = agroChemical.getPhosphorus();
+        Double potassium  = agroChemical.getPotassium();
+        Integer level = landFeign.PythonPredcit(nitrogen,phosphorus,potassium);
+        FertilityStandard fertilityStandard = landFeign.findByLevel(level);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("evaluate_result");
         modelAndView.addObject("comment",report.getComment());
         modelAndView.addObject("agroid",agroChemical.getId());
+        modelAndView.addObject("classify",fertilityStandard);
         return modelAndView;
     }
+
+    //删除土壤评估报告
+    @GetMapping("/report/deleteById")
+    @ResponseBody
+    public Result deleteRepById(@RequestParam("id") String id){
+        return landFeign.deleteReportById(id);
+    }
+
 
 
     /**
@@ -372,6 +388,10 @@ public class LandController {
         echartsMap.setName(names);
         return echartsMap;
     }
+
+    /**
+     * 土地肥力分级
+     */
 
 
 }

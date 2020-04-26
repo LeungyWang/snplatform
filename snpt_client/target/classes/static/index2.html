@@ -18,8 +18,8 @@
     <!-- 头部 -->
     <div class="layui-header">
         <div class="layui-logo">
-            <img th:src="@{/assets/images/logo.png}"/>
-            <cite>三农服务平台</cite>
+<!--            <img th:src="@{/assets/images/logo.png}"/>-->
+            <cite>三农信息管理系统</cite>
         </div>
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item" lay-unselect>
@@ -30,20 +30,8 @@
             </li>
         </ul>
         <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item" lay-unselect>
-                <a ew-event="message" title="消息">
-                    <i class="layui-icon layui-icon-notice"></i>
-                    <span class="layui-badge-dot"></span>
-                </a>
-            </li>
-            <li class="layui-nav-item" lay-unselect>
-                <a ew-event="note" title="便签"><i class="layui-icon layui-icon-note"></i></a>
-            </li>
             <li class="layui-nav-item layui-hide-xs" lay-unselect>
                 <a ew-event="fullScreen" title="全屏"><i class="layui-icon layui-icon-screen-full"></i></a>
-            </li>
-            <li class="layui-nav-item layui-hide-xs" lay-unselect>
-                <a ew-event="lockScreen" title="锁屏"><i class="layui-icon layui-icon-password"></i></a>
             </li>
             <li class="layui-nav-item" lay-unselect>
                 <a>
@@ -54,7 +42,7 @@
                     <dd lay-unselect><a ew-href="page/template/user-info.html">个人中心</a></dd>
                     <dd lay-unselect><a ew-event="psw">修改密码</a></dd>
                     <hr>
-                    <dd lay-unselect><a ew-event="logout" data-url="page/template/login.html">退出</a></dd>
+                    <dd lay-unselect><a ew-event="logout" data-url="/land/redirect/client_index">退出</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item" lay-unselect>
@@ -68,8 +56,9 @@
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree arrow2" lay-filter="admin-side-nav" lay-shrink="all">
                 <li class="layui-nav-item">
-                    <a><i class="layui-icon layui-icon-home"></i>&emsp;<cite>Dashboard</cite></a>
+                    <a><i class="layui-icon layui-icon-home"></i>&emsp;<cite>个人中心</cite></a>
                     <dl class="layui-nav-child">
+                        <dd><a lay-href="/user/farmer/info">基础信息</a></dd>
                         <dd><a lay-href="/land/redirect/console/workplace">工作台</a></dd>
                     </dl>
                 </li>
@@ -107,7 +96,7 @@
     <div class="layui-body"></div>
     <!-- 底部 -->
     <div class="layui-footer layui-text">
-        copyright © 2019 <a href="http://easyweb.vip" target="_blank">easyweb.vip</a> all rights reserved.
+        copyright © 2020 <a href="http://easyweb.vip" target="_blank">王梁媛</a>
         <span class="pull-right">Version 3.1.6</span>
     </div>
 </div>
@@ -129,7 +118,7 @@
 
         // 默认加载主页
         index.loadHome({
-            menuPath: '/land/redirect/console/workplace',
+            menuPath: '/user/farmer/info',
             menuName: '<i class="layui-icon layui-icon-home"></i>'
         });
 

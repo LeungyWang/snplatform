@@ -6,6 +6,7 @@ import java.util.List;
 public interface FertilityStandardRepository {
     public List<FertilityStandard> findAll(int index, int limit);
     public int count();
+    public FertilityStandard findByLevel(Integer level);
     public void save(FertilityStandard standard);
     public void update(FertilityStandard standard);
     public void deleteById(int id);

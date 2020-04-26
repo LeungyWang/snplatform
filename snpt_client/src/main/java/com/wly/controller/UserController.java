@@ -6,6 +6,7 @@ import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
@@ -84,37 +85,6 @@ public class UserController {
         return auths;
     }
 
-//    @PostMapping("/login")
-//    public String login(@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("type") String type,HttpSession session){
-//        Result result = userFeign.login(username,password,type);
-//        Object object = result.getData();
-//        if (object!=null) {
-//            LinkedHashMap<String, Object> hashMap = (LinkedHashMap) object;
-//            String id = "";
-//            switch (type) {
-//                case "user":
-//                    User user = new User();
-//                    id = hashMap.get("id") + "";
-//                    String name = (String) hashMap.get("name");
-//                    user.setId(id);
-//                    user.setName(name);
-//                    session.setAttribute("user", user);
-//                    return "client_index";
-//                case "admin":
-////                    Admin admin = new Admin();
-////                    idStr = hashMap.get("id")+"";
-////                    id = Long.parseLong(idStr);
-////                    String adminname = (String) hashMap.get("name");
-////                    admin.setId(id);
-////                    admin.setUsername(adminname);
-////                    session.setAttribute("admin",admin);
-////                    result = "main";
-//                    break;
-//            }
-//        }
-//        return "login";
-//    }
-
     /**
      *
      * @param password
@@ -130,13 +100,17 @@ public class UserController {
         if (object!=null) {
             LinkedHashMap<String, Object> hashMap = (LinkedHashMap) object;
             String id = "";
+            String phone = "";
             switch (type) {
                 case "user":
                     User user = new User();
                     id = hashMap.get("id") + "";
+                    phone = hashMap.get("phone") + "";
                     String nickname = (String) hashMap.get("nickname");
                     user.setId(id);
                     user.setNickname(nickname);
+                    user.setPhone(phone);
+                    user.setUsername(username);
                     session.setAttribute("user", user);
                     session.setAttribute("roles",userFeign.findRoles(id));
                     return result;
@@ -202,5 +176,35 @@ public class UserController {
         return userFeign.saveBusinesses(businesses);
     }
 
+    //返回农户个人信息
+    @GetMapping("/farmer/info")
+    public ModelAndView farmerInfo(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String p = user.getPhone();
+        String p1 = p.substring(0,3);
+        String p2 = p.substring(7,11);
+        String phone = p1+"****"+p2;
+        Farmer farmer = userFeign.findFInfoByPhone(p);
+        String cr = farmer.getCreditno();
+        String credit = "**** **** **** **** "+cr.substring(12,16);
+        farmer.setCreditno(credit);
+        farmer.setPhone(phone);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("farmer_info");
+        modelAndView.addObject("farmer",farmer);
+        return modelAndView;
+    }
+
+    //返回商户店铺信息
+    @GetMapping("/businesses/info")
+    public ModelAndView businessesInfo(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String phone = user.getPhone();
+        Businesses businesses = userFeign.findBInfoByPhone(phone);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("businesses_info");
+        modelAndView.addObject("shopinfo",businesses);
+        return modelAndView;
+    }
 
 }

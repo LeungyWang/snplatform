@@ -90,10 +90,12 @@ public class UserController {
     }
 
     //查找用户
-    @GetMapping("findById/{id}")
+    @GetMapping("/findById/{id}")
     public User findById(@PathVariable("id") String id){
         return userRepository.findById(id);
     }
+
+
 
     /**
      * 发送短信验证码

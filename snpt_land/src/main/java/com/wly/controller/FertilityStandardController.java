@@ -39,4 +39,10 @@ public class FertilityStandardController {
         fertilityStandardRepository.save(fertilityStandard);
         return new Result(200,"保存成功！",0,"");
     }
+
+    //返回土壤智能评级结果
+    @GetMapping("/findByLevel/{level}")
+    public FertilityStandard findByLevel(@PathVariable Integer level){
+        return fertilityStandardRepository.findByLevel(level);
+    }
 }

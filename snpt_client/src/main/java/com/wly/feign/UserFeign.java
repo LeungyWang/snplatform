@@ -85,6 +85,20 @@ public interface UserFeign {
     public Result findAllAuth();
 
 
+    /**
+     * 个人信息管理
+     */
+
+    //农户个人基本信息
+    @GetMapping("/farmer/findInfoByPhone/{phone}")
+    public Farmer findFInfoByPhone(@PathVariable String phone);
+
+
+    //商户个人信息
+    @GetMapping("/businesses/findInfoByPhone/{phone}")
+    public Businesses findBInfoByPhone(@PathVariable String phone);
+
+
 
 
 }

@@ -43,6 +43,12 @@ public class FarmerController {
         return new Result(0,"",farmerRepository.count(),farmers);
     }
 
+    //查找农户个人信息
+    @GetMapping("/findInfoByPhone/{phone}")
+    public Farmer findInfoByPhone(@PathVariable String phone){
+        return farmerRepository.findByPhone(phone);
+    }
+
     /**
      * 农户信息保存
      * @param farmer
@@ -61,7 +67,7 @@ public class FarmerController {
     //修改农户信息
     @PutMapping("/update")
     public void update(@RequestBody Farmer farmer){
-        farmerRepository.update(farmer);
+        farmerRepository.updateByPhone(farmer);
     }
 
     //删除用户

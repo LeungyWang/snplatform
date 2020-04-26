@@ -10,6 +10,6 @@ public interface FarmerRepository {
     public Farmer findByPhone(String phone);
     public int count();
     public void save(Farmer farmer);
-    public void update(Farmer farmer);
+    public void updateByPhone(Farmer farmer);
     public void deleteById(String id);
 }
