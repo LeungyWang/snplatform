@@ -33,6 +33,7 @@ public class NewsController {
     //根据Id查找农业资讯 资讯详情页
     @GetMapping("/findById/{newsid}")
     public News findById(@PathVariable int newsid){
+        newsRepository.updateHits(newsid);
         return newsRepository.findById(newsid);
     }
 
@@ -48,6 +49,12 @@ public class NewsController {
     public Result deleteById(@PathVariable("id") Integer newsid){
         newsRepository.deleteById(newsid);
         return new Result(200,"资讯删除成功！",1,"");
+    }
+
+    //热门资讯
+    @GetMapping("/findHotNews/{newstypeid}")
+    public List<News> findHotNews(@PathVariable int newstypeid){
+        return newsRepository.findHotNews(newstypeid);
     }
 
 

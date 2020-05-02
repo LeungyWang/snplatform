@@ -18,8 +18,12 @@
         select * from news limit #{index},#{limit}
     </select>
 
+    <select id="findHotNews"  resultType="News">
+        select newsid,title from news where status = 1 and newstypeid=#{newstypeid} order by hits desc limit 5
+    </select>
+
     <select id="findNews"  resultMap="NewsMap">
-        select newsid,title,source,release_time,newstypeid from news where status = 1 and newstypeid=#{newstypeid}
+        select newsid,title,source,release_time,newstypeid from news where status = 1 and newstypeid=#{newstypeid} order by release_time desc
     </select>
 
     <select id="findById" parameterType="int" resultMap="NewsMap">
@@ -30,6 +34,12 @@
     <update id="updateStatus">
         update news set status=1,auditor=#{adminid} where newsid = #{newsid}
     </update>
+
+<!--    增加访问量-->
+    <update id="updateHits">
+        update news set hits=hits+1 where newsid = #{newsid}
+    </update>
+
 
     <select id="count" resultType="int">
         select count(newsid) from news

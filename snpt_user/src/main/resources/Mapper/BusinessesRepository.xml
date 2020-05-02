@@ -23,7 +23,6 @@
     <update id="update" parameterType="Businesses">
         update businesses set shopname = #{shopname}, ownername = #{ownername} ,intro=#{intro} type=#{type} where id = #{id}
     </update>
-    
 
     <delete id="deleteById" parameterType="String">
         delete from businesses where id = #{id}

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import util.IdWorker;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 
@@ -28,8 +29,8 @@ public class OrderController {
 
     //查找顾客所有订单
     @GetMapping("/cs/findAll/{userid}")
-    public Result findAllCS(@PathVariable String userid){
-        return new Result(0,"",orderRepository.countByUserid(userid),orderRepository.findOrderByuserid(userid));
+    public List<Order> findAllCS(@PathVariable String userid){
+        return orderRepository.findOrdersByCUserId(userid);
     }
 
     //查找卖家的所有订单
@@ -46,13 +47,11 @@ public class OrderController {
 
     //新增订单功能
     @PostMapping("/save/{userid}")
-    public void save(@RequestBody Order order,@PathVariable String userid){
+    public void save(@RequestBody Order order, @PathVariable String userid, HttpSession session){
         //保存订单
         String orderInfoStr = order.getOrderInfoStr();
         order.setOrder_status(1);
         order.setCustomer_id(userid);
-        String orderid = "OD"+idWorker.nextId();
-        order.setOrder_id(orderid);
         orderRepository.save(order);
         //保存订单下的商品到数据库中
         List<Cart> Carts =  JSON.parseArray(orderInfoStr,Cart.class);
@@ -62,7 +61,7 @@ public class OrderController {
             OrderDetails orderDetail = new OrderDetails();
             orderDetail.setGoods(good);
             orderDetail.setOrder_detailid("DT"+idWorker.nextId());
-            orderDetail.setOrder_id(orderid);
+            orderDetail.setOrder_id(order.getOrder_id());
             orderDetail.setProduct_cnt(cart.getProduct_amount());
             orderDetailsRepository.save(orderDetail);
         }
@@ -88,5 +87,13 @@ public class OrderController {
         orderRepository.updateOrderReceive(new Date(),order_id);
         return new Result(200,"产品收货成功！",1,"");
     }
+
+    //订单支付成功操作
+    @PutMapping("/pay/{money}/{order_id}")
+    public void pay_success(@PathVariable Double money,@PathVariable String order_id){
+        orderRepository.updateOrderPaying(new Date(),money,order_id);
+    }
+
+
 
 }

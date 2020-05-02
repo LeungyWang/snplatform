@@ -17,7 +17,7 @@
         select * from order_detail where order_id= #{order_id} limit #{index},#{limit}
     </select>
 
-    <select id="findOrderByOrderid" resultMap="DetailsMap">
+    <select id="findDetailsByOrderid" resultMap="DetailsMap">
         select * from order_detail where order_id= #{order_id}
     </select>
 

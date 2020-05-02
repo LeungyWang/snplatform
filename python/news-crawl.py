@@ -51,7 +51,7 @@ def insertIntoMysql(newsinfo):
     print('start-insert-data')
     title,article,source,newstypeid = newsinfo[0],newsinfo[1],newsinfo[2],newsinfo[3]
     article = article.replace("'", '"')
-    sql = "INSERT INTO news(title,content,source,newstypeid,status)VALUES('%s','%s','%s','%d','%d')"%(title,article,source,newstypeid,0)
+    sql = "INSERT INTO news(title,content,source,newstypeid,status,hits)VALUES('%s','%s','%s','%d','%d','%d')"%(title,article,source,newstypeid,0,0)
     #     print("执行sql语句"+sql)
     cursor.execute(sql)
     db.commit()

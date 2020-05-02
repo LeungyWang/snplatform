@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import util.IdWorker;
 
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
@@ -28,6 +30,9 @@ import java.util.*;
 public class ProductController {
     @Autowired
     private ProductFeign productFeign;
+
+    @Autowired
+    public IdWorker idWorker;
 
     //查询所有产品
     @GetMapping("/goods/findAllGoods")
@@ -250,12 +255,15 @@ public class ProductController {
     public String addOrder(Order order,HttpSession session)  {
         //设置订单状态为已下单
         User user = (User) session.getAttribute("user");
+        String orderid = "OD"+idWorker.nextId();
+        order.setOrder_id(orderid);
+        session.setAttribute("orderId",orderid);
         String orderInfoStr = order.getOrderInfoStr();
         System.err.println(orderInfoStr);
         String userid = user.getId();
         System.err.println(order);
         productFeign.saveOrder(order,userid);
-        return "product_checkout";
+        return "pay_success";
     }
 
     /**
@@ -289,12 +297,7 @@ public class ProductController {
         return productFeign.deliver(order_id);
     }
 
-    //用户收货
-    @GetMapping("/order/receive")
-    @ResponseBody
-    public Result receive(@RequestParam String order_id)  {
-        return productFeign.receive(order_id);
-    }
+
 
     /**
      * 产品分类管理
@@ -330,6 +333,38 @@ public class ProductController {
     @ResponseBody
     public Result updateType(GoodsType type){
         return productFeign.updateType(type);
+    }
+
+    /**
+     *  顾客订单管理
+     */
+
+    //用户查看订单
+    @GetMapping("/order/my_order")
+    public ModelAndView findAllOrders(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("shop_myorder");
+        modelAndView.addObject("myorders",productFeign.findAllCSOrders(userid));
+        return modelAndView;
+    }
+
+    //用户收货
+    @GetMapping("/order/receive")
+    @ResponseBody
+    public Result receive(@RequestParam String order_id)  {
+        return productFeign.receive(order_id);
+    }
+
+    //查询买家所有订单产品功能实现
+    @GetMapping("/order/detail/{order_id}")
+    @ResponseBody
+    public ModelAndView findOrderDetails(@PathVariable String order_id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("shop_orderdetail");
+        modelAndView.addObject("details",productFeign.findAllDetails(order_id));
+        return modelAndView;
     }
 
 

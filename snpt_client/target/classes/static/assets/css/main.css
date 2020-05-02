@@ -89,7 +89,7 @@ html, body{height: 100%;}
 .micronews-container .popular-info-tog .list{list-style-type: disc;}
 .micronews-container .popular-info-tog .list a{padding:0;}
 .micronews-container .popular-info-tog  a{ margin-right:0;  padding-right: 0; }
-.micronews-container .popular-info .heat-icon{display:inline-block; width: 12px;  height: 16px; background: url(../images/heat.png) no-repeat center center; position: relative; top: 3px;}
+.micronews-container .popular-info .heat-icon{display:inline-block; width: 12px;  height: 16px; background: url(/static/assets/images/heat.png) no-repeat center center; position: relative; top: 3px;}
 /*end-content*/
 
 

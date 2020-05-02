@@ -1,9 +1,6 @@
 package com.wly.feign;
 
-import com.wly.entity.Cart;
-import com.wly.entity.Goods;
-import com.wly.entity.GoodsType;
-import com.wly.entity.Order;
+import com.wly.entity.*;
 import entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -101,6 +98,13 @@ public interface ProductFeign {
     @PostMapping("/order/save/{userid}")
     public void saveOrder(Order order,@PathVariable("userid") String userid);
 
+    //根据订单ID查找订单
+    @GetMapping("/order/findById/{id}")
+    public Order findOrderById(@PathVariable String id);
+
+    @PutMapping("/order/pay/{money}/{order_id}")
+    public void pay_success(@PathVariable Double money,@PathVariable String order_id);
+
     /**
      * 商户订单管理功能
      */
@@ -117,9 +121,9 @@ public interface ProductFeign {
     @PutMapping("/order/deliver/{order_id}")
     public Result deliver(@PathVariable String order_id);
 
-    //产品收货功能
-    @PutMapping("/order/receive/{order_id}")
-    public Result receive(@PathVariable String order_id);
+
+
+
 
     /**
      * 产品分类管理
@@ -147,4 +151,21 @@ public interface ProductFeign {
     //修改产品分类
     @PutMapping("/goodstype/update")
     public Result updateType(@RequestBody GoodsType goodsType);
+
+    /**
+     * 顾客订单管理
+     */
+
+    //查找顾客所有订单
+    @GetMapping("/order/cs/findAll/{userid}")
+    public List<Order> findAllCSOrders(@PathVariable String userid);
+
+    //产品收货功能
+    @PutMapping("/order/receive/{order_id}")
+    public Result receive(@PathVariable String order_id);
+
+    //查询订单下的所有产品 无分页 顾客用
+    @GetMapping("/orderdetails/findAll/{order_id}")
+    public List<OrderDetails> findAllDetails(@PathVariable String order_id);
+
 }

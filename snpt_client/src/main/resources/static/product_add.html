@@ -171,7 +171,15 @@
         var layedit = layui.layedit;
         var upload = layui.upload;
 
+        layedit.set({
+            uploadImage: {
+                url: '/product/upload',
+                type: 'get'
+            }
+        });
+
         var editIndex = layedit.build('qaContent'); // 建立编辑器
+
         form.verify({
             //content富文本域中的lay-verify值
             content: function(value) {

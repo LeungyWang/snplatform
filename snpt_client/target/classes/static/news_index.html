@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
@@ -60,13 +59,8 @@
                   <h4><a th:href="'/news/details/'+${neweach.newsid}" th:text="${neweach.title}"></a></h4>
                   <div class="b-txt">
                     <span class="label" th:text="${neweach.newsType.newstypename}"></span>
-                    <span class="icon message">
-                      <i class="layui-icon layui-icon-dialogue"></i>
-                      500条
-                    </span>
                     <span class="icon time">
-                      <i class="layui-icon layui-icon-log"></i>
-                      10分钟前
+                      <i class="layui-icon layui-icon-log" th:text="${neweach.release_time}"></i>
                     </span>
                   </div>
                 </div>
@@ -84,53 +78,8 @@
               </div>
               <div class="layui-card-body">
                 <ul class="list-box">
-                  <li class="list">
-
-                     <a href="list.html">你和我的倾城时光</a><i class="heat-icon"></i>
-
-                  </li>
-                  <li class="list">
-
-                     <a href="list.html">顶级酒店内幕被曝光</a><i class="heat-icon"></i>
-
-                  </li>
-                  <li class="list">
-
-                     <a href="list.html">王思聪抽奖</a><i class="heat-icon"></i>
-
-                  </li>
-                  <li class="list">
-
-                     <a href="list.html">王者荣耀上官婉儿</a>
-
-                  </li>
-                  <li class="list">
-
-                     <a href="list.html">妻子的浪漫旅行</a>
-
-                  </li>
-                  <li class="list">
-
-                     <a href="list.html">海底捞回应员工偷拍</a>
-
-                  </li>
-                  <li class="list">
-
-                     <a href="list.html">扎克伯格禁止高管用iPhone</a>
-
-                  </li>
-                  <li class="list">
-
-                     <a href="list.html">王思聪抽手机壳送手机</a>
-
-                  </li>
-                  <li class="list">
-
-                     <a href="list.html">每天闹钟20次提醒男友抽奖 </a>
-
-                  </li>
-                  <li class="list">
-                      <a href="">詹姆斯收藏比赛用球</a>
+                  <li class="list" th:each="neweach:${hotnews}">
+                     <a th:href="'/news/details/'+${neweach.newsid}" th:text="${neweach.title}"></a><i class="heat-icon" style="background:url('/assets/images/heat.png')"></i>
                   </li>
                 </ul>
               </div>

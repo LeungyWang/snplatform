@@ -68,9 +68,10 @@
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree arrow2" lay-filter="admin-side-nav" lay-shrink="all">
                 <li class="layui-nav-item">
-                    <a><i class="layui-icon layui-icon-home"></i>&emsp;<cite>Dashboard</cite></a>
+                    <a><i class="layui-icon layui-icon-home"></i>&emsp;<cite>个人中心</cite></a>
                     <dl class="layui-nav-child">
-                        <dd><a lay-href="/land/redirect/console/workplace">工作台</a></dd>
+                        <dd><a lay-href="/user/businesses/info">店铺信息</a></dd>
+                        <dd><a lay-href="/land/redirect/console/v_workplace">工作台</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -78,6 +79,7 @@
                     <dl class="layui-nav-child">
                         <dd><a lay-href="/land/redirect/product_goods">农资产品上架</a></dd>
                         <dd><a lay-href="/land/redirect/product_order">订单管理</a></dd>
+                        <dd><a lay-href="/land/redirect/product_comment">评价管理</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -110,7 +112,7 @@
 
         // 默认加载主页
         index.loadHome({
-            menuPath: '/land/redirect/console/workplace',
+            menuPath: '/user/businesses/info',
             menuName: '<i class="layui-icon layui-icon-home"></i>'
         });
 

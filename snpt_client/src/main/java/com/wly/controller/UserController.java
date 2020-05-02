@@ -199,8 +199,15 @@ public class UserController {
     @GetMapping("/businesses/info")
     public ModelAndView businessesInfo(HttpSession session){
         User user = (User) session.getAttribute("user");
-        String phone = user.getPhone();
-        Businesses businesses = userFeign.findBInfoByPhone(phone);
+        String p = user.getPhone();
+        String p1 = p.substring(0,3);
+        String p2 = p.substring(7,11);
+        String phone = p1+"****"+p2;
+        Businesses businesses = userFeign.findBInfoByPhone(p);
+        String cr = businesses.getCreditno();
+        String credit = "**** **** **** **** "+cr.substring(12,16);
+        businesses.setCreditno(credit);
+        businesses.setPhone(phone);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("businesses_info");
         modelAndView.addObject("shopinfo",businesses);

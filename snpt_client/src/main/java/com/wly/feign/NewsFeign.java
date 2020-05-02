@@ -40,6 +40,14 @@ public interface NewsFeign {
     @GetMapping("/news/findAll/{index}/{limit}")
     public Result findAllNews(@PathVariable int index, @PathVariable int limit);
 
+    //资讯详情
+    @GetMapping("/news/findById/{newsid}")
+    public News findById(@PathVariable int newsid);
+
+    //热门资讯
+    @GetMapping("/news/findHotNews/{newstypeid}")
+    public List<News> findHotNews(@PathVariable int newstypeid);
+
     /**
      * 农业资讯发布与管理
      */
@@ -57,7 +65,28 @@ public interface NewsFeign {
     public Result releaseNews(@PathVariable("newsid") int id,@PathVariable("adminid") String adminid);
 
 
-    //资讯详情
-    @GetMapping("/news/findById/{newsid}")
-    public News findById(@PathVariable int newsid);
+
+
+    /**
+     * 农业资讯评价
+     */
+
+    //根据资讯id查询所有评论
+    @GetMapping("/newscomment/findCommentByNewsid/{newsid}")
+    public List<NewsComment> getCommentsByNewsId(@PathVariable Integer newsid);
+
+
+    //根据资讯id查询评论数
+    @GetMapping("/newscomment/getCount/{newsid}")
+    public Integer getCountByNewsId(@PathVariable Integer newsid);
+
+    //保存评论
+    @PostMapping("/newscomment/save")
+    //保存评论
+    public Result saveComment(@RequestBody NewsComment comemnt);
+
+
+
+
 }
+

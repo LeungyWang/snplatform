@@ -84,7 +84,7 @@
                         <div class="header_account_area">
                             <div class="header_account_list register">
                                 <ul th:if="${#strings.isEmpty(session.user)}">
-                                    <li><a href="/user/redirect/regist">注册</a></li>
+                                    <li th:text="${session.roles[0].getRolecode()}"><a href="/user/redirect/regist">注册</a></li>
                                     <li><span>/</span></li>
                                     <li><a href="/user/redirect/login">登录</a></li>
                                 </ul>
@@ -275,63 +275,32 @@
                                 </div>
                                 <div class="header_account_area">
                                     <div class="header_account_list register">
-                                        <ul>
-                                            <li><a href="login.html">注册</a></li>
+                                        <ul th:if="${#strings.isEmpty(session.user)}">
+                                            <li><a href="/user/redirect/regist">注册</a></li>
                                             <li><span>/</span></li>
-                                            <li><a href="login.html">登录</a></li>
+                                            <li><a href="/user/redirect/login">登录</a></li>
+                                        </ul>
+                                        <ul th:if="${session.roles[0].getRolecode()=='businesses'}">
+                                            <li><a href="/product/redirect/vendor_index">我的店铺</a></li>
+                                        </ul>
+                                        <ul th:if="${session.roles[0].getRolecode()=='client'|| session.roles[0].getRolecode()=='farmer'}">
+                                            <li><a href="/product/order/my_order">我的订单</a></li>
                                         </ul>
                                     </div>
 <!--                                    <div class="header_account_list header_wishlist">-->
 <!--                                        <a href="wishlist.html"><span class="lnr lnr-heart"></span> <span class="item_count">3</span> </a>-->
 <!--                                    </div>-->
                                     <div class="header_account_list  mini_cart_wrapper">
-                                       <a href="javascript:void(0)"><span class="lnr lnr-cart"></span><span class="item_count">2</span></a>
+                                       <a href="javascript:void(0)"><span class="lnr lnr-cart"></span></a>
                                         <!--mini cart-->
                                         <div class="mini_cart">
-                                            <div class="cart_gallery">
-                                                <div class="cart_item">
-                                                   <div class="cart_img">
-                                                       <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
-                                                   </div>
-                                                    <div class="cart_info">
-                                                        <a href="#">Primis In Faucibus</a>
-                                                        <p>1 x <span> $65.00 </span></p>    
-                                                    </div>
-                                                    <div class="cart_remove">
-                                                        <a href="#"><i class="icon-x"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="cart_item">
-                                                   <div class="cart_img">
-                                                       <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
-                                                   </div>
-                                                    <div class="cart_info">
-                                                        <a href="#">Letraset Sheets</a>
-                                                        <p>1 x <span> $60.00 </span></p>    
-                                                    </div>
-                                                    <div class="cart_remove">
-                                                        <a href="#"><i class="icon-x"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="mini_cart_table">
                                                 <div class="cart_table_border">
-                                                    <div class="cart_total">
-                                                        <span>Sub total:</span>
-                                                        <span class="price">$125.00</span>
-                                                    </div>
-                                                    <div class="cart_total mt-10">
-                                                        <span>total:</span>
-                                                        <span class="price">$125.00</span>
-                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="mini_cart_footer">
                                                <div class="cart_button">
                                                     <a href="/product/cart/findAllCart"><i class="fa fa-shopping-cart"></i> 查看购物车</a>
-                                                </div>
-                                                <div class="cart_button">
-                                                    <a href="#"><i class="fa fa-sign-in"></i> 结算 </a>
                                                 </div>
 
                                             </div>
@@ -376,14 +345,20 @@
                             <div class="main_menu menu_position"> 
                                 <nav>  
                                     <ul>
-                                        <li><a class="active"  href="index.html">主页</a>
+                                        <li><a class="active"  href="#">主页</a>
                                         </li>
-                                        <li class="mega_items"><a href="shop.html">水果</a>
+                                        <li class="mega_items"><a href="#">水果</a>
                                         </li>
-                                        <li><a href="blog.html">蔬菜</a>
+                                        <li><a href="#">蔬菜</a>
                                         </li>
                                         <li><a href="#">粮食</a>
-                                        </li> 
+                                        </li>
+                                        <li><a href="#">种子</a>
+                                        </li>
+                                        <li><a href="#">肥料</a>
+                                        </li>
+                                        <li><a href="#">农药</a>
+                                        </li>
                                     </ul>  
                                 </nav> 
                             </div>
@@ -464,7 +439,7 @@
                     <div class="product_header">
                         <div class="section_title">
 <!--                            <p>Recently added our store</p>
- -->                           <h2>农产品展示</h2>
+ -->                           <h2>农产品售卖</h2>
                         </div>
                         <div class="product_tab_btn">
                             <ul class="nav" role="tablist">
@@ -515,7 +490,6 @@
                                                 </div>
                                                 <figcaption class="product_content">
                                                     <h4 class="product_name"><a th:href="'/product/goods/detail/'+${vegetable.id}" th:text="${vegetable.name}"></a></h4>
-                                                    <p><a href="#">Fruits</a></p>
                                                     <div class="price_box"> 
                                                         <span class="current_price" th:text="${vegetable.price}+'元'"></span>
                                                     </div>
@@ -534,8 +508,7 @@
                                                 <div class="product_thumb">
                                                     <a class="primary_img" th:href="'/product/goods/detail/'+${fruit.id}"><img th:src="${fruit.picture}" alt=""></a>
                                                     <div class="label_product">
-                                                        <span class="label_sale">Sale</span>
-                                                        <span class="label_new">New</span>
+                                                        <span class="label_sale">售卖</span>
                                                     </div>
                                                     <div class="action_links">
                                                         <ul>
@@ -548,7 +521,6 @@
                                                 </div>
                                                 <figcaption class="product_content">
                                                     <h4 class="product_name"><a th:href="'/product/goods/detail/'+${fruit.id}" th:text="${fruit.name}"></a></h4>
-                                                    <p><a href="#">Fruits</a></p>
                                                     <div class="price_box">
                                                         <span class="current_price" th:text="${fruit.price}+'元'"></span>
                                                     </div>
@@ -569,7 +541,7 @@
                                                 <div class="product_thumb">
                                                     <a class="primary_img" th:href="'/product/goods/detail/'+${cereal.id}"><img th:src="${cereal.picture}" alt=""></a>
                                                     <div class="label_product">
-                                                        <span class="label_sale">Sale</span>
+                                                        <span class="label_sale">售卖</span>
                                                     </div>
                                                     <div class="action_links">
                                                         <ul>
@@ -582,7 +554,6 @@
                                                 </div>
                                                 <figcaption class="product_content">
                                                     <h4 class="product_name"><a th:href="'/product/goods/detail/'+${cereal.id}" th:text="${cereal.name}"></a></h4>
-                                                    <p><a href="#">Fruits</a></p>
                                                     <div class="price_box"> 
                                                         <span class="current_price" th:text="${cereal.price}+'元'"></span>
                                                     </div>
@@ -607,7 +578,7 @@
                     <div class="product_header">
                         <div class="section_title">
                             <!--                            <p>Recently added our store</p>
-                             -->                           <h2>农资商品</h2>
+                             -->                           <h2>农资产品售卖</h2>
                         </div>
                         <div class="product_tab_btn">
                             <ul class="nav" role="tablist">
@@ -658,7 +629,6 @@
                                                 </div>
                                                 <figcaption class="product_content">
                                                     <h4 class="product_name"><a th:href="'/product/goods/detail/'+${vegetable.id}" th:text="${vegetable.name}"></a></h4>
-                                                    <p><a href="#">Fruits</a></p>
                                                     <div class="price_box">
                                                         <span class="current_price" th:text="${vegetable.price}+'元'"></span>
                                                     </div>
@@ -677,8 +647,7 @@
                                                 <div class="product_thumb">
                                                     <a class="primary_img" th:href="'/product/goods/detail/'+${fertilizer.id}"><img th:src="${fertilizer.picture}" alt=""></a>
                                                     <div class="label_product">
-                                                        <span class="label_sale">Sale</span>
-                                                        <span class="label_new">New</span>
+                                                        <span class="label_sale">售卖</span>
                                                     </div>
                                                     <div class="action_links">
                                                         <ul>
@@ -691,7 +660,6 @@
                                                 </div>
                                                 <figcaption class="product_content">
                                                     <h4 class="product_name"><a th:href="'/product/goods/detail/'+${fertilizer.id}" th:text="${fertilizer.name}"></a></h4>
-                                                    <p><a href="#">Fruits</a></p>
                                                     <div class="price_box">
                                                         <span class="current_price" th:text="${fertilizer.price}+'元'"></span>
                                                     </div>
@@ -712,7 +680,7 @@
                                                 <div class="product_thumb">
                                                     <a class="primary_img" th:href="'/product/goods/detail/'+${pesticide.id}"><img th:src="${pesticide.picture}" alt=""></a>
                                                     <div class="label_product">
-                                                        <span class="label_sale">Sale</span>
+                                                        <span class="label_sale">售卖</span>
                                                     </div>
                                                     <div class="action_links">
                                                         <ul>
@@ -725,7 +693,6 @@
                                                 </div>
                                                 <figcaption class="product_content">
                                                     <h4 class="product_name"><a th:href="'/product/goods/detail/'+${pesticide.id}" th:text="${pesticide.name}"></a></h4>
-                                                    <p><a href="#">Fruits</a></p>
                                                     <div class="price_box">
                                                         <span class="current_price" th:text="${pesticide.price}+'元'"></span>
                                                     </div>
@@ -792,7 +759,7 @@
     <!--brand area end-->
 
     <!--footer area start-->
-
+<footer>
 
         
         <div class="footer_bottom">

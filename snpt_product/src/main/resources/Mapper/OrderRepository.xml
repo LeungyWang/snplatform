@@ -16,7 +16,8 @@
        SELECT * FROM order_master WHERE order_id in (SELECT order_id FROM order_detail WHERE product_id in (SELECT id FROM goods WHERE applicant=#{userid}) ) limit #{index},#{limit}
     </select>
 
-    <select id="findOrderByuserid" resultType="Order">
+<!--    查找用户订单-->
+    <select id="findOrdersByCUserId" resultType="Order">
         select * from order_master where customer_id= #{userid}
     </select>
 
@@ -43,6 +44,10 @@
 
     <update id="updateOrderReceive" >
          update order_master set receive_time=#{receive_time} where order_id =#{order_id}
+    </update>
+
+    <update id="updateOrderPaying" >
+         update order_master set payment_money=#{money},pay_time=#{pay_time} where order_id =#{order_id}
     </update>
 
 </mapper>

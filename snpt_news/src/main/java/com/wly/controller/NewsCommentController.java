@@ -1,54 +1,78 @@
 package com.wly.controller;
 
 import com.wly.entity.News;
-import com.wly.entity.NewsType;
-import com.wly.repository.NewsRepository;
-import com.wly.repository.NewsTypeRepository;
+import com.wly.entity.NewsComment;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.web.bind.annotation.*;
+import util.IdWorker;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/news")
-public class NewsController {
+@RequestMapping("/newscomment")
+public class NewsCommentController {
 
     @Autowired
-    public NewsRepository newsRepository;
+    private MongoTemplate mongoTemplate;
 
+    @Autowired
+    private IdWorker idWorker;
 
-    //查找所有的资讯 有分页
-    @GetMapping("/findAll/{index}/{limit}")
-    public Result findAll(@PathVariable int index, @PathVariable int limit){
-        return new Result(0,"",newsRepository.count(),newsRepository.findAll(index,limit));
+    @PostMapping("/save")
+    //保存评论
+    public Result saveComment(@RequestBody NewsComment comemnt) {
+        comemnt.setReview_time(new Date());
+        mongoTemplate.save(comemnt);
+        return new Result(200,"评论成功！",1,"");
     }
 
-    //查找所有的资讯 无分页
-    @GetMapping("/findAll/{newstypeid}")
-    public List<News> findAll(@PathVariable int newstypeid){
-        return newsRepository.findNews(newstypeid);
+    //查看所有评论
+    @GetMapping("/findAll")
+    public List<NewsComment> findAll() {
+        return mongoTemplate.findAll(NewsComment.class);
     }
 
-    //根据Id查找农业资讯 资讯详情页
-    @GetMapping("/findById/{newsid}")
-    public News findById(@PathVariable int newsid){
-        return newsRepository.findById(newsid);
+    public NewsComment getCommentById(String commentid) {
+        Query query = new Query(Criteria.where("_id").is(commentid));
+        return mongoTemplate.findOne(query, NewsComment.class);
     }
 
-    //发布资讯
-    @PutMapping("/releaseNews/{newsid}/{adminid}")
-    public Result updateStatus(@PathVariable int newsid,@PathVariable String adminid){
-        newsRepository.updateStatus(newsid,adminid);
-        return new Result(200,"资讯发布成功！",1,"");
+    //根据资讯id查询所有评论
+    @GetMapping("/findCommentByNewsid/{newsid}")
+    public List<NewsComment> getCommentsByNewsId(@PathVariable Integer newsid) {
+        Query query = new Query(Criteria.where("newsid").is(newsid));
+        return mongoTemplate.find(query, NewsComment.class);
     }
 
-    //删除资讯
-    @DeleteMapping("/deleteById/{id}")
-    public Result deleteById(@PathVariable("id") Integer newsid){
-        newsRepository.deleteById(newsid);
-        return new Result(200,"资讯删除成功！",1,"");
+    //根据资讯id查询所有评论条数
+    @GetMapping("/getCount/{newsid}")
+    public Integer getCountByNewsId(@PathVariable Integer newsid) {
+        Query query = new Query(Criteria.where("newsid").is(newsid));
+        return mongoTemplate.find(query, NewsComment.class).size();
     }
+
+    //删除评论对象
+    public void deleteComment(NewsComment comment) {
+        mongoTemplate.remove(comment);
+    }
+
+    //根据id删除评论
+    @DeleteMapping("/deleteById/{commentid}")
+    public Result deleteCommentById(@PathVariable String commentid) {
+        // findOne
+        NewsComment comment = getCommentById(commentid);
+        // delete
+        deleteComment(comment);
+        return new Result(200,"删除成功！",1,"");
+    }
+
+    //
+
 
 
 }

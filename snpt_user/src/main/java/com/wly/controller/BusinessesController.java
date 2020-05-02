@@ -21,7 +21,6 @@ public class BusinessesController {
     @Autowired
     public IdWorker idWorker;
 
-
     //查找所有商户
     @GetMapping("/findAll/{index}/{limit}")
     public Result findAll(@PathVariable("index") int index, @PathVariable("limit") int limit){

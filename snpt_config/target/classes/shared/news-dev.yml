@@ -5,11 +5,16 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
     mode: HTML5
+    cache: false
   datasource:
     name: snpt_news
     url: jdbc:mysql://localhost:3306/snpt_news?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
     username: root
     password: 134679
+  data:
+    mongodb:
+      host: 139.196.168.26
+      database: newscomment
 eureka:
   client:
     service-url:

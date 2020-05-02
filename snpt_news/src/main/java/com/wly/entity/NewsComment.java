@@ -8,11 +8,11 @@ import java.util.Date;
 
 @Data
 @Document(collection = "newscomment")
-public class NewsComemnt {
+public class NewsComment {
     @Id
     private String commentid;
     private String userid;
-    private String newsid;
+    private Integer newsid;
     private String review_content;
     private Date review_time;
 }

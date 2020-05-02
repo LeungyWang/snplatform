@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("news")
@@ -94,6 +95,7 @@ public class NewsController {
         modelAndView.setViewName("news_index");
         modelAndView.addObject("types",newsFeign.findTypes());
         modelAndView.addObject("news",newsFeign.findNews(newstypeid));
+        modelAndView.addObject("hotnews",newsFeign.findHotNews(newstypeid));
         return modelAndView;
     }
 
@@ -104,7 +106,23 @@ public class NewsController {
         modelAndView.setViewName("news_details");
         modelAndView.addObject("types",newsFeign.findTypes());
         modelAndView.addObject("news",newsFeign.findById(newsid));
+        modelAndView.addObject("newsid",newsid);
+        modelAndView.addObject("comments",newsFeign.getCommentsByNewsId(newsid));
+        modelAndView.addObject("comment_num",newsFeign.getCountByNewsId(newsid));
         return modelAndView;
     }
 
+    /**
+     * 资讯评论
+     */
+
+    //发表评论
+    @PostMapping("/comment/save")
+    @ResponseBody
+    public Result saveComment(NewsComment comment,HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        comment.setUserid(userid);
+        return newsFeign.saveComment(comment);
+    }
 }

@@ -11,6 +11,8 @@ public interface OrderRepository {
     public  List<Order> findAll(int index, int limit);
     //查找用户所有的订单 有分页
     public List<Order> findOrderByCUserId(String userid, int index, int limit);
+    //查找用户所有的订单 无分页
+    public List<Order> findOrdersByCUserId(String userid);
     //查询商户的所有订单
     public List<Order> findOrderByBUserid(String userid, int index, int limit);
     //查找用户所有的订单 无分页
@@ -21,6 +23,8 @@ public interface OrderRepository {
     public int countByUserid(String userid);
     //新增订单
     public void save(Order order);
+    //订单支付成功
+    public void updateOrderPaying(Date pay_time,Double money,String order_id);
     //订单发货
     public void updateOrderShipping(Date shipping_time,String order_id);
     //订单收货

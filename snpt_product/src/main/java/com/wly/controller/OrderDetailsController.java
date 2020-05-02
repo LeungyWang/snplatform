@@ -30,9 +30,9 @@ public class OrderDetailsController {
 
 
     //查找订单下所有的产品 无分页 用户用
-    @GetMapping("/findAll/{orderid}")
-    public List<OrderDetails> findAll(@PathVariable String orderid){
-        return orderDetailsRepository.findDetailsByOrderid(orderid);
+    @GetMapping("/findAll/{order_id}")
+    public List<OrderDetails> findAll(@PathVariable String order_id){
+        return orderDetailsRepository.findDetailsByOrderid(order_id);
     }
 
     //查找功能
