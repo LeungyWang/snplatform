@@ -4,7 +4,7 @@
 
     <resultMap id="ReportMap" type="Report">
         <id column="id" property="id"></id>
-        <result column="comment" property="comment"></result>
+        <result column="goodsComment" property="goodsComment"></result>
         <result column="createtime" property="createtime"></result>
         <association property="agroChemical" select="com.wly.repository.AgroChemicalRepository.findById" column="sampleid"></association>
     </resultMap>
@@ -30,7 +30,7 @@
     </select>
 
     <insert id="save" parameterType="Report">
-        insert into nutrition_report(id,sampleid,comment,createtime) values (#{id},#{agroChemical.id},#{comment},#{createtime})
+        insert into nutrition_report(id,sampleid,goodsComment,createtime) values (#{id},#{agroChemical.id},#{goodsComment},#{createtime})
     </insert>
 
 

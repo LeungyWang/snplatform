@@ -16,11 +16,11 @@
     </select>
 
     <insert id="save" parameterType="FertilityStandard">
-        insert into fertility_standard(id,level,comment) values (#{id},#{level},#{comment})
+        insert into fertility_standard(id,level,goodsComment) values (#{id},#{level},#{goodsComment})
     </insert>
 
     <update id="update" parameterType="FertilityStandard">
-        update fertility_standard set id=#{id}, level = #{level}, comment = #{comment} where id = #{id}
+        update fertility_standard set id=#{id}, level = #{level}, goodsComment = #{goodsComment} where id = #{id}
     </update>
 
     <delete id="deleteById" parameterType="int">

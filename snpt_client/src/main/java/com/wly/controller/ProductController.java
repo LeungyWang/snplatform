@@ -60,6 +60,8 @@ public class ProductController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("product_details");
         modelAndView.addObject("product",productFeign.findById(id));
+        modelAndView.addObject("comments",productFeign.getCommentsByProductId(id));
+        modelAndView.addObject("comment_num",productFeign.getCountByProductId(id));
         return modelAndView;
     }
 
@@ -367,5 +369,16 @@ public class ProductController {
         return modelAndView;
     }
 
+    /**
+     * 商品评价
+     */
+    @PostMapping("/comment/save")
+    @ResponseBody
+    public Result saveComment(GoodsComment comment,HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String userid = user.getId();
+        comment.setUserid(userid);
+        return productFeign.saveComment(comment);
+    }
 
 }

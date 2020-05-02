@@ -105,12 +105,12 @@
                   </form>
                 </div>
                 <div class="ulCommentList">
-                  <div class="liCont" th:each="comment:${comments}">
+                  <div class="liCont" th:each="goodsComment:${comments}">
                     <a href="#"><img th:src="@{/assets/images/head.png}"></a>
                     <div class="item-cont">
                       <div class="cont">
-                        <p><span class="name" th:text="${comment.userid}"></span><span class="time" th:text="${comment.review_time}">1小时前</span></p>
-                        <p class="text" th:text="${comment.review_content}"></p>
+                        <p><span class="name" th:text="${goodsComment.userid}"></span><span class="time" th:text="${goodsComment.review_time}">1小时前</span></p>
+                        <p class="text" th:text="${goodsComment.review_content}"></p>
                       </div>
                     </div>
                   </div>

@@ -283,9 +283,9 @@
                 <i class="layui-icon layui-icon-praise"></i>&nbsp;
                 <span>{{d.like}}</span>
             </span>
-            <span class="article-list-item-tool-item" lay-event="comment">
+            <span class="article-list-item-tool-item" lay-event="goodsComment">
                 <i class="layui-icon layui-icon-dialogue"></i>&nbsp;
-                <span>{{d.comment}}</span>
+                <span>{{d.goodsComment}}</span>
             </span>
         </div>
     </div>
@@ -394,7 +394,7 @@
                     obj.update(data);
                 } else if (event == 'like') {
                     layer.msg('点击了赞', {icon: 1});
-                } else if (event == 'comment') {
+                } else if (event == 'goodsComment') {
                     layer.msg('点击了评论', {icon: 1});
                 }
             }

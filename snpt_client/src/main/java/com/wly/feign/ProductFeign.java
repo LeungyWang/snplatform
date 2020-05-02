@@ -47,7 +47,6 @@ public interface ProductFeign {
     @PutMapping("/goods/disapprove/{id}")
     public Result disapproveApply(@PathVariable String id);
 
-
     //展示审核通过的蔬菜类农产品
     @GetMapping("/goods/findVegetablesProduct")
     public List<Goods> findVegetablesProduct();
@@ -72,7 +71,6 @@ public interface ProductFeign {
     @GetMapping("/goods/findPesticideProduct")
     public List<Goods> findPesticideProduct();
 
-
     /**
      * 购物车功能
      */
@@ -88,7 +86,6 @@ public interface ProductFeign {
     //删除购物车商品
     @DeleteMapping("/cart/deleteById/{id}")
     public Result deleteCartById(@PathVariable String id);
-
 
     /**
      * 下单功能
@@ -120,10 +117,6 @@ public interface ProductFeign {
     //产品发货功能
     @PutMapping("/order/deliver/{order_id}")
     public Result deliver(@PathVariable String order_id);
-
-
-
-
 
     /**
      * 产品分类管理
@@ -167,5 +160,22 @@ public interface ProductFeign {
     //查询订单下的所有产品 无分页 顾客用
     @GetMapping("/orderdetails/findAll/{order_id}")
     public List<OrderDetails> findAllDetails(@PathVariable String order_id);
+
+    /**
+     * 商品评价
+     */
+
+    //保存评价
+    @PostMapping("/goodscomment/save")
+    public Result saveComment(@RequestBody GoodsComment comemnt);
+
+    //根据资讯id查询所有评价
+    @GetMapping("/goodscomment/findCommentByPruductId/{productid}")
+    public List<GoodsComment> getCommentsByProductId(@PathVariable String productid);
+
+    //根据资讯id查询评价数
+    @GetMapping("/goodscomment/getCount/{productid}")
+    public Integer getCountByProductId(@PathVariable String productid);
+
 
 }

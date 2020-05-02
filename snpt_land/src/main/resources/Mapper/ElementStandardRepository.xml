@@ -22,11 +22,11 @@
     </select>
 
     <insert id="save" parameterType="ElementStandard">
-        insert into elementstandard(id,elementid,value,points,comment) values (#{id},#{element.id},#{value},#{points},#{comment})
+        insert into elementstandard(id,elementid,value,points,goodsComment) values (#{id},#{element.id},#{value},#{points},#{goodsComment})
     </insert>
 
     <update id="update" parameterType="ElementStandard">
-        update elementstandard set id=#{id}, elementid = #{element.id}, value = #{value}, points = #{points},comment=#{comment} where id = #{id}
+        update elementstandard set id=#{id}, elementid = #{element.id}, value = #{value}, points = #{points},goodsComment=#{goodsComment} where id = #{id}
     </update>
 
     <delete id="deleteById" parameterType="String">

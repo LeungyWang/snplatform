@@ -43,12 +43,12 @@
             <br>
             <label class="layui-form-label layui-form-required" style="width: 150px;font-weight: bold;font-size: 18px;">智能评语：</label>
             <div class="layui-input-block">
-                <input name="classifycomment" style="width: 200px;font-weight: bold;font-size: 18px;color: #4682B4"  class="layui-input" readonly="readonly"  th:value="${classify.comment}">
+                <input name="classifycomment" style="width: 200px;font-weight: bold;font-size: 18px;color: #4682B4"  class="layui-input" readonly="readonly"  th:value="${classify.goodsComment}">
             </div>
             <br>
             <label class="layui-form-label layui-form-required" style="width: 150px;font-weight: bold;font-size: 18px;">数据解读：</label>
             <div class="layui-input-block">
-                <textarea name="desc" style="font-weight: bold;font-size: 18px;color: #2F4F4F" placeholder="" class="layui-textarea" readonly="readonly" rows="10" cols="10" th:text="${comment}"></textarea>
+                <textarea name="desc" style="font-weight: bold;font-size: 18px;color: #2F4F4F" placeholder="" class="layui-textarea" readonly="readonly" rows="10" cols="10" th:text="${goodsComment}"></textarea>
             </div>
         </div>
     </div>
