@@ -26,17 +26,7 @@
         <div class="layui-card-body table-tool-mini full-table">
             <div class="layui-form toolbar">
                 <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label w-auto">分级标准编号：</label>
-                        <div class="layui-input-inline mr0">
-                            <input name="id" class="layui-input" type="text" placeholder="分级标准编号"/>
-                        </div>
-                    </div>
-
                     <div class="layui-inline" style="padding-right: 110px;">
-                        <button class="layui-btn icon-btn" lay-filter="formSubSearchUser" lay-submit>
-                            <i class="layui-icon">&#xe615;</i>搜索
-                        </button>
                         <button id="btnAddUser" class="layui-btn icon-btn"><i class="layui-icon">&#xe654;</i>添加</button>
                     </div>
                 </div>
@@ -86,7 +76,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label layui-form-required">评价</label>
             <div class="layui-input-block">
-                <textarea name="goodsComment" placeholder="请输入分级标准评价" type="text" class="layui-textarea" maxlength="20"
+                <textarea name="comment" placeholder="请输入分级标准评价" type="text" class="layui-textarea" maxlength="20"
                           lay-verType="tips" lay-verify="required" required></textarea>
             </div>
         </div>
@@ -137,7 +127,7 @@
                     }
                     ,{field:'value',  title: '临界值'}
                     ,{field:'points',  title: '分值'}
-                    ,{field:'goodsComment',  title: '等级评价'}
+                    ,{field:'comment',  title: '等级评价'}
                 ,{align: 'center', toolbar: '#tableBarUser', title: '操作', minWidth: 200}
             ]
             ]

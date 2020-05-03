@@ -25,37 +25,6 @@
     <div class="layui-card">
         <div class="layui-card-body">
             <!-- 表格工具栏 -->
-            <form class="layui-form toolbar">
-                <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">账&emsp;号:</label>
-                        <div class="layui-input-inline">
-                            <input name="username" class="layui-input" placeholder="输入账号"/>
-                        </div>
-                    </div>
-                    <div class="layui-inline">
-                        <label class="layui-form-label">用户名:</label>
-                        <div class="layui-input-inline">
-                            <input name="nickName" class="layui-input" placeholder="输入用户名"/>
-                        </div>
-                    </div>
-                    <div class="layui-inline">
-                        <label class="layui-form-label">性&emsp;别:</label>
-                        <div class="layui-input-inline">
-                            <select name="sex">
-                                <option value="">选择性别</option>
-                                <option value="男">男</option>
-                                <option value="女">女</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="layui-inline">&emsp;
-                        <button class="layui-btn icon-btn" lay-filter="userTbSearch" lay-submit>
-                            <i class="layui-icon">&#xe615;</i>搜索
-                        </button>
-                    </div>
-                </div>
-            </form>
             <!-- 数据表格 -->
             <table id="userTable" lay-filter="userTable"></table>
         </div>

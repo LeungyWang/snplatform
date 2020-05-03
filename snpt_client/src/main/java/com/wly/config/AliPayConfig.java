@@ -13,9 +13,9 @@ public class AlipayConfig {
     // 支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
     public static String alipay_public_key ="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmvLAJ9egnqys0+PAzMW8vfrQ8+bRONPrbyvFPPw/f+9xPq/eO30RFl3WYZRHLNl9YPAH8nlAjd4cv13SovuOwhZCApOYtYJK/xzjUbNhfcWvwWhwZBSMJ6OJ14RhwolyfulaAX5MderOpskjTBgn2wnihAM6/vQjhezTI46mgWdGFpkMfI7hgE7IOuA/qcdMZxkvJ8WuLK06PQA0gmJkflNw0K5HbOldTcNlzqpoXdeBUyOuvxRBpC0tLXXPk/MDQxoXpglDfsNHY0I6JBz1QuuDre5oFbfMAIC851trsffoJoxyhxRWMakLWeDmw3QwWuAH8ylVu2NIq2b6/VZgoQIDAQAB";
     // 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问，测试修改springboot端口和外网地址
-    public static String notify_url = "http://jfbrk4.natappfree.cc/alipay/notify_url";
+    public static String notify_url = "http://k55rrg.natappfree.cc/alipay/notify_url";
     // 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网（通过netapp获取net123或自己购买生成）可以正常访问
-    public static String return_url = "http://jfbrk4.natappfree.cc/alipay/return_url";
+    public static String return_url = "http://k55rrg.natappfree.cc/alipay/return_url";
     // 签名方式
     public static String sign_type = "RSA2";
     // 字符编码格式

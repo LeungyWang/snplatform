@@ -11,12 +11,12 @@
 <body class="micronews">
   <div class="micronews-header-wrap">
     <div class="micronews-header w1000 layui-clear">
-      <h1 class="logo">
+      <h2 class="logo">
         <a href="index.html">
-          <img src="/assets/images/logo/logo4.png" alt="logo">
+          农业资讯
           <span class="layui-hide">News</span>
         </a>
-      </h1>
+      </h2>
       <p class="nav" th:each="type:${types}">
         <a th:href="'/news/'+${type.newstypeid}+'/index'" th:text="${type.newstypename}"></a>
       </p>

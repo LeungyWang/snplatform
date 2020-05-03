@@ -37,7 +37,6 @@
                     <li><a href="/product/goods/findAllProduct" class="scroll">惠农商城</a></li>
                     <li><a href="/land/redirect/index2" class="scroll">三农信息管理系统</a></li>
                     <li><a href="/news/1/index" class="scroll">农业资讯</a></li>
-                    <li><a href="/news/1/index" class="scroll">农业科普</a></li>
                     <li th:if="${not #strings.isEmpty(session.user)}"><a href="" class="scroll" th:text="'欢迎您，'+${session.user.nickname}">
                     <li th:if="${not #strings.isEmpty(session.user)}"><a href="/user/logout" class="scroll" th:text="退出登录">
                     <li th:if="${not #strings.isEmpty(session.admin)}"><a href="" class="scroll" th:text="'欢迎您，'+${session.admin.name}">
@@ -73,30 +72,30 @@
         <li>
             <div class="slider-info"> -->
 
-    <div class="col-md-3 w3_b1">
-        <div class="w3_gap">
+    <div class="col-md-4 w3_b1">
+        <div class="w3_gap" style="background-color: #ffad00">
             <i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
             <a href="/product/goods/findAllProduct"><h3>惠农商城</h3></a>
         </div>
     </div>
-    <div class="col-md-3 w3_b2">
-        <div class="w3_gap1">
+    <div class="col-md-4 w3_b3">
+        <div class="w3_gap1" style="background-color: #00a65a">
             <i class="fa fa-lock" aria-hidden="true"></i>
         <a href="/land/redirect/index2"><h3>三农信息管理系统</h3></a>
         </div>
     </div>
-    <div class="col-md-3 w3_b3">
-        <div class="w3_gap2">
+    <div class="col-md-4 w3_b4">
+        <div class="w3_gap2" style="background-color: #04aed9" >
             <i class="fa fa-life-ring" aria-hidden="true"></i>
             <a href="/news/1/index"> <h3>农业资讯</h3></a>
         </div>
     </div>
-    <div class="col-md-3 w3_b4">
-        <div class="w3_gap3">
-            <i class="fa fa-male" aria-hidden="true"></i>
-            <h3>科普农业</h3>
-        </div>
-    </div>
+<!--    <div class="col-md-3 w3_b4">-->
+<!--        <div class="w3_gap3">-->
+<!--            <i class="fa fa-male" aria-hidden="true"></i>-->
+<!--            <h3>农业科普</h3>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
 

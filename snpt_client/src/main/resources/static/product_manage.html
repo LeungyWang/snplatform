@@ -53,21 +53,6 @@
 <div class="layui-fluid">
     <div class="layui-card">
         <div class="layui-card-body">
-            <div class="layui-form toolbar">
-                <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label w-auto">搜索：</label>
-                        <div class="layui-input-inline mr0">
-                            <input name="keyword" class="layui-input" type="text" placeholder="输入关键字"/>
-                        </div>
-                    </div>
-                    <div class="layui-inline">
-                        <button class="layui-btn icon-btn" lay-filter="formSubSearchTbLtrt" lay-submit>
-                            <i class="layui-icon">&#xe615;</i>搜索
-                        </button>
-                    </div>
-                </div>
-            </div>
             <table id="tableTbImg" lay-filter="tableTbImg"></table>
         </div>
     </div>
@@ -104,7 +89,11 @@
                 },
                 {field: 'name', align: 'center', sort: true, title: '产品名称'},
                 {field: 'originplace', align: 'center', sort: true, title: '产地'},
-                {field: 'category', align: 'center', sort: true, title: '产品分类'},
+                {field:'catogory',  title: '产品分类',templet: function(d){
+                        return d.catogory.name;
+                    }
+                },
+                // {field: 'category', align: 'center', sort: true, title: '产品分类'},
                 {field: 'quantity', align: 'center', sort: true, title: '数量'},
                 {field: 'unit', align: 'center', sort: true, title: '单位'},
                 {field: 'cost', align: 'center', sort: true, title: '成本'},
@@ -135,7 +124,7 @@
             }
         });
 
-        // 申请上架
+        // 通过申请
         function doApprove(id, name) {
             layer.confirm('确定要通过产品“' + name + '”上架申请吗？', {
                 skin: 'layui-layer-admin',
@@ -157,6 +146,27 @@
             });
         }
 
+        // 不通过申请
+        function doDisapprove(id, name) {
+            layer.confirm('确定要不通过产品“' + name + '”上架申请吗？', {
+                skin: 'layui-layer-admin',
+                shade: .1
+            }, function (i) {
+                layer.close(i);
+                layer.load(2);
+                $.get('/product/goods/disapproveapply', {
+                    id: id
+                }, function (res) {
+                    layer.closeAll('loading');
+                    if (res.code == 200) {
+                        layer.msg(res.msg, {icon: 1});
+                        insTb.reload({}, 'data');
+                    } else {
+                        layer.msg(res.msg, {icon: 2});
+                    }
+                }, 'json');
+            });
+        }
 
 
     });

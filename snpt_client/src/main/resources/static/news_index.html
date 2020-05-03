@@ -9,12 +9,13 @@
 <body class="micronews">
   <div class="micronews-header-wrap">
     <div class="micronews-header w1000 layui-clear">
-      <h1 class="logo">
+      <h2 class="logo">
         <a href="/news/redirect/news_index">
-          <img src="/assets/images/logo/logo4.png" alt="logo">
+          农业资讯
+<!--          农业资讯<img src="/assets/images/logo/logo4.png" alt="logo">-->
           <span class="layui-hide">LOGO</span>
         </a>
-      </h1>
+      </h2>
       <p class="nav" th:each="type:${types}">
         <a th:href="'/news/'+${type.newstypeid}+'/index'" th:text="${type.newstypename}"></a>
       </p>
@@ -123,22 +124,8 @@
 
   <div class="micronews-footer-wrap">
     <div class="micronews-footer w1000">
-      <div class="ft-nav">
-        <a href="#">关于我们</a>
-        <a href="#">合作伙伴</a>
-        <a href="#">广告服务</a>
-        <a href="#">常见问题</a>
-      </div>
       <div class="Copyright">
-        <span>Copyright&nbsp;</span>&nbsp;&copy;<span>新闻网&nbsp;&nbsp;</span><span>赣ICP备12345678号</span>
-      </div>
-      <div class="f-icon">
-        <a href="#" class="w-icon">
-          <img src="../res/static/images/wechat_ic.png">
-        </a>
-        <a href="#" class="wb-icon">
-          <img src="../res/static/images/qq_ic.png">
-        </a>
+        <span>Copyright&nbsp;</span>&nbsp;&copy;<span>王梁媛&nbsp;&nbsp;</span><span>2020</span>
       </div>
     </div>
   </div>

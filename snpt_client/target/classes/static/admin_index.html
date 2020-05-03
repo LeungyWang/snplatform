@@ -67,19 +67,18 @@
     <div class="layui-side">
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree arrow2" lay-filter="admin-side-nav" lay-shrink="all">
-                <li class="layui-nav-item">
-                    <a><i class="layui-icon layui-icon-home"></i>&emsp;<cite>Dashboard</cite></a>
-                    <dl class="layui-nav-child">
-                        <dd><a lay-href="/land/redirect/console/workplace">工作台</a></dd>
-                    </dl>
-                </li>
+<!--                <li class="layui-nav-item">-->
+<!--                    <a><i class="layui-icon layui-icon-home"></i>&emsp;<cite>Dashboard</cite></a>-->
+<!--                    <dl class="layui-nav-child">-->
+<!--                        <dd><a lay-href="/land/redirect/console/workplace">工作台</a></dd>-->
+<!--                    </dl>-->
+<!--                </li>-->
                 <li class="layui-nav-item">
                     <a><i class="layui-icon layui-icon-set"></i>&emsp;<cite>用户管理</cite></a>
                     <dl class="layui-nav-child">
                         <dd><a lay-href="/user/redirect/user_manage">用户信息</a></dd>
                         <dd><a lay-href="/user/redirect/role_manage">角色管理</a></dd>
                         <dd><a lay-href="/user/redirect/auth_manage">权限管理</a></dd>
-                        <dd><a lay-href="">登录日志</a></dd>
                         <!--                        <dd><a lay-href="/land/redirect/land_evaluate">个体用户</a></dd>-->
                     </dl>
                 </li>
@@ -120,7 +119,7 @@
     <div class="layui-body"></div>
     <!-- 底部 -->
     <div class="layui-footer layui-text">
-        copyright © 2019 <a href="http://easyweb.vip" target="_blank">easyweb.vip</a> all rights reserved.
+        copyright © 王梁媛 <a href="http://easyweb.vip" target="_blank">2020</a>
         <span class="pull-right">Version 3.1.6</span>
     </div>
 </div>
@@ -142,7 +141,7 @@
 
         // 默认加载主页
         index.loadHome({
-            menuPath: '/land/redirect/console/workplace',
+            menuPath: '/user/redirect/user_manage',
             menuName: '<i class="layui-icon layui-icon-home"></i>'
         });
 

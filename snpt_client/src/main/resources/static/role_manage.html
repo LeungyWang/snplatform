@@ -24,33 +24,6 @@
     <div class="layui-card">
         <div class="layui-card-body">
             <!-- 表格工具栏 -->
-            <form class="layui-form toolbar">
-                <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">角色名:</label>
-                        <div class="layui-input-inline">
-                            <input name="roleName" class="layui-input" placeholder="输入角色名"/>
-                        </div>
-                    </div>
-                    <div class="layui-inline">
-                        <label class="layui-form-label">角色代码:</label>
-                        <div class="layui-input-inline">
-                            <input name="roleCode" class="layui-input" placeholder="输入角色代码"/>
-                        </div>
-                    </div>
-                    <div class="layui-inline">
-                        <label class="layui-form-label">备&emsp;注:</label>
-                        <div class="layui-input-inline">
-                            <input name="comments" class="layui-input" placeholder="输入备注"/>
-                        </div>
-                    </div>
-                    <div class="layui-inline">&emsp;
-                        <button class="layui-btn icon-btn" lay-filter="roleTbSearch" lay-submit>
-                            <i class="layui-icon">&#xe615;</i>搜索
-                        </button>
-                    </div>
-                </div>
-            </form>
             <!-- 数据表格 -->
             <table id="roleTable" lay-filter="roleTable"></table>
         </div>
@@ -170,7 +143,7 @@
         function showEditModel(mData) {
             admin.open({
                 type: 1,
-                title: (mData ? '修改' : '添加') + '角色',
+                title: (mData ? '修改' : '添加') + '角色信息',
                 content: $('#roleEditDialog').html(),
                 success: function (layero, dIndex) {
                     // 回显表单数据
